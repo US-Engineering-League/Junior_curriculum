@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO SPIKE Arm Motor Control - Interactive Slideshow</title>
+    <link rel="stylesheet" href="Junior_Styles.css">
+</head>
+<body>
+    <div class="topographic-grid"></div>
+    <div class="contour-lines" id="contourLines"></div>
+    <div class="bubbles" id="bubbles"></div>
+    <div class="fish-container" id="fishContainer"></div>
+    
+    <div class="presentation-container">
+        <div class="progress-bar" id="progressBar"></div>
+        
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="slide-counter">Slide 1 / 5</div>
+            <h1>🦾 LEGO SPIKE Arm Motor Control</h1>
+            <p style="font-size: 2em; text-align: center; color: #00ffff; margin: 40px 0;">Master AI-Assisted Arm Programming</p>
+            
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <span class="terrain-emoji">🦾</span>
+                    <h3>Arm Motor</h3>
+                    <p><span class="highlight-box">Port C</span></p>
+                    <p>Vertical arm movement control</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">📦</span>
+                    <h3>Object Manipulation</h3>
+                    <p>Push, pull, and move objects across the board surface</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🎨</span>
+                    <h3>Color Sensor Integration</h3>
+                    <p>Arm positions color sensor for optimal scanning</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🎮</span>
+                    <h3>Real Applications</h3>
+                    <p>Game piece positioning and automated tasks</p>
+                </div>
+            </div>
+            
+            <div class="survey-tip">
+                <strong>🎯 Learning Objectives:</strong> Master AI-assisted arm programming for object manipulation, understand motor positioning for color sensor integration, and create coordinated movement sequences for board-based challenges.
+            </div>
+        </div>
+
+        <!-- Slide 2: Basic Control -->
+        <div class="slide">
+            <div class="slide-counter">Slide 2 / 5</div>
+            <h2>🧠 AI Prompt: Basic Arm Control</h2>
+            
+            <h3>🎯 Your Programming Command to AI Assistant</h3>
+            <div class="content-box survey-prompt">Generate Python code for a LEGO SPIKE robot arm control system.
+
+ROBOT CONFIGURATION:
+- Arm motor is connected to Port C
+- The arm should move to three positions: 0° (down), 45° (middle), 90° (up)
+
+PROGRAMMING REQUIREMENTS:
+- Import the necessary LEGO SPIKE libraries
+- Create functions to move the arm to each position
+- Use the run_to_absolute_position() method for precision control
+- Include comments explaining each step</div>
+
+            <h3>📝 Example Student Prompt</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('example1')">🔍 Reveal Example Command</button>
+                <div id="example1" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                    <strong>Student's Example Command:</strong><br><br>
+                    "Write Python code for a LEGO SPIKE robot to control an arm motor on Port C. The arm should move to three positions: 0 degrees (down), 45 degrees (middle), and 90 degrees (up). Import the necessary LEGO SPIKE libraries, use the run_to_absolute_position() method, and include comments explaining each step. Make the code ready to run on LEGO SPIKE 3 Education App."
+                </div>
+            </div>
+            
+            <h3>🤖 Expected AI Response</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('aiResponse1')">🔍 Reveal AI Response</button>
+                <div id="aiResponse1" class="code-block example-prompt-hidden">
+                    <div class="code-with-lines">
+                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># LEGO SPIKE Robot Arm Control</div></div>
+                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor</div></div>
+                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
+                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def main():</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    # Move arm to up position</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    await motor.run_to_absolute_position('C', 90)</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">    # Move arm to middle</div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    await motor.run_to_absolute_position('C', 45)</div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    # Move arm down</div></div>
+                        <div class="code-line"><div class="line-number">11</div><div class="line-content">    await motor.run_to_absolute_position('C', 0)</div></div>
+                        <div class="code-line"><div class="line-number">12</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">13</div><div class="line-content">runloop.run(main())</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Slide 3: Motor Orientation -->
+        <div class="slide">
+            <div class="slide-counter">Slide 3 / 5</div>
+            <h2>⚙️ Understanding Arm Motor Orientation</h2>
+            
+            <h3 style="text-align: center; color: #ff6600;">🔧 Critical: The Motor is Mounted Sideways!</h3>
+            
+            <div class="two-column" style="margin: 30px 0;">
+                <div class="objective-card">
+                    <div style="font-size: 4em; margin-bottom: 20px;">↺</div>
+                    <h3 style="color: #00ff00; font-weight: bold;">COUNTER-CLOCKWISE = ARM UP</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li class="no-emoji">✅ Positive degree values</li>
+                        <li class="no-emoji">✅ Moving from 0° to 90°</li>
+                        <li class="no-emoji">✅ Lifts the arm higher</li>
+                    </ul>
+                </div>
+                
+                <div class="objective-card">
+                    <div style="font-size: 4em; margin-bottom: 20px;">↻</div>
+                    <h3 style="color: #ff00ff; font-weight: bold;">CLOCKWISE = ARM DOWN</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li class="no-emoji">✅ Decreasing degree values</li>
+                        <li class="no-emoji">✅ Moving from 90° to 0°</li>
+                        <li class="no-emoji">✅ Lowers the arm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; background: rgba(0, 255, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #00ffff;">
+                <h4 style="color: #00ffff;">📐 Position Reference Guide</h4>
+                <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                    <div><p style="font-size: 2em;">0°</p><p>Arm Down</p></div>
+                    <div style="font-size: 2em;">→</div>
+                    <div><p style="font-size: 2em;">45°</p><p>Arm Middle</p></div>
+                    <div style="font-size: 2em;">→</div>
+                    <div><p style="font-size: 2em;">90°</p><p>Arm Up</p></div>
+                </div>
+            </div>
+            
+            <div class="survey-tip">
+                <strong>💡 Remember:</strong> Because the motor is sideways, think of it like a windshield wiper - counter-clockwise sweeps UP, clockwise sweeps DOWN!
+            </div>
+        </div>
+
+        <!-- Slide 4: Advanced Control -->
+        <div class="slide">
+            <div class="slide-counter">Slide 4 / 5</div>
+            <h2>⚡ AI Prompt: Advanced Arm Control</h2>
+            
+            <div class="content-box survey-prompt">Create advanced Python code for LEGO SPIKE arm control with smooth movements.
+
+ROBOT SETUP:
+- Arm motor on Port C (mounted sideways)
+- Three positions: 0° (down), 45° (middle), 90° (up)
+
+ADVANCED FEATURES NEEDED:
+- Variable speed control (velocity parameter)
+- Timing delays between movements
+- Function to sequence multiple positions
+
+SPECIFIC REQUIREMENTS:
+- Slow movements for precision (velocity 200)
+- Fast movements for efficiency (velocity 500)
+- Include runloop.sleep_ms() for timing
+- Add print statements for feedback</div>
+
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('example2')">🔍 Reveal Example Command</button>
+                <div id="example2" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                    <strong>Advanced Student Command:</strong><br><br>
+                    "Hey AI! I need advanced arm control for my LEGO SPIKE robot. The arm motor is on Port C and it's mounted sideways. Can you create Python code that moves the arm smoothly to 0, 45, and 90 degrees? Use different speeds - slow (velocity=200) for precision and fast (velocity=500) for repositioning. Add delays and print statements so I can see what's happening."
+                </div>
+            </div>
+            <div class="example-prompt-container">
+            <button class="reveal-btn" onclick="toggleExample('aiResponse2')">🔍 Reveal AI Response</button>
+                <div id="aiResponse2" class="code-block example-prompt-hidden"style="margin-top: 60px;"># Advanced arm control with sideways motor
+                    <div class="code-with-lines">
+                        <div class="code-line"><div class="line-number">1</div><div class="line-content">import motor</div></div>
+                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import runloop</div></div>
+                        <div class="code-line"><div class="line-number">3</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">4</div><div class="line-content">async def smooth_arm_sequence():</div></div>
+                        <div class="code-line"><div class="line-number">5</div><div class="line-content">   print("Starting arm sequence...")</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content">   # Counter-clockwise to raise arm to 90°</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">   await motor.run_to_absolute_position('C', 90, velocity=200)</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">   await runloop.sleep_ms(2000)</div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">   # Move to middle position</div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">   await motor.run_to_absolute_position('C', 45, velocity=500)</div></div>
+                        <div class="code-line"><div class="line-number">11</div><div class="line-content">   await runloop.sleep_ms(1000)</div></div>
+                        <div class="code-line"><div class="line-number">12</div><div class="line-content">   # Clockwise to lower arm to 0°</div></div>
+                        <div class="code-line"><div class="line-number">13</div><div class="line-content">   await motor.run_to_absolute_position('C', 0, velocity=150)</div></div>
+                        <div class="code-line"><div class="line-number">14</div><div class="line-content">   print("Arm sequence complete!")</div></div>
+                        <div class="code-line"><div class="line-number">15</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">16</div><div class="line-content">runloop.run(smooth_arm_sequence())</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Challenge -->
+        <div class="slide">
+            <div class="slide-counter">Slide 5 / 5</div>
+            <h2>⚡ Challenge Mission: Block Retrieval & Delivery</h2>
+            
+            <div class="two-column" style="margin: 30px 0;">
+                <div class="objective-card">
+                    <h3 style="color: #00ff00;">📦 Phase 1: Block Retrieval</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li class="no-emoji">🔸 Navigate to assigned numbered square (1-6)</li>
+                        <li class="no-emoji">🔸 Use arm to grab the colored block</li>
+                        <li class="no-emoji">🔸 Each team gets different square assignment</li>
+                    </ul>
+                </div>
+                
+                <div class="objective-card">
+                    <h3 style="color: #ff00ff;">🚚 Phase 2: Block Delivery</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li class="no-emoji">🔸 Transport block to team zone</li>
+                        <li class="no-emoji">🔸 Red square = Team Red delivery zone</li>
+                        <li class="no-emoji">🔸 Blue square = Team Blue delivery zone</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-box survey-prompt">Program your LEGO SPIKE robot for the Block Retrieval Challenge.
+
+MISSION PARAMETERS:
+- Your assigned pickup square: [Instructor assigns 1-6]
+- Your team delivery zone: [Red or Blue logo square]
+- Arm motor on Port C for block manipulation
+
+PROGRAMMING REQUIREMENTS:
+- Navigate to specific numbered square
+- Lower arm to grab block (arm down position)
+- Lift arm to transport height (arm middle/up)
+- Navigate to team delivery zone
+- Lower arm to place block (arm down)
+- Include error handling and status feedback</div>
+            
+            <div class="survey-tip">
+                <strong>🏁 Success Criteria:</strong><br>
+                • Successfully retrieve block from assigned square<br>
+                • Transport without dropping the block<br>
+                • Accurately place block in team's logo square<br>
+                • Complete mission in shortest time<br>
+                • Demonstrate smooth arm movements throughout
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <h3>🏆 Ready for the Challenge!</h3>
+                <p style="color: #00ffff;">Apply your arm control mastery in this exciting team competition!</p>
+                <div style="background: rgba(255, 255, 0, 0.1); padding: 15px; border-radius: 15px; border: 1px solid #ffff00; margin-top: 15px;">
+                    <p style="color: #ffff00; font-weight: bold;">🎨 Next Up: Color Sensor Integration</p>
+                    <p>Learn to combine arm positioning with color detection!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
+    </div>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function createContours() {
+            const contoursContainer = document.getElementById('contourLines');
+            for (let i = 0; i < 8; i++) {
+                const contour = document.createElement('div');
+                contour.className = 'contour';
+                contour.style.left = Math.random() * 80 + '%';
+                contour.style.top = Math.random() * 80 + '%';
+                contour.style.width = Math.random() * 200 + 100 + 'px';
+                contour.style.height = contour.style.width;
+                contour.style.animationDelay = Math.random() * 8 + 's';
+                contoursContainer.appendChild(contour);
+            }
+        }
+
+        function createBubbles() {
+            const bubblesContainer = document.getElementById('bubbles');
+            
+            function addBubble() {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                // Random bubble size
+                const size = Math.random() * 100 + 30; // 10-40px
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                
+                // Position bubble at random horizontal position, below screen
+                bubble.style.left = Math.random() * 95 + '%';
+                bubble.style.top = '100vh'; // Start just below the visible area
+                
+                // Random animation duration
+                const duration = Math.random() * 4 + 6; // 6-10 seconds
+                bubble.style.animation = `bubbleFloat ${duration}s linear`;
+                
+                bubblesContainer.appendChild(bubble);
+                
+                // Remove bubble after animation completes
+                setTimeout(() => {
+                    if (bubble.parentNode) {
+                        bubble.parentNode.removeChild(bubble);
+                    }
+                }, duration * 1000);
+            }
+            
+            // Create bubbles at regular intervals
+            setInterval(addBubble, 100);
+            
+            // Create initial bubble
+            setTimeout(addBubble, 500);
+        }
+
+        function createFish() {
+            const fishContainer = document.getElementById('fishContainer');
+            const fishEmojis =  ['🐠', '🐟', '🦈', '🐙', '🦑', '🐡'];
+            
+            function addFish() {
+                const fish = document.createElement('div');
+                fish.className = 'fish fish-right';
+                fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+                
+                const topPosition = Math.random() * 70 + 10; // 10% to 80% from top
+                fish.style.top = topPosition + '%';
+                fish.style.animationDuration = (Math.random() * 5 + 15) + 's'; // 15-20s
+                
+                fishContainer.appendChild(fish);
+                
+                // Remove fish after animation
+                const duration = parseFloat(fish.style.animationDuration) * 1000;
+                setTimeout(() => {
+                    if (fish.parentNode) {
+                        fish.parentNode.removeChild(fish);
+                    }
+                }, duration);
+            }
+            
+            // Create fish at intervals
+            setInterval(addFish, 3000);
+            
+            // Create initial fish
+            setTimeout(addFish, 2000);
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progressPercent + '%';
+            
+            document.getElementById('slideCounter').textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                changeSlide(1);
+            } else if (event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Escape') {
+                currentSlide = 0;
+                showSlide(0);
+            }
+        });
+
+        function toggleExample(exampleId) {
+            const example = document.getElementById(exampleId);
+            const button = example.previousElementSibling;
+            
+            if (example.classList.contains('example-prompt-hidden')) {
+                example.classList.remove('example-prompt-hidden');
+                example.classList.add('example-prompt-visible');
+                button.innerHTML = '🔽 Hide Example Command';
+            } else {
+                example.classList.remove('example-prompt-visible');
+                example.classList.add('example-prompt-hidden');
+                button.innerHTML = '🔍 Reveal Example Command';
+            }
+        }
+
+        function createContours() {
+            const contoursContainer = document.getElementById('contourLines');
+            for (let i = 0; i < 8; i++) {
+                const contour = document.createElement('div');
+                contour.className = 'contour';
+                contour.style.left = Math.random() * 80 + '%';
+                contour.style.top = Math.random() * 80 + '%';
+                contour.style.width = Math.random() * 200 + 100 + 'px';
+                contour.style.height = contour.style.width;
+                contour.style.animationDelay = Math.random() * 8 + 's';
+                contoursContainer.appendChild(contour);
+            }
+        }
+        
+        createBubbles();
+        createContours();
+        createFish();
+        showSlide(0);
+    </script>
+    
+</body>
+</html>
