@@ -224,6 +224,20 @@
             z-index: 10;
         }
 
+        .presentation-container::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;   /* control image size */
+            height: 80px;
+
+            background-image: url("logo.PNG");
+            background-size: contain;  /* keep aspect ratio */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
         .slide {
             display: none;
             width: 90%;
@@ -239,6 +253,8 @@
             animation: slideIn 0.8s ease-out;
             overflow-y: auto;
         }
+
+
 
         .slide.active {
             display: block;
