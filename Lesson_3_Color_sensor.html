@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO SPIKE Color Sensor Programming - AI Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="topographic-grid"></div>
+    <div class="contour-lines" id="contourLines"></div>
+    <div class="elevation-markers marker1">👁️</div>
+    <div class="elevation-markers marker2">🌈</div>
+    
+    <div class="presentation-container">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active">
+            <div class="slide-counter" id="slideCounter">Slide 1 / 7</div>
+            <h1>👁️ LEGO SPIKE Color Sensor</h1>
+            <p style="font-size: 2em; text-align: center; color: #00ffff; margin: 40px 0;">Master AI-Assisted Color Detection Programming</p>
+            
+            <div style="margin: 40px 0;">
+                <h3 style="text-align: center;">🌈 Color Sensor Configuration & Use Cases</h3>
+                <div class="objectives-grid" style="grid-template-columns: 1fr 1fr; max-width: 900px;">
+                    <div class="objective-card">
+                        <span class="terrain-emoji">👁️</span>
+                        <h3 style="color: white;">Color Sensor</h3>
+                        <p><span style="background: linear-gradient(45deg, #00ffff, #ff00ff); padding: 5px 12px; border-radius: 20px; color: #000; font-weight: 700; margin: 3px;">Port A</span></p>
+                        <p>Advanced color and light detection</p>
+                    </div>
+                    <div class="objective-card">
+                        <span class="terrain-emoji">🎯</span>
+                        <h3 style="color: white;">Primary Use Cases</h3>
+                        <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9em;">
+                            <li class="no-emoji" style="margin-bottom: 8px;">• Color identification & sorting</li>
+                            <li class="no-emoji" style="margin-bottom: 8px;">• Light intensity measurement</li>
+                            <li class="no-emoji" style="margin-bottom: 8px;">• Line following (black/white)</li>
+                            <li class="no-emoji" style="margin-bottom: 8px;">• Object detection & recognition</li>
+                            <li class="no-emoji">• Environmental light sensing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-demo">
+                <div class="color-sample red">R</div>
+                <div class="color-sample green">G</div>
+                <div class="color-sample blue">B</div>
+                <div class="color-sample yellow">Y</div>
+                <div class="color-sample white">W</div>
+                <div class="color-sample black">B</div>
+            </div>
+            
+            <div class="survey-tip" style="margin: 30px auto; max-width: 900px;">
+                <strong>🎯 Learning Objectives:</strong> Master both color detection and light intensity modes, understand sensor capabilities, and create intelligent color-responsive programs using AI assistance.
+            </div>
+        </div>
+
+        <!-- Slide 2: Learning Objectives -->
+        <div class="slide">
+            <div class="slide-counter">Slide 2 / 6</div>
+            <h2>Today's Learning Objectives</h2>
+            
+            <p style="text-align: center; font-size: 1.4em; color: #00ffff; margin-bottom: 40px;">By the end of this lesson, you will master AI-assisted color sensor programming</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+                <div style="background: rgba(0, 255, 255, 0.1); padding: 30px; border-radius: 20px; border: 2px solid #00ffff;">
+                    <h3 style="color: #00ffff; text-align: center; margin-bottom: 20px;">Technical Skills</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Understand dual sensor modes (color vs intensity)
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Program color detection with specific responses
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Implement light intensity measurement
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Create threshold-based logic systems
+                        </li>
+                        <li class="no-emoji" style="padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Build continuous monitoring loops
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(0, 255, 255, 0.1); padding: 30px; border-radius: 20px; border: 2px solid #00ffff;">
+                    <h3 style="color: #00ffff; text-align: center; margin-bottom: 20px;">AI Communication Skills</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Write clear AI prompts for sensor programming
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Specify hardware configurations in prompts
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Request specific programming features
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Understand and modify AI-generated code
+                        </li>
+                        <li class="no-emoji" style="padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ff00;">✓</span>
+                            Iterate and improve AI responses
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="text-align: center; color: #44a8ff;">Real-World Applications</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                    <div class="objective-card" style="padding: 20px; background: linear-gradient(135deg, #4a51af, #00cccc);">
+                        <span class="terrain-emoji">🚗</span>
+                        <h4 style="color: white; margin: 10px 0; font-size: 1.1em;">Line Following</h4>
+                        <p style="font-size: 0.9em;">Navigate using light intensity detection</p>
+                    </div>
+                    
+                    <div class="objective-card" style="padding: 20px; background: linear-gradient(135deg, #334cd7, #3a789e);">
+                        <span class="terrain-emoji">📦</span>
+                        <h4 style="color: white; margin: 10px 0; font-size: 1.1em;">Color Sorting</h4>
+                        <p style="font-size: 0.9em;">Identify and categorize objects by color</p>
+                    </div>
+                    
+                    <div class="objective-card" style="padding: 20px; background: linear-gradient(135deg, #00add0, #0029cc);">
+                        <span class="terrain-emoji">💡</span>
+                        <h4 style="color: white; margin: 10px 0; font-size: 1.1em;">Smart Responses</h4>
+                        <p style="font-size: 0.9em;">React intelligently to environmental changes</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="survey-tip" style="margin-top: 30px;">
+                <strong>Assessment Focus:</strong> You'll demonstrate mastery by creating AI prompts that generate working color sensor programs and explaining the difference between color detection and light intensity measurement modes.
+            </div>
+        </div>
+
+        <!-- Slide 3: Understanding Color Sensor Modes -->
+        <div class="slide">
+            <div class="slide-counter">Slide 3 / 6</div>
+            <h2>Understanding the Color Sensor</h2>
+            
+            <h3 style="text-align: center;">🌈 How the LEGO Color Sensor Works</h3>
+            <p style="text-align: center; font-size: 1.3em; color: #00ffff; margin-bottom: 30px;">The color sensor has TWO powerful detection modes you can use in your programs!</p>
+            
+            <div class="two-column" style="margin-top: 30px;">
+                <div style="background: rgba(0, 255, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #00ffff;">
+                    <h3 style="color: #00ffff; text-align: center;">🎨 Color Detection Mode</h3>
+                    <ul style="list-style: disc; padding-left: 20px;">
+                        <li class="no-emoji"><strong>What it does:</strong> Identifies specific colors</li>
+                        <li class="no-emoji"><strong>Returns:</strong> Color name (red, blue, green, yellow, etc.)</li>
+                        <li class="no-emoji"><strong>Use cases:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li class="no-emoji">Sort objects by color</li>
+                                <li class="no-emoji">Follow colored lines</li>
+                                <li class="no-emoji">React to color signals</li>
+                            </ul>
+                        </li>
+                        <li class="no-emoji"><strong>Range:</strong> Best at 1-3 cm distance</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(0, 255, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #00ffff;">
+                    <h3 style="color: #00ffff; text-align: center;">💡 Light Intensity Mode</h3>
+                    <ul style="list-style: disc; padding-left: 20px;">
+                        <li class="no-emoji"><strong>What it does:</strong> Measures brightness levels</li>
+                        <li class="no-emoji"><strong>Returns:</strong> Number from 0 (dark) to 100 (bright)</li>
+                        <li class="no-emoji"><strong>Use cases:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li class="no-emoji">Line following (black vs white)</li>
+                                <li class="no-emoji">Edge detection</li>
+                                <li class="no-emoji">Light/dark room detection</li>
+                            </ul>
+                        </li>
+                        <li class="no-emoji"><strong>Range:</strong> Works up to 5 cm distance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px;">📝 Programming Examples</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div class="code-block" style="margin: 0;">
+                    <div class="code-with-lines">
+                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># Color Detection Mode</div></div>
+                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import color_sensor</div></div>
+                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
+                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def detect_color():</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    color = await color_sensor.color('A')</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    if color == 'red':</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">        print("Stop! Red detected!")</div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    elif color == 'green':</div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">        print("Go! Green detected!")</div></div>
+                    </div>
+                </div>
+                
+                <div class="code-block" style="margin: 0;">
+                    <div class="code-with-lines">
+                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># Light Intensity Mode</div></div>
+                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import color_sensor</div></div>
+                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
+                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def check_brightness():</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    intensity = await color_sensor.reflection('A')</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    if intensity < 30:</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">        print("Dark surface detected")</div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    elif intensity > 70:</div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">        print("Bright surface detected")</div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; align-items: center;">
+                <div>
+                    <h4 style="text-align: center; margin-bottom: 20px; color: #ffffff;">Color Detection Visual Example</h4>
+                    <div class="color-demo" style="margin: 0;">
+                        <div class="color-sample red">R</div>
+                        <div class="color-sample green">G</div>
+                        <div class="color-sample blue">B</div>
+                        <div class="color-sample yellow">Y</div>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px; font-size: 1.0em;">Detects: Red, Green, Blue, Yellow, White, Black, etc.</p>
+                </div>
+                
+                <div>
+                    <h4 style="text-align: center; margin-bottom: 20px; color: #00ffff;">Light Intensity Scale Example</h4>
+                    <div class="intensity-bar">
+                        <div class="intensity-marker marker-0" style="background: #ff0000;"></div>
+                        <div class="intensity-marker marker-30" style="background: #ff6600;"></div>
+                        <div class="intensity-marker marker-70" style="background: #00ff00;"></div>
+                        <div class="intensity-marker marker-100" style="background: #0000ff;"></div>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px; font-size: 1.0em;">Scale: 0 (Dark) → 30 → 70 → 100 (Bright)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Basic Color Detection -->
+        <div class="slide">
+            <div class="slide-counter">Slide 4 / 6</div>
+            <h2>🧠 AI Prompt: Basic Color Detection</h2>
+            
+            <h3>🎯 Your Programming Command to AI Assistant</h3>
+            <div class="survey-prompt">Write Python code for LEGO SPIKE color detection using the sensor on Port A.
+
+REQUIREMENTS:
+- Import the color_sensor library
+- Create a function that reads colors
+- Make it respond to at least 3 different colors (red, green, blue)
+- Include print statements for each color detected
+- Use proper async/await syntax for LEGO SPIKE 3
+
+SPECIFIC RESPONSES NEEDED:
+- Red: "Emergency stop activated!"
+- Green: "All systems go!"  
+- Blue: "Water detected!"
+- Other colors: "Unknown color detected"</div>
+
+            <h3>📝 Example Student Prompt</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('example3')">🔍 Reveal Example Command</button>
+                <div id="example3" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                    <strong>Student's Example Command:</strong><br><br>
+                    "Hey AI! Can you help me read colors with my LEGO robot? The color sensor is on port A. I want it to say 'stop' for red, 'go' for green, and 'water' for blue. Make it work with the LEGO SPIKE 3 Education App. Thanks!"
+                </div>
+            </div>
+            
+            <h3>🤖 Expected AI Response</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('aiResponse3')">🔍 Reveal AI Response</button>
+                <div id="aiResponse3" class="code-block example-prompt-hidden" style="margin-top: 20px;">
+                    <div class="code-with-lines">
+                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># LEGO SPIKE Color Detection</div></div>
+                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import color_sensor</div></div>
+                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
+                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def color_detector():</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    while True:</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">        color = await color_sensor.color('A')</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">        if color == 'red':</div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">            print("Emergency stop activated!")</div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">        elif color == 'green':</div></div>
+                        <div class="code-line"><div class="line-number">11</div><div class="line-content">            print("All systems go!")</div></div>
+                        <div class="code-line"><div class="line-number">12</div><div class="line-content">        elif color == 'blue':</div></div>
+                        <div class="code-line"><div class="line-number">13</div><div class="line-content">            print("Water detected!")</div></div>
+                        <div class="code-line"><div class="line-number">14</div><div class="line-content">        else:</div></div>
+                        <div class="code-line"><div class="line-number">15</div><div class="line-content">            print(f"Unknown color: {color}")</div></div>
+                        <div class="code-line"><div class="line-number">16</div><div class="line-content">        await runloop.sleep_ms(500)</div></div>
+                        <div class="code-line"><div class="line-number">17</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">18</div><div class="line-content">runloop.run(color_detector())</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Light Intensity Programming -->
+        <div class="slide">
+            <div class="slide-counter">Slide 5 / 6</div>
+            <h2>⚡ AI Prompt: Light Intensity Detection</h2>
+            
+            <h3>🎯 Your Programming Command to AI Assistant</h3>
+            <div class="survey-prompt">Create Python code for LEGO SPIKE light intensity measurement using Port A sensor.
+
+REQUIREMENTS:
+- Use color_sensor.reflection() to measure brightness
+- Create threshold-based detection (0-100 scale)
+- Dark surfaces: intensity < 30
+- Medium surfaces: intensity 30-70  
+- Bright surfaces: intensity > 70
+- Include continuous monitoring with delays
+- Add intensity value display in print statements
+
+ADVANCED FEATURES:
+- Calculate average intensity over multiple readings
+- Detect sudden brightness changes
+- Create line-following logic for black/white detection</div>
+
+            <h3>📝 Example Student Prompt</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('example4')">🔍 Reveal Example Command</button>
+                <div id="example4" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                    <strong>Student's Example Command:</strong><br><br>
+                    "AI, I need my robot to follow a black line on white paper. The sensor is on port A. Can you write code that checks if it sees dark or light? Use numbers to measure brightness and make it good for line following. Show me the brightness values too so I can see what's happening."
+                </div>
+            </div>
+            
+            <h3>🤖 Expected AI Response</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('aiResponse4')">🔍 Reveal AI Response</button>
+                <div id="aiResponse4" class="code-block example-prompt-hidden" style="margin-top: 20px;">
+                    <div class="code-with-lines">
+                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># Light Intensity Line Following</div></div>
+                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import color_sensor</div></div>
+                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
+                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def line_follower():</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    while True:</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">        intensity = await color_sensor.reflection('A')</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">        print(f"Light intensity: {intensity}")</div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">        </div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">        if intensity < 30:</div></div>
+                        <div class="code-line"><div class="line-number">11</div><div class="line-content">            print("On black line - continue straight")</div></div>
+                        <div class="code-line"><div class="line-number">12</div><div class="line-content">        elif intensity > 70:</div></div>
+                        <div class="code-line"><div class="line-number">13</div><div class="line-content">            print("On white surface - turn to find line")</div></div>
+                        <div class="code-line"><div class="line-number">14</div><div class="line-content">        else:</div></div>
+                        <div class="code-line"><div class="line-number">15</div><div class="line-content">            print("On line edge - adjust slightly")</div></div>
+                        <div class="code-line"><div class="line-number">16</div><div class="line-content">        </div></div>
+                        <div class="code-line"><div class="line-number">17</div><div class="line-content">        await runloop.sleep_ms(200)</div></div>
+                        <div class="code-line"><div class="line-number">18</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">19</div><div class="line-content">runloop.run(line_follower())</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h4>🎯 Simple AI Prompts for Each Mode</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(0, 255, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #00ffff;">
+                        <h4 style="color: #00ffff;">Color Detection Quick Prompt:</h4>
+                        <p style="font-size: 1.0em; margin-top: 10px;">"Write Python code for LEGO SPIKE to detect colors using the sensor on port A. Make it print different messages for red, green, and blue colors."</p>
+                    </div>
+                    
+                    <div style="background: rgba(0, 255, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #00ffff;">
+                        <h4 style="color: #00ffff;">Light Intensity Quick Prompt:</h4>
+                        <p style="font-size: 1.0em; margin-top: 10px;">"Write Python code for LEGO SPIKE to measure light brightness using the sensor on port A. Make it detect if a surface is dark (below 30) or bright (above 70)."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Final Challenge -->
+        <div class="slide">
+            <div class="slide-counter">Slide 6 / 6</div>
+            <h2>🏆 Final Challenge: Smart Color Sorting System</h2>
+            
+            <h3>🤖 Robot Mission Briefing</h3>
+            <div class="challenge-prompt">ROBOT NAVIGATION & COLOR SORTING CHALLENGE
+
+MISSION OBJECTIVE:
+Navigate your robot from the GREEN starting square to the CENTER GRAY square, detect a randomly placed color block, then deliver it to the matching colored destination at the top of the mat.
+
+REQUIRED ROBOT ACTIONS:
+1. START at the green square and navigate to the center gray square
+2. USE the arm motor to lift the robot arm for color detection
+3. DETECT the color of the block using the color sensor on Port A
+4. NAVIGATE to the corresponding colored square at the top (red, blue, yellow, green, white, or black)
+5. DELIVER the block to the correct destination
+
+PROGRAMMING REQUIREMENTS:
+- Integrate motor movement with color sensor detection
+- Use arm motor to position sensor correctly over the block
+- Implement navigation logic to move between specific mat locations
+- Create color-to-destination mapping for each possible color</div>
+
+            <h3>📝 Example Student Challenge Prompt</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('exampleChallenge')">🔍 Reveal Student Example</button>
+                <div id="exampleChallenge" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                    <strong>Student's Challenge Prompt:</strong><br><br>
+                    "AI, help me program my robot to complete the mat challenge! My robot starts at the green square and needs to drive to the gray square in the center. There's a colored block there that the teacher picked. I need to use the arm motor to lift up so the color sensor on port A can see the block color. Then drive to the matching colored square at the top of the mat. Can you help me write the code for navigation, arm movement, and color detection all together?"
+                </div>
+            </div>
+            
+            <h3>🤖 Expected AI Challenge Solution</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('aiResponseChallenge')">🔍 Reveal Complete Solution</button>
+                <div id="aiResponseChallenge" class="code-block example-prompt-hidden" style="margin-top: 20px;">
+                    <div class="code-with-lines">
+                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># Robot Mat Navigation & Color Sorting Challenge</div></div>
+                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import color_sensor</div></div>
+                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import motor_pair</div></div>
+                        <div class="code-line"><div class="line-number">4</div><div class="line-content">import motor</div></div>
+                        <div class="code-line"><div class="line-number">5</div><div class="line-content">import runloop</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">class ColorSortingRobot:</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">    def __init__(self):</div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">        self.drive_motors = 'AB'  # Left and right drive motors</div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">        self.arm_motor = 'C'      # Arm motor</div></div>
+                        <div class="code-line"><div class="line-number">11</div><div class="line-content">        self.color_sensor_port = 'A'</div></div>
+                        <div class="code-line"><div class="line-number">12</div><div class="line-content">        self.detected_color = None</div></div>
+                        <div class="code-line"><div class="line-number">13</div><div class="line-content">        print("🤖 Color Sorting Robot initialized!")</div></div>
+                        <div class="code-line"><div class="line-number">14</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">15</div><div class="line-content">    async def drive_to_center(self):</div></div>
+                        <div class="code-line"><div class="line-number">16</div><div class="line-content">        """Navigate from green square to center gray square"""</div></div>
+                        <div class="code-line"><div class="line-number">17</div><div class="line-content">        print("🚗 Driving from green start to center gray square...")</div></div>
+                        <div class="code-line"><div class="line-number">18</div><div class="line-content">        </div></div>
+                        <div class="code-line"><div class="line-number">19</div><div class="line-content">        # Drive forward to center (adjust distance as needed)</div></div>
+                        <div class="code-line"><div class="line-number">20</div><div class="line-content">        await motor_pair.move_for_degrees(self.drive_motors, 720, 0, velocity=300)</div></div>
+                        <div class="code-line"><div class="line-number">21</div><div class="line-content">        print("✅ Arrived at center gray square!")</div></div>
+                        <div class="code-line"><div class="line-number">22</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">23</div><div class="line-content">    async def lift_arm_for_detection(self):</div></div>
+                        <div class="code-line"><div class="line-number">24</div><div class="line-content">        """Lift arm to position color sensor over the block"""</div></div>
+                        <div class="code-line"><div class="line-number">25</div><div class="line-content">        print("🦾 Lifting arm for color detection...")</div></div>
+                        <div class="code-line"><div class="line-number">26</div><div class="line-content">        </div></div>
+                        <div class="code-line"><div class="line-number">27</div><div class="line-content">        # Lift arm to optimal position (adjust degrees as needed)</div></div>
+                        <div class="code-line"><div class="line-number">28</div><div class="line-content">        await motor.run_for_degrees(self.arm_motor, 180, 200)</div></div>
+                        <div class="code-line"><div class="line-number">29</div><div class="line-content">        await runloop.sleep_ms(500)  # Allow time to stabilize</div></div>
+                        <div class="code-line"><div class="line-number">30</div><div class="line-content">        print("✅ Arm positioned for color detection!")</div></div>
+                        <div class="code-line"><div class="line-number">31</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">32</div><div class="line-content">    async def detect_block_color(self):</div></div>
+                        <div class="code-line"><div class="line-number">33</div><div class="line-content">        """Detect the color of the block using the color sensor"""</div></div>
+                        <div class="code-line"><div class="line-number">34</div><div class="line-content">        print("👁️ Detecting block color...")</div></div>
+                        <div class="code-line"><div class="line-number">35</div><div class="line-content">        </div></div>
+                        <div class="code-line"><div class="line-number">36</div><div class="line-content">        try:</div></div>
+                        <div class="code-line"><div class="line-number">37</div><div class="line-content">            # Take multiple readings for accuracy</div></div>
+                        <div class="code-line"><div class="line-number">38</div><div class="line-content">            colors_detected = []</div></div>
+                        <div class="code-line"><div class="line-number">39</div><div class="line-content">            for i in range(3):</div></div>
+                        <div class="code-line"><div class="line-number">40</div><div class="line-content">                color = await color_sensor.color(self.color_sensor_port)</div></div>
+                        <div class="code-line"><div class="line-number">41</div><div class="line-content">                colors_detected.append(color)</div></div>
+                        <div class="code-line"><div class="line-number">42</div><div class="line-content">                await runloop.sleep_ms(200)</div></div>
+                        <div class="code-line"><div class="line-number">43</div><div class="line-content">            </div></div>
+                        <div class="code-line"><div class="line-number">44</div><div class="line-content">            # Use most common color detected</div></div>
+                        <div class="code-line"><div class="line-number">45</div><div class="line-content">            self.detected_color = max(set(colors_detected), key=colors_detected.count)</div></div>
+                        <div class="code-line"><div class="line-number">46</div><div class="line-content">            </div></div>
+                        <div class="code-line"><div class="line-number">47</div><div class="line-content">            if self.detected_color:</div></div>
+                        <div class="code-line"><div class="line-number">48</div><div class="line-content">                emoji = self.get_color_emoji(self.detected_color)</div></div>
+                        <div class="code-line"><div class="line-number">49</div><div class="line-content">                print(f"✅ {emoji} {self.detected_color.upper()} block detected!")</div></div>
+                        <div class="code-line"><div class="line-number">50</div><div class="line-content">                return True</div></div>
+                        <div class="code-line"><div class="line-number">51</div><div class="line-content">            else:</div></div>
+                        <div class="code-line"><div class="line-number">52</div><div class="line-content">                print("❌ No color detected!")</div></div>
+                        <div class="code-line"><div class="line-number">53</div><div class="line-content">                return False</div></div>
+                        <div class="code-line"><div class="line-number">54</div><div class="line-content">                </div></div>
+                        <div class="code-line"><div class="line-number">55</div><div class="line-content">        except Exception as e:</div></div>
+                        <div class="code-line"><div class="line-number">56</div><div class="line-content">            print(f"🔴 Color detection error: {e}")</div></div>
+                        <div class="code-line"><div class="line-number">57</div><div class="line-content">            return False</div></div>
+                        <div class="code-line"><div class="line-number">58</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">59</div><div class="line-content">    def get_color_emoji(self, color):</div></div>
+                        <div class="code-line"><div class="line-number">60</div><div class="line-content">        """Return appropriate emoji for each color"""</div></div>
+                        <div class="code-line"><div class="line-number">61</div><div class="line-content">        emojis = {</div></div>
+                        <div class="code-line"><div class="line-number">62</div><div class="line-content">            'red': '🔴', 'blue': '🔵', 'yellow': '🟡', </div></div>
+                        <div class="code-line"><div class="line-number">63</div><div class="line-content">            'green': '🟢', 'white': '⚪', 'black': '⚫'</div></div>
+                        <div class="code-line"><div class="line-number">64</div><div class="line-content">        }</div></div>
+                        <div class="code-line"><div class="line-number">65</div><div class="line-content">        return emojis.get(color, '❓')</div></div>
+                        <div class="code-line"><div class="line-number">66</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">67</div><div class="line-content">    async def navigate_to_color_destination(self):</div></div>
+                        <div class="code-line"><div class="line-number">68</div><div class="line-content">        """Navigate to the matching colored square at the top"""</div></div>
+                        <div class="code-line"><div class="line-number">69</div><div class="line-content">        if not self.detected_color:</div></div>
+                        <div class="code-line"><div class="line-number">70</div><div class="line-content">            print("❌ No color to navigate to!")</div></div>
+                        <div class="code-line"><div class="line-number">71</div><div class="line-content">            return False</div></div>
+                        <div class="code-line"><div class="line-number">72</div><div class="line-content">            </div></div>
+                        <div class="code-line"><div class="line-number">73</div><div class="line-content">        emoji = self.get_color_emoji(self.detected_color)</div></div>
+                        <div class="code-line"><div class="line-number">74</div><div class="line-content">        print(f"🧭 Navigating to {emoji} {self.detected_color.upper()} destination...")</div></div>
+                        <div class="code-line"><div class="line-number">75</div><div class="line-content">        </div></div>
+                        <div class="code-line"><div class="line-number">76</div><div class="line-content">        # Define navigation paths for each color (adjust as needed for your mat)</div></div>
+                        <div class="code-line"><div class="line-number">77</div><div class="line-content">        navigation_paths = {</div></div>
+                        <div class="code-line"><div class="line-number">78</div><div class="line-content">            'black': {'turn': -90, 'distance': 900},    # Far left</div></div>
+                        <div class="code-line"><div class="line-number">79</div><div class="line-content">            'red': {'turn': -45, 'distance': 800},     # Left</div></div>
+                        <div class="code-line"><div class="line-number">80</div><div class="line-content">            'yellow': {'turn': 0, 'distance': 700},    # Center-left</div></div>
+                        <div class="code-line"><div class="line-number">81</div><div class="line-content">            'blue': {'turn': 0, 'distance': 700},      # Center-right</div></div>
+                        <div class="code-line"><div class="line-number">82</div><div class="line-content">            'green': {'turn': 45, 'distance': 800},    # Right</div></div>
+                        <div class="code-line"><div class="line-number">83</div><div class="line-content">            'white': {'turn': 90, 'distance': 900}     # Far right</div></div>
+                        <div class="code-line"><div class="line-number">84</div><div class="line-content">        }</div></div>
+                        <div class="code-line"><div class="line-number">85</div><div class="line-content">        </div></div>
+                        <div class="code-line"><div class="line-number">86</div><div class="line-content">        if self.detected_color in navigation_paths:</div></div>
+                        <div class="code-line"><div class="line-number">87</div><div class="line-content">            path = navigation_paths[self.detected_color]</div></div>
+                        <div class="code-line"><div class="line-number">88</div><div class="line-content">            </div></div>
+                        <div class="code-line"><div class="line-number">89</div><div class="line-content">            # Turn toward destination</div></div>
+                        <div class="code-line"><div class="line-number">90</div><div class="line-content">            if path['turn'] != 0:</div></div>
+                        <div class="code-line"><div class="line-number">91</div><div class="line-content">                await motor_pair.move_for_degrees(self.drive_motors, 200, path['turn'], velocity=200)</div></div>
+                        <div class="code-line"><div class="line-number">92</div><div class="line-content">            </div></div>
+                        <div class="code-line"><div class="line-number">93</div><div class="line-content">            # Drive to destination</div></div>
+                        <div class="code-line"><div class="line-number">94</div><div class="line-content">            await motor_pair.move_for_degrees(self.drive_motors, path['distance'], 0, velocity=300)</div></div>
+                        <div class="code-line"><div class="line-number">95</div><div class="line-content">            </div></div>
+                        <div class="code-line"><div class="line-number">96</div><div class="line-content">            print(f"🎯 Successfully delivered {emoji} {self.detected_color.upper()} block!")</div></div>
+                        <div class="code-line"><div class="line-number">97</div><div class="line-content">            return True</div></div>
+                        <div class="code-line"><div class="line-number">98</div><div class="line-content">        else:</div></div>
+                        <div class="code-line"><div class="line-number">99</div><div class="line-content">            print(f"❌ Unknown color: {self.detected_color}")</div></div>
+                        <div class="code-line"><div class="line-number">100</div><div class="line-content">            return False</div></div>
+                        <div class="code-line"><div class="line-number">101</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">102</div><div class="line-content">    async def lower_arm(self):</div></div>
+                        <div class="code-line"><div class="line-number">103</div><div class="line-content">        """Lower arm after completing the mission"""</div></div>
+                        <div class="code-line"><div class="line-number">104</div><div class="line-content">        print("🦾 Lowering arm...")</div></div>
+                        <div class="code-line"><div class="line-number">105</div><div class="line-content">        await motor.run_for_degrees(self.arm_motor, -180, 200)</div></div>
+                        <div class="code-line"><div class="line-number">106</div><div class="line-content">        print("✅ Arm lowered!")</div></div>
+                        <div class="code-line"><div class="line-number">107</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">108</div><div class="line-content">    async def execute_mission(self):</div></div>
+                        <div class="code-line"><div class="line-number">109</div><div class="line-content">        """Execute the complete color sorting mission"""</div></div>
+                        <div class="code-line"><div class="line-number">110</div><div class="line-content">        print("🚀 MISSION START: Color Sorting Challenge!")</div></div>
+                        <div class="code-line"><div class="line-number">111</div><div class="line-content">        print("="*50)</div></div>
+                        <div class="code-line"><div class="line-number">112</div><div class="line-content">        </div></div>
+                        <div class="code-line"><div class="line-number">113</div><div class="line-content">        try:</div></div>
+                        <div class="code-line"><div class="line-number">114</div><div class="line-content">            # Step 1: Navigate to center</div></div>
+                        <div class="code-line"><div class="line-number">115</div><div class="line-content">            await self.drive_to_center()</div></div>
+                        <div class="code-line"><div class="line-number">116</div><div class="line-content">            </div></div>
+                        <div class="code-line"><div class="line-number">117</div><div class="line-content">            # Step 2: Lift arm for detection</div></div>
+                        <div class="code-line"><div class="line-number">118</div><div class="line-content">            await self.lift_arm_for_detection()</div></div>
+                        <div class="code-line"><div class="line-number">119</div><div class="line-content">            </div></div>
+                        <div class="code-line"><div class="line-number">120</div><div class="line-content">            # Step 3: Detect color</div></div>
+                        <div class="code-line"><div class="line-number">121</div><div class="line-content">            if await self.detect_block_color():</div></div>
+                        <div class="code-line"><div class="line-number">122</div><div class="line-content">                # Step 4: Navigate to destination</div></div>
+                        <div class="code-line"><div class="line-number">123</div><div class="line-content">                if await self.navigate_to_color_destination():</div></div>
+                        <div class="code-line"><div class="line-number">124</div><div class="line-content">                    # Step 5: Lower arm</div></div>
+                        <div class="code-line"><div class="line-number">125</div><div class="line-content">                    await self.lower_arm()</div></div>
+                        <div class="code-line"><div class="line-number">126</div><div class="line-content">                    print("🏆 MISSION COMPLETE! Color sorting successful!")</div></div>
+                        <div class="code-line"><div class="line-number">127</div><div class="line-content">                else:</div></div>
+                        <div class="code-line"><div class="line-number">128</div><div class="line-content">                    print("❌ Navigation to destination failed!")</div></div>
+                        <div class="code-line"><div class="line-number">129</div><div class="line-content">            else:</div></div>
+                        <div class="code-line"><div class="line-number">130</div><div class="line-content">                print("❌ Color detection failed!")</div></div>
+                        <div class="code-line"><div class="line-number">131</div><div class="line-content">                </div></div>
+                        <div class="code-line"><div class="line-number">132</div><div class="line-content">        except Exception as e:</div></div>
+                        <div class="code-line"><div class="line-number">133</div><div class="line-content">            print(f"🔴 Mission error: {e}")</div></div>
+                        <div class="code-line"><div class="line-number">134</div><div class="line-content">            await self.lower_arm()  # Safety: lower arm on error</div></div>
+                        <div class="code-line"><div class="line-number">135</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">136</div><div class="line-content"># Create and execute the robot mission</div></div>
+                        <div class="code-line"><div class="line-number">137</div><div class="line-content">robot = ColorSortingRobot()</div></div>
+                        <div class="code-line"><div class="line-number">138</div><div class="line-content">runloop.run(robot.execute_mission())</div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h3>🎯 Challenge Success Criteria</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background:  rgba(0, 255, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #00ffff;">
+                        <h4 style="color: #00ff00;">Core Features ✅</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 1.0em;">
+                            <li class="no-emoji" style="margin-bottom: 8px;">✓ Multi-color detection (red, green, blue, yellow)</li>
+                            <li class="no-emoji" style="margin-bottom: 8px;">✓ Color counting and tracking</li>
+                            <li class="no-emoji" style="margin-bottom: 8px;">✓ Error handling for sensor failures</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background:  rgba(0, 255, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #00ffff;">
+                        <h4 style="color: #00ffff;">Advanced Features 🚀</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 1.0em;">
+                            <li class="no-emoji" style="margin-bottom: 8px;">🎯 Object-oriented programming structure</li>
+                            <li class="no-emoji" style="margin-bottom: 8px;">🎯 Threshold-based presence detection</li>
+                            <li class="no-emoji" style="margin-bottom: 8px;">🎯 Comprehensive error handling</li>
+                            <li class="no-emoji" style="margin-bottom: 8px;">🎯 Scalable design for future enhancements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="survey-tip" style="margin-top: 30px;">
+                <strong>Next Challenge:</strong> You've completed the LEGO SPIKE Color Sensor programming course. You can now create sophisticated AI prompts for both basic color detection and advanced sensor integration projects. Your next step is to experiment with combining color sensors with other LEGO components like motors and distance sensors!
+            </div>
+        </div>
+
+        <!-- Slide 7: Course Completion -->
+        <div class="slide">
+            <div class="slide-counter">Slide 7 / 7</div>
+            <h1 style="text-align: center;">🎓 Course Complete - Color Sensor Expert!</h1>
+            
+            <div style="margin: 40px 0;">
+                <h2 style="text-align: center; color: #00ffff;">🏆 Congratulations!</h2>
+                <p style="text-align: center; font-size: 1.4em; color: #e0e0ff; margin: 30px 0;">You've completed the LEGO SPIKE Color Sensor programming course. You can now create sophisticated AI prompts for both basic color detection and advanced sensor integration projects.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+                <div style="background: rgba(0, 255, 255, 0.1); padding: 30px; border-radius: 20px; border: 2px solid #00ffff;">
+                    <h3 style="color: #00ffff; text-align: center; margin-bottom: 25px;">What You've Mastered Today</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ffff;">✅</span>
+                            Color detection programming
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ffff;">✅</span>
+                            Light intensity measurement
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ffff;">✅</span>
+                            AI prompt engineering for sensors
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ffff;">✅</span>
+                            Error handling and robustness
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 15px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ffff;">✅</span>
+                            Real-time data processing
+                        </li>
+                        <li class="no-emoji" style="padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #00ffff;">✅</span>
+                            Professional code structure
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(0, 255, 255, 0.1); padding: 30px; border-radius: 20px; border: 2px solid #00ffff;">
+                    <h3 style="color: #00ffff; text-align: center; margin-bottom: 25px;">Coming Up Next</h3>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <span style="font-size: 4em;">📡</span>
+                        <h4 style="color: #ffffff; margin: 15px 0;">Ultrasonic Distance Sensors</h4>
+                    </div>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="no-emoji" style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">🎯</span>
+                            Distance measurement programming
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">🎯</span>
+                            Obstacle detection and avoidance
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">🎯</span>
+                            AI prompts for proximity sensing
+                        </li>
+                        <li class="no-emoji" style="margin-bottom: 12px; padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">🎯</span>
+                            Multi-sensor integration projects
+                        </li>
+                        <li class="no-emoji" style="padding-left: 25px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #ffffff;">🎯</span>
+                            Advanced robotics navigation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #0e1f4e, #1b699a); padding: 30px; border-radius: 20px; border: 2px solid #00ffff; margin: 40px 0;">
+                <h3 style="color: #00ffff; text-align: center; margin-bottom: 20px;">Your Learning Journey Continues</h3>
+                <p style="text-align: center; font-size: 1.2em; line-height: 1.6;">
+                    You've mastered the fundamentals of color sensor programming and AI-assisted robotics. Next, you'll explore how ultrasonic sensors work, learn to measure distances and detect obstacles, and combine multiple sensors to create intelligent navigation systems.
+                </p>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3 style="text-align: center; color: #ffffff;">Ready for Your Next Challenge?</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                    <div class="objective-card" style="padding: 20px; background: linear-gradient(135deg, #4a51af, #00cccc);">
+                        <span class="terrain-emoji">🤖</span>
+                        <h4 style="color: white; margin: 10px 0; font-size: 1.1em;">Smart Navigation</h4>
+                        <p style="font-size: 0.9em;">Robots that navigate autonomously using distance sensing</p>
+                    </div>
+                    
+                    <div class="objective-card" style="padding: 20px; background: linear-gradient(135deg, #334cd7, #3a789e);">
+                        <span class="terrain-emoji">🛡️</span>
+                        <h4 style="color: white; margin: 10px 0; font-size: 1.1em;">Collision Avoidance</h4>
+                        <p style="font-size: 0.9em;">Prevent accidents with intelligent obstacle detection</p>
+                    </div>
+                    
+                    <div class="objective-card" style="padding: 20px; background: linear-gradient(135deg, #00add0, #0029cc);">
+                        <span class="terrain-emoji">🎯</span>
+                        <h4 style="color: white; margin: 10px 0; font-size: 1.1em;">Multi-Sensor Fusion</h4>
+                        <p style="font-size: 0.9em;">Combine color and distance data for advanced behaviors</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="survey-tip" style="margin-top: 30px; text-align: center;">
+                <strong>Keep Exploring:</strong> Practice creating AI prompts that combine color sensors with motors and other components. The skills you've learned today are the foundation for building truly intelligent robots!
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Previous</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function createContours() {
+            const contoursContainer = document.getElementById('contourLines');
+            for (let i = 0; i < 8; i++) {
+                const contour = document.createElement('div');
+                contour.className = 'contour';
+                contour.style.left = Math.random() * 80 + '%';
+                contour.style.top = Math.random() * 80 + '%';
+                contour.style.width = Math.random() * 200 + 100 + 'px';
+                contour.style.height = contour.style.width;
+                contour.style.animationDelay = Math.random() * 8 + 's';
+                contoursContainer.appendChild(contour);
+            }
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progressPercent + '%';
+            
+            document.getElementById('slideCounter').textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                changeSlide(1);
+            } else if (event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Escape') {
+                currentSlide = 0;
+                showSlide(0);
+            }
+        });
+
+        function toggleExample(exampleId) {
+            const example = document.getElementById(exampleId);
+            const button = example.previousElementSibling;
+            
+            if (example.classList.contains('example-prompt-hidden')) {
+                example.classList.remove('example-prompt-hidden');
+                example.classList.add('example-prompt-visible');
+                button.innerHTML = '🔽 Hide Example';
+            } else {
+                example.classList.remove('example-prompt-visible');
+                example.classList.add('example-prompt-hidden');
+                button.innerHTML = '🔍 Reveal Example Command';
+            }
+        }
+
+        createContours();
+        showSlide(0);
+    </script>
+</body>
+</html>
