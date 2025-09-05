@@ -122,14 +122,11 @@
             <div class="expedition-box">
                 <h3>Essential Sensor Setup</h3>
                 <ul>
-                    <li>Mount color sensor 1-2 cm above the ground</li>
                     <li>Position sensor at the front center of your robot</li>
                     <li>Ensure consistent lighting conditions</li>
                     <li>Test sensor readings on your line surface</li>
                 </ul>
             </div>
-
-            <div class="survey-prompt">For optimal performance, use one color sensor for basic line following, or two sensors for advanced edge detection and smoother navigation!</div>
         </div>
 
         <!-- Slide 4: Color Sensor Basics -->
@@ -182,7 +179,7 @@
                 <div class="color-sample" style="background-color: #333;">20-40</div>
                 <div class="color-sample" style="background-color: #666;">40-60</div>
                 <div class="color-sample" style="background-color: #999;">60-80</div>
-                <div class="color-sample white">80-100</div>
+                <div class="color-sample" style="background-color: #ffffff;">80-100</div>
             </div>
         </div>
 
@@ -193,34 +190,22 @@
             
             <p>Let's start with a simple line following algorithm. This basic approach reads the color sensor and steers accordingly.</p>
 
-            <div class="code-block">
-                <div class="code-with-lines">
-                    <div class="code-line"><div class="line-number">1</div><div class="line-content"># Import required modules</div></div>
-                    <div class="code-line"><div class="line-number">2</div><div class="line-content">from spike import PrimeHub, ColorSensor, MotorPair</div></div>
-                    <div class="code-line"><div class="line-number">3</div><div class="line-content">import time</div></div>
-                    <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
-                    <div class="code-line"><div class="line-number">5</div><div class="line-content"># Initialize hardware</div></div>
-                    <div class="code-line"><div class="line-number">6</div><div class="line-content">hub = PrimeHub()</div></div>
-                    <div class="code-line"><div class="line-number">7</div><div class="line-content">color_sensor = ColorSensor('A')</div></div>
-                    <div class="code-line"><div class="line-number">8</div><div class="line-content">motors = MotorPair('B', 'C')</div></div>
-                    <div class="code-line"><div class="line-number">9</div><div class="line-content"></div></div>
-                    <div class="code-line"><div class="line-number">10</div><div class="line-content"># Line following function</div></div>
-                    <div class="code-line"><div class="line-number">11</div><div class="line-content">def simple_line_follow():</div></div>
-                    <div class="code-line"><div class="line-number">12</div><div class="line-content">    threshold = 50  # Adjust based on your track</div></div>
-                    <div class="code-line"><div class="line-number">13</div><div class="line-content">    base_speed = 30</div></div>
-                    <div class="code-line"><div class="line-number">14</div><div class="line-content">    while True:</div></div>
-                    <div class="code-line"><div class="line-number">15</div><div class="line-content">        reflection = color_sensor.get_reflected_light()</div></div>
-                    <div class="code-line"><div class="line-number">16</div><div class="line-content">        if reflection < threshold:  # On dark line</div></div>
-                    <div class="code-line"><div class="line-number">17</div><div class="line-content">            motors.start(base_speed, 0)  # Go straight</div></div>
-                    <div class="code-line"><div class="line-number">18</div><div class="line-content">        else:  # Off the line</div></div>
-                    <div class="code-line"><div class="line-number">19</div><div class="line-content">            motors.start(base_speed, -20)  # Turn to find line</div></div>
-                    <div class="code-line"><div class="line-number">20</div><div class="line-content">        time.sleep(0.01)  # Small delay for stability</div></div>
-                </div>
-            </div>
-
             <div class="survey-tip">
                 This basic algorithm works, but it creates jerky movement. Let's improve it with proportional control for smoother navigation!
             </div>
+
+                <h3>📝 Example Student Prompt</h3>
+                    <div class="survey-prompt">
+                        <strong>Student's Example Command:</strong>
+                        - Use motors connected to ports B and C as a motor pair
+                        - Use a color sensor on port A to detect the line
+                        - Create an async function called 'enhanced_line_follow'
+                        - The robot should move straight forward at velocity 300 when it detects a dark line (reflection value less than 45)
+                        - When the robot goes off the line (reflection 45 or higher), it should turn left at -25 degrees with velocity 250 to search for the line again
+                        - Use the appropriate LEGO Spike 3 imports (hub, port, color_sensor, motor_pair, runloop)
+                    </div>
+                
+
 
             <h3>🤖 Expected Response from AI Programming Assistant</h3>
             <div class="example-prompt-container">
@@ -310,40 +295,6 @@
                         <div class="code-line"><div class="line-number">17</div><div class="line-content">        await motor_pair.move(motor_pair.PAIR_1, int(steering_correction), velocity=base_velocity)</div></div>
                         <div class="code-line"><div class="line-number">18</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">19</div><div class="line-content">runloop.run(proportional_control())</div></div>
-                    </div>
-                </div>
-            </div>
-
-            <h3>🤖 Alternative Implementation</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse2b')">🔍 Reveal Edge-Following Variant</button>
-                <div id="aiResponse2b" class="code-block example-prompt-hidden" style="margin-top: 20px;">
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import color_sensor</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import motor_pair</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">async def edge_following_robot():</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    # Edge following - robot follows line boundary</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.B, port.C)</div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    edge_target = 40  # Sweet spot between line and surface</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    sensitivity = 1.5  # Higher gain for sharper responses</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content">    navigation_speed = 380</div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">    while True:</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content">        sensor_reading = color_sensor.reflection(port.A)</div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content">        deviation = edge_target - sensor_reading</div></div>
-                        <div class="code-line"><div class="line-number">16</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">17</div><div class="line-content">        # Smooth proportional steering with speed adaptation</div></div>
-                        <div class="code-line"><div class="line-number">18</div><div class="line-content">        steering_angle = deviation * sensitivity</div></div>
-                        <div class="code-line"><div class="line-number">19</div><div class="line-content">        adaptive_speed = navigation_speed - abs(steering_angle) * 2</div></div>
-                        <div class="code-line"><div class="line-number">20</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">21</div><div class="line-content">        await motor_pair.move(motor_pair.PAIR_1, int(steering_angle), velocity=int(adaptive_speed))</div></div>
-                        <div class="code-line"><div class="line-number">22</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">23</div><div class="line-content">        await runloop.sleep_ms(15)  # Stable control frequency</div></div>
-                        <div class="code-line"><div class="line-number">24</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">25</div><div class="line-content">runloop.run(edge_following_robot())</div></div>
                     </div>
                 </div>
             </div>

@@ -17,7 +17,7 @@
         
         <!-- Slide 1: Title -->
         <div class="slide active">
-            <div class="slide-counter">Slide 1 / 5</div>
+            <div class="slide-counter" id="slideCounter">Slide 1 / 5</div>
             <h1>🦾 LEGO SPIKE Arm Motor Control</h1>
             <p style="font-size: 2em; text-align: center; color: #00ffff; margin: 40px 0;">Master AI-Assisted Arm Programming</p>
             
@@ -25,7 +25,7 @@
                 <div class="objective-card">
                     <span class="terrain-emoji">🦾</span>
                     <h3>Arm Motor</h3>
-                    <p><span class="highlight-box">Port C</span></p>
+                    <p><span class="terrain-highlight">Port C</span></p>
                     <p>Vertical arm movement control</p>
                 </div>
                 <div class="objective-card">
@@ -54,6 +54,10 @@
         <div class="slide">
             <div class="slide-counter">Slide 2 / 5</div>
             <h2>🧠 AI Prompt: Basic Arm Control</h2>
+            
+            <div class="survey-tip">
+                <h4 style="color: white;"></h4><strong>🎯 Learning Objectives:</strong> Were going to Implement precise arm positioning (0°, 45°, 90°) on SPIKE using Python libraries and run_to_absolute_position(), with readable, commented code.”
+            </div>
             
             <h3>🎯 Your Programming Command to AI Assistant</h3>
             <div class="content-box survey-prompt">Generate Python code for a LEGO SPIKE robot arm control system.
@@ -102,7 +106,7 @@ PROGRAMMING REQUIREMENTS:
 
         <!-- Slide 3: Motor Orientation -->
         <div class="slide">
-            <div class="slide-counter">Slide 3 / 5</div>
+            <div class="slide-counter" id="slideCounter">Slide 3 / 5</div>
             <h2>⚙️ Understanding Arm Motor Orientation</h2>
             
             <h3 style="text-align: center; color: #ff6600;">🔧 Critical: The Motor is Mounted Sideways!</h3>
@@ -145,64 +149,12 @@ PROGRAMMING REQUIREMENTS:
             </div>
         </div>
 
-        <!-- Slide 4: Advanced Control -->
+           <!-- Slide 5: Student Challenge -->
+       
         <div class="slide">
-            <div class="slide-counter">Slide 4 / 5</div>
-            <h2>⚡ AI Prompt: Advanced Arm Control</h2>
-            
-            <div class="content-box survey-prompt">Create advanced Python code for LEGO SPIKE arm control with smooth movements.
-
-ROBOT SETUP:
-- Arm motor on Port C (mounted sideways)
-- Three positions: 0° (down), 45° (middle), 90° (up)
-
-ADVANCED FEATURES NEEDED:
-- Variable speed control (velocity parameter)
-- Timing delays between movements
-- Function to sequence multiple positions
-
-SPECIFIC REQUIREMENTS:
-- Slow movements for precision (velocity 200)
-- Fast movements for efficiency (velocity 500)
-- Include runloop.sleep_ms() for timing
-- Add print statements for feedback</div>
-
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('example2')">🔍 Reveal Example Command</button>
-                <div id="example2" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
-                    <strong>Advanced Student Command:</strong><br><br>
-                    "Hey AI! I need advanced arm control for my LEGO SPIKE robot. The arm motor is on Port C and it's mounted sideways. Can you create Python code that moves the arm smoothly to 0, 45, and 90 degrees? Use different speeds - slow (velocity=200) for precision and fast (velocity=500) for repositioning. Add delays and print statements so I can see what's happening."
-                </div>
-            </div>
-            <div class="example-prompt-container">
-            <button class="reveal-btn" onclick="toggleExample('aiResponse2')">🔍 Reveal AI Response</button>
-                <div id="aiResponse2" class="code-block example-prompt-hidden"style="margin-top: 60px;"># Advanced arm control with sideways motor
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content">import motor</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content">async def smooth_arm_sequence():</div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content">   print("Starting arm sequence...")</div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">   # Counter-clockwise to raise arm to 90°</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">   await motor.run_to_absolute_position('C', 90, velocity=200)</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content">   await runloop.sleep_ms(2000)</div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">   # Move to middle position</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">   await motor.run_to_absolute_position('C', 45, velocity=500)</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content">   await runloop.sleep_ms(1000)</div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">   # Clockwise to lower arm to 0°</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">   await motor.run_to_absolute_position('C', 0, velocity=150)</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content">   print("Arm sequence complete!")</div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">16</div><div class="line-content">runloop.run(smooth_arm_sequence())</div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: Challenge -->
-        <div class="slide">
-            <div class="slide-counter">Slide 5 / 5</div>
-            <h2>⚡ Challenge Mission: Block Retrieval & Delivery</h2>
+            <div class="slide-counter" id="slideCounter">Slide 4 / 5</div>
+            <h2>⚡ Work Together Mission: Block Retrieval & Delivery</h2> 
+            <img src="map.PNG" style = padding:20px;padding-left:50px;padding-top:5px;>
             
             <div class="two-column" style="margin: 30px 0;">
                 <div class="objective-card">
@@ -217,14 +169,42 @@ SPECIFIC REQUIREMENTS:
                 <div class="objective-card">
                     <h3 style="color: #ff00ff;">🚚 Phase 2: Block Delivery</h3>
                     <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Transport block to team zone</li>
-                        <li class="no-emoji">🔸 Red square = Team Red delivery zone</li>
-                        <li class="no-emoji">🔸 Blue square = Team Blue delivery zone</li>
+                        <li class="no-emoji">🔸 Transport block to starting area</li>
+                        <li class="no-emoji">🔸 Completed when block and robot are fully in start area</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Teacher Challenge -->
+        <div class="slide">
+            <div class="slide-counter" id="slideCounter">Slide 5 / 5</div>
+            <h2>⚡ Student Mission: Block Retrieval & Delivery</h2> 
+            <img src="map.PNG" style = padding:20px;padding-left:50px;padding-top:5px;>
+            
+            <div class="two-column" style="margin: 30px 0;">
+                <div class="objective-card">
+                    <h3 style="color: #00ff00;">📦 Phase 1: Block Retrieval</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li class="no-emoji">🔸 Navigate to assigned numbered square (1-6)</li>
+                        <li class="no-emoji">🔸 Use arm to grab the colored block</li>
+                        <li class="no-emoji">🔸 Each team gets different square assignment</li>
+                    </ul>
+                </div>
+                
+                <div class="objective-card">
+                    <h3 style="color: #ff00ff;">🚚 Phase 2: Block Delivery</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li class="no-emoji">🔸 Transport block to same colored zone</li>
+                        <li class="no-emoji">🔸 Red Block = Team Red delivery zone</li>
+                        <li class="no-emoji">🔸 Blue Block = Team Blue delivery zone</li>
+                        <li class="no-emoji">🔸 Green Block = Team Green delivery zone</li>
+
                     </ul>
                 </div>
             </div>
 
-            <div class="content-box survey-prompt">Program your LEGO SPIKE robot for the Block Retrieval Challenge.
+            <div class="content-box survey-prompt"> Use the work together mission as a base to complete this challenge.
 
 MISSION PARAMETERS:
 - Your assigned pickup square: [Instructor assigns 1-6]

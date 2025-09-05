@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO SPIKE Color Sensor Programming - AI Guide</title>
+    <link rel="stylesheet" href="Junior_Styles.css">
+</head>
+<body>
+    <!-- Background Animation Elements -->
+    <div class="topographic-grid"></div>
+    <div class="contour-lines">
+        <div class="contour" style="width: 200px; height: 200px; top: 10%; left: 10%;"></div>
+        <div class="contour" style="width: 150px; height: 150px; top: 20%; right: 15%; animation-delay: -1s;"></div>
+        <div class="contour" style="width: 300px; height: 300px; top: 60%; left: 5%; animation-delay: -3s;"></div>
+        <div class="contour" style="width: 180px; height: 180px; bottom: 15%; right: 10%; animation-delay: -2s;"></div>
+    </div>
+
+    <div class="bubbles"></div>
+    <div class="fish-container">
+        <div class="fish fish-left" style="top: 15%;">🐟</div>
+        <div class="fish fish-right" style="top: 45%;">🐠</div>
+        <div class="fish fish-left" style="top: 70%; animation-delay: -5s;">🦈</div>
+        <div class="fish fish-right" style="top: 25%; animation-delay: -8s;">🐡</div>
+    </div>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="slide-counter">1 / 8</div>
+            <h1>🧭 LEGO Spike 3 Gyro Turns</h1>
+            <h2>Interactive Robot Navigation Mastery</h2>
+            <p>Welcome to the precision navigation command center! Master gyroscopic sensors to make your LEGO Spike 3 robot turn with submarine-level accuracy.</p>
+            
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <span class="terrain-emoji">🧭</span>
+                    <h3>Gyro Fundamentals</h3>
+                    <p>Understand inertial navigation and angular sensing</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🔄</span>
+                    <h3>Precise Control</h3>
+                    <p>Master proportional and PID turning algorithms</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🎯</span>
+                    <h3>Smart Navigation</h3>
+                    <p>Combine sensors for competition-grade performance</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🏆</span>
+                    <h3>Real-World Skills</h3>
+                    <p>Apply techniques used in aerospace and robotics</p>
+                </div>
+            </div>
+            
+            <div class="challenge-prompt">Prepare to unlock inertial navigation secrets! Your robot will learn to orient itself in space like a deep-sea explorer using advanced gyroscopic technology.</div>
+        </div>
+
+        <!-- Slide 2: Gyro Fundamentals -->
+        <div class="slide">
+            <div class="slide-counter">2 / 8</div>
+            <h2>Gyroscope Fundamentals 🧭</h2>
+            
+            <p>A gyroscope sensor measures angular velocity and orientation, giving your robot spatial awareness. Modern MEMS gyroscopes use the Coriolis effect to detect rotation with incredible precision.</p>
+
+            <div class="two-column">
+                <div>
+                    <h3>Key Capabilities</h3>
+                    <ul>
+                        <li>Measures rotation rate in degrees per second</li>
+                        <li>Tracks absolute heading and orientation</li>
+                        <li>Detects motion and stability changes</li>
+                        <li>Provides real-time feedback for control</li>
+                    </ul>
+
+                    <div class="wave-diagram">
+                        <h3>How MEMS Gyroscopes Work</h3>
+                        <p>Tiny vibrating structures experience forces proportional to rotation rate. These forces are converted to electrical signals measuring angular velocity.</p>
+                        <div class="wave-animation"></div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="gyro-compass">
+                        Current: 127°
+                    </div>
+                    <div class="angle-indicator">
+                        Real-time orientation tracking enables autonomous navigation
+                    </div>
+
+                    <div class="survey-tip">
+                        <strong>Real-World Applications:</strong>
+                        Smartphones, aircraft autopilots, spacecraft navigation, and self-driving cars all rely on gyroscopic sensors!
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-mapper">
+                Gyroscopes give robots spatial awareness and the ability to maintain precise orientation - essential for autonomous navigation in complex environments!
+            </div>
+        </div>
+
+        <!-- Slide 3: LEGO Spike 3 Setup -->
+        <div class="slide">
+            <div class="slide-counter">3 / 8</div>
+            <h2>LEGO Spike 3 Gyro Implementation 🤖</h2>
+            
+            <p>The LEGO Spike 3 hub contains a built-in 6-axis IMU with a 3-axis gyroscope for precise rotation sensing. Proper setup and calibration are crucial for accurate performance.</p>
+
+            <div class="two-column">
+                <div>
+                    <div class="expedition-box">
+                        <h3>Hardware Features</h3>
+                        <ul>
+                            <li>3-axis rotation detection (X, Y, Z)</li>
+                            <li>High precision angular measurements</li>
+                            <li>Built-in drift compensation</li>
+                            <li>Real-time orientation tracking</li>
+                            <li>Automatic calibration on startup</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="expedition-box">
+                        <h3>Setup Best Practices</h3>
+                        <ul>
+                            <li>Keep robot stationary during hub initialization</li>
+                            <li>Ensure stable mounting of the hub</li>
+                            <li>Allow 2-3 seconds for gyro calibration</li>
+                            <li>Reset gyro reading before precise turns</li>
+                            <li>Account for mechanical backlash</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="do-dont">
+                <div class="do-box">
+                    <h3>✅ Best Practices</h3>
+                    <ul class="no-emoji">
+                        <li>Reset gyro before each turn sequence</li>
+                        <li>Use consistent turning speeds</li>
+                        <li>Test on actual competition surface</li>
+                        <li>Implement overshoot correction</li>
+                    </ul>
+                </div>
+                <div class="dont-box">
+                    <h3>❌ Common Mistakes</h3>
+                    <ul class="no-emoji">
+                        <li>Moving robot during calibration</li>
+                        <li>Ignoring gyro drift over time</li>
+                        <li>Using inconsistent motor speeds</li>
+                        <li>Not accounting for wheel slippage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="challenge-prompt">Key Success Factor: Perfect calibration is the foundation of precision navigation. Master this step and your robot will navigate with professional-grade accuracy!</div>
+        </div>
+
+        <!-- Slide 4: Basic Gyro Turns -->
+        <div class="slide">
+            <div class="slide-counter">4 / 8</div>
+            <h2>Basic Gyro Turn Programming 💻</h2>
+            
+            <p>Start with a fundamental gyro turn function that rotates the robot to a specific angle using real-time feedback control.</p>
+
+            <div class="student-prompt">
+                "Hey, I need help creating a basic function that can turn my LEGO robot to any angle using the gyroscope sensor. Can you show me how to make it turn left or right depending on the target angle?"
+            </div>
+
+            <div class="code-block">
+                <div class="code-with-lines">
+                    <div class="code-line"><div class="line-number">1</div><div class="line-content"># Import required modules</div></div>
+                    <div class="code-line"><div class="line-number">2</div><div class="line-content">from spike import PrimeHub, MotorPair</div></div>
+                    <div class="code-line"><div class="line-number">3</div><div class="line-content">import time</div></div>
+                    <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">5</div><div class="line-content"># Initialize hardware</div></div>
+                    <div class="code-line"><div class="line-number">6</div><div class="line-content">hub = PrimeHub()</div></div>
+                    <div class="code-line"><div class="line-number">7</div><div class="line-content">motors = MotorPair('B', 'C')</div></div>
+                    <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">9</div><div class="line-content"># Basic gyro turn function</div></div>
+                    <div class="code-line"><div class="line-number">10</div><div class="line-content">def gyro_turn(target_angle, turn_speed=30):</div></div>
+                    <div class="code-line"><div class="line-number">11</div><div class="line-content">    hub.motion_sensor.reset_yaw_angle()</div></div>
+                    <div class="code-line"><div class="line-number">12</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">13</div><div class="line-content">    while abs(hub.motion_sensor.get_yaw_angle()) < abs(target_angle):</div></div>
+                    <div class="code-line"><div class="line-number">14</div><div class="line-content">        if target_angle > 0:  # Turn right</div></div>
+                    <div class="code-line"><div class="line-number">15</div><div class="line-content">            motors.start(0, turn_speed)</div></div>
+                    <div class="code-line"><div class="line-number">16</div><div class="line-content">        else:  # Turn left</div></div>
+                    <div class="code-line"><div class="line-number">17</div><div class="line-content">            motors.start(0, -turn_speed)</div></div>
+                    <div class="code-line"><div class="line-number">18</div><div class="line-content">        time.sleep(0.01)</div></div>
+                    <div class="code-line"><div class="line-number">19</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">20</div><div class="line-content">    motors.stop()  # Stop when target reached</div></div>
+                    <div class="code-line"><div class="line-number">21</div><div class="line-content">    print(f"Turn complete: {hub.motion_sensor.get_yaw_angle()}°")</div></div>
+                    <div class="code-line"><div class="line-number">22</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">23</div><div class="line-content"># Test the function</div></div>
+                    <div class="code-line"><div class="line-number">24</div><div class="line-content">gyro_turn(90)   # Turn right 90 degrees</div></div>
+                    <div class="code-line"><div class="line-number">25</div><div class="line-content">gyro_turn(-45)  # Turn left 45 degrees</div></div>
+                </div>
+            </div>
+
+            <div class="survey-tip">
+                This basic approach works but may overshoot the target. The next slides will show proportional control for smoother, more precise turns.
+            </div>
+
+            <div class="ai-mapper">
+                This simple feedback loop demonstrates the core concept: continuously check the current angle and adjust motor direction until the target is reached!
+            </div>
+        </div>
+
+        <!-- Slide 5: Proportional Gyro Control -->
+        <div class="slide">
+            <div class="slide-counter">5 / 8</div>
+            <h2>Proportional Gyro Control 🎯</h2>
+            
+            <p>Proportional control adjusts turning speed based on angle error, creating smoother and more accurate turns by slowing down as you approach the target.</p>
+
+            <div class="wave-diagram">
+                <h3>P-Controller Mathematics</h3>
+                <p><span class="terrain-highlight">Error = Target Angle - Current Angle</span></p>
+                <p><span class="terrain-highlight">Turn Speed = Error × Proportional Gain (Kp)</span></p>
+                <div class="angle-indicator">
+                    Larger error = Faster speed | Small error = Slow precision
+                </div>
+            </div>
+
+            <div class="student-prompt">
+                "The basic turn function overshoots the target angle. Can you help me create a proportional controller that slows down as it gets closer to the target? I want it to be really accurate for competition."
+            </div>
+
+            <div class="code-block">
+                <div class="code-with-lines">
+                    <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
+                    <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor_pair</div></div>
+                    <div class="code-line"><div class="line-number">3</div><div class="line-content">import motion_sensor</div></div>
+                    <div class="code-line"><div class="line-number">4</div><div class="line-content">import runloop</div></div>
+                    <div class="code-line"><div class="line-number">5</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">6</div><div class="line-content">async def advanced_proportional_turn(target_angle, kp=1.5):</div></div>
+                    <div class="code-line"><div class="line-number">7</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.B, port.C)</div></div>
+                    <div class="code-line"><div class="line-number">8</div><div class="line-content">    motion_sensor.reset_yaw(0)</div></div>
+                    <div class="code-line"><div class="line-number">9</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">10</div><div class="line-content">    tolerance = 1.5</div></div>
+                    <div class="code-line"><div class="line-number">11</div><div class="line-content">    min_velocity = 30</div></div>
+                    <div class="code-line"><div class="line-number">12</div><div class="line-content">    max_velocity = 300</div></div>
+                    <div class="code-line"><div class="line-number">13</div><div class="line-content">    overshoot_protection = 0.8  # Reduce speed near target</div></div>
+                    <div class="code-line"><div class="line-number">14</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">15</div><div class="line-content">    while True:</div></div>
+                    <div class="code-line"><div class="line-number">16</div><div class="line-content">        current_yaw = motion_sensor.tilt_angles()[0]</div></div>
+                    <div class="code-line"><div class="line-number">17</div><div class="line-content">        angle_error = target_angle - current_yaw</div></div>
+                    <div class="code-line"><div class="line-number">18</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">19</div><div class="line-content">        if abs(angle_error) <= tolerance:</div></div>
+                    <div class="code-line"><div class="line-number">20</div><div class="line-content">            break</div></div>
+                    <div class="code-line"><div class="line-number">21</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">22</div><div class="line-content">        # Proportional speed calculation</div></div>
+                    <div class="code-line"><div class="line-number">23</div><div class="line-content">        base_velocity = abs(angle_error) * kp * 10</div></div>
+                    <div class="code-line"><div class="line-number">24</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">25</div><div class="line-content">        # Apply overshoot protection for final approach</div></div>
+                    <div class="code-line"><div class="line-number">26</div><div class="line-content">        if abs(angle_error) < 10:</div></div>
+                    <div class="code-line"><div class="line-number">27</div><div class="line-content">            base_velocity *= overshoot_protection</div></div>
+                    <div class="code-line"><div class="line-number">28</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">29</div><div class="line-content">        # Constrain velocity to safe limits</div></div>
+                    <div class="code-line"><div class="line-number">30</div><div class="line-content">        velocity = max(min_velocity, min(max_velocity, base_velocity))</div></div>
+                    <div class="code-line"><div class="line-number">31</div><div class="line-content">        steering_direction = 100 if angle_error > 0 else -100</div></div>
+                    <div class="code-line"><div class="line-number">32</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">33</div><div class="line-content">        await motor_pair.move(motor_pair.PAIR_1, steering_direction, velocity=int(velocity))</div></div>
+                    <div class="code-line"><div class="line-number">34</div><div class="line-content">        await runloop.sleep_ms(15)  # Smooth control loop</div></div>
+                    <div class="code-line"><div class="line-number">35</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">36</div><div class="line-content">    await motor_pair.stop(motor_pair.PAIR_1)</div></div>
+                    <div class="code-line"><div class="line-number">37</div><div class="line-content">    print(f"Precise turn complete: {motion_sensor.tilt_angles()[0]:.1f}°")</div></div>
+                    <div class="code-line"><div class="line-number">38</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">39</div><div class="line-content"># Test proportional turning</div></div>
+                    <div class="code-line"><div class="line-number">40</div><div class="line-content">runloop.run(advanced_proportional_turn(90))</div></div>
+                </div>
+            </div>
+
+            <div class="ai-mapper">
+                Proportional control creates smooth deceleration as the robot approaches its target angle, eliminating the overshoot and oscillation common with simple on-off control!
+            </div>
+        </div>
+
+        <!-- Slide 6: PID Gyro Control -->
+        <div class="slide">
+            <div class="slide-counter">6 / 8</div>
+            <h2>PID Gyro Control System 🧠</h2>
+            
+            <p>PID control combines Proportional, Integral, and Derivative terms for the most precise gyroscopic turning control possible - the same technique used in aerospace systems.</p>
+
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <span class="terrain-emoji">📈</span>
+                    <h3>Proportional (P)</h3>
+                    <p>Responds to current angle error</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">📊</span>
+                    <h3>Integral (I)</h3>
+                    <p>Eliminates steady-state error</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">⚡</span>
+                    <h3>Derivative (D)</h3>
+                    <p>Predicts and dampens oscillations</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🎯</span>
+                    <h3>Combined</h3>
+                    <p>Ultra-precise angle control</p>
+                </div>
+            </div>
+
+            <div class="student-prompt">
+                "I've heard that PID control is what professional robots use for the most accurate movements. Can you help me implement a full PID controller for gyro turns that will work in competition? I want the best possible precision."
+            </div>
+
+            <div class="code-block">
+                <div class="code-with-lines">
+                    <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
+                    <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor_pair</div></div>
+                    <div class="code-line"><div class="line-number">3</div><div class="line-content">import motion_sensor</div></div>
+                    <div class="code-line"><div class="line-number">4</div><div class="line-content">import runloop</div></div>
+                    <div class="code-line"><div class="line-number">5</div><div class="line-content">import time</div></div>
+                    <div class="code-line"><div class="line-number">6</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">7</div><div class="line-content">async def professional_pid_turn(target_angle, kp=2.5, ki=0.05, kd=0.3):</div></div>
+                    <div class="code-line"><div class="line-number">8</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.B, port.C)</div></div>
+                    <div class="code-line"><div class="line-number">9</div><div class="line-content">    motion_sensor.reset_yaw(0)</div></div>
+                    <div class="code-line"><div class="line-number">10</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">11</div><div class="line-content">    # PID state variables</div></div>
+                    <div class="code-line"><div class="line-number">12</div><div class="line-content">    integral_sum = 0</div></div>
+                    <div class="code-line"><div class="line-number">13</div><div class="line-content">    previous_error = 0</div></div>
+                    <div class="code-line"><div class="line-number">14</div><div class="line-content">    last_time = time.ticks_ms()</div></div>
+                    <div class="code-line"><div class="line-number">15</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">16</div><div class="line-content">    # Control parameters</div></div>
+                    <div class="code-line"><div class="line-number">17</div><div class="line-content">    tolerance = 0.8</div></div>
+                    <div class="code-line"><div class="line-number">18</div><div class="line-content">    max_velocity = 400</div></div>
+                    <div class="code-line"><div class="line-number">19</div><div class="line-content">    integral_limit = 100  # Prevent integral windup</div></div>
+                    <div class="code-line"><div class="line-number">20</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">21</div><div class="line-content">    while True:</div></div>
+                    <div class="code-line"><div class="line-number">22</div><div class="line-content">        current_time = time.ticks_ms()</div></div>
+                    <div class="code-line"><div class="line-number">23</div><div class="line-content">        dt = time.ticks_diff(current_time, last_time) / 1000.0</div></div>
+                    <div class="code-line"><div class="line-number">24</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">25</div><div class="line-content">        current_yaw = motion_sensor.tilt_angles()[0]</div></div>
+                    <div class="code-line"><div class="line-number">26</div><div class="line-content">        error = target_angle - current_yaw</div></div>
+                    <div class="code-line"><div class="line-number">27</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">28</div><div class="line-content">        if abs(error) <= tolerance:</div></div>
+                    <div class="code-line"><div class="line-number">29</div><div class="line-content">            break</div></div>
+                    <div class="code-line"><div class="line-number">30</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">31</div><div class="line-content">        # PID calculations with time-based integration</div></div>
+                    <div class="code-line"><div class="line-number">32</div><div class="line-content">        proportional = kp * error</div></div>
+                    <div class="code-line"><div class="line-number">33</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">34</div><div class="line-content">        integral_sum += error * dt</div></div>
+                    <div class="code-line"><div class="line-number">35</div><div class="line-content">        integral_sum = max(-integral_limit, min(integral_limit, integral_sum))</div></div>
+                    <div class="code-line"><div class="line-number">36</div><div class="line-content">        integral = ki * integral_sum</div></div>
+                    <div class="code-line"><div class="line-number">37</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">38</div><div class="line-content">        derivative = kd * (error - previous_error) / dt if dt > 0 else 0</div></div>
+                    <div class="code-line"><div class="line-number">39</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">40</div><div class="line-content">        # Combine PID terms and apply velocity limits</div></div>
+                    <div class="code-line"><div class="line-number">41</div><div class="line-content">        control_output = proportional + integral + derivative</div></div>
+                    <div class="code-line"><div class="line-number">42</div><div class="line-content">        velocity = max(40, min(max_velocity, abs(control_output * 10)))</div></div>
+                    <div class="code-line"><div class="line-number">43</div><div class="line-content">        steering = 100 if control_output > 0 else -100</div></div>
+                    <div class="code-line"><div class="line-number">44</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">45</div><div class="line-content">        await motor_pair.move(motor_pair.PAIR_1, steering, velocity=int(velocity))</div></div>
+                    <div class="code-line"><div class="line-number">46</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">47</div><div class="line-content">        # Update state for next iteration</div></div>
+                    <div class="code-line"><div class="line-number">48</div><div class="line-content">        previous_error = error</div></div>
+                    <div class="code-line"><div class="line-number">49</div><div class="line-content">        last_time = current_time</div></div>
+                    <div class="code-line"><div class="line-number">50</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">51</div><div class="line-content">        await runloop.sleep_ms(10)  # 100Hz control loop</div></div>
+                    <div class="code-line"><div class="line-number">52</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">53</div><div class="line-content">    await motor_pair.stop(motor_pair.PAIR_1)</div></div>
+                    <div class="code-line"><div class="line-number">54</div><div class="line-content">    print(f"PID turn complete: {motion_sensor.tilt_angles()[0]:.2f}°")</div></div>
+                    <div class="code-line"><div class="line-number">55</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">56</div><div class="line-content">runloop.run(professional_pid_turn(180))</div></div>
+                </div>
+            </div>
+
+            <div class="ai-mapper">
+                This professional PID implementation includes time-based integration, anti-windup protection, and high-frequency control loops - the same techniques used in aerospace and autonomous vehicle systems!
+            </div>
+        </div>
+
+        <!-- Slide 7: Advanced Navigation Systems -->
+        <div class="slide">
+            <div class="slide-counter">7 / 8</div>
+            <h2>Advanced Navigation & Competition Techniques 🚀</h2>
+            
+            <p>Master advanced techniques for competition-winning robots: sensor fusion, adaptive control, calibration systems, and autonomous navigation patterns.</p>
+
+            <div class="two-column">
+                <div>
+                    <div class="expedition-box">
+                        <h3>Advanced Techniques</h3>
+                        <ul>
+                            <li><strong>Sensor Fusion:</strong> Combine gyro with encoders and vision</li>
+                            <li><strong>Adaptive Control:</strong> Adjust parameters in real-time</li>
+                            <li><strong>Drift Correction:</strong> Maintain accuracy over time</li>
+                            <li><strong>Multi-Robot Coordination:</strong> Swarm navigation</li>
+                        </ul>
+                    </div>
+
+                    <div class="survey-tip">
+                        <strong>Competition Strategy:</strong> Use fast turns for open navigation and ultra-precise turns for tight constraints. Pre-calibrate for environment conditions!
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="expedition-box">
+                        <h3>Navigation Patterns</h3>
+                        <ul>
+                            <li>Square and polygon paths</li>
+                            <li>Spiral search patterns</li>
+                            <li>Return-to-origin navigation</li>
+                            <li>Obstacle avoidance maneuvers</li>
+                            <li>Waypoint navigation systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="student-prompt">
+                "I want to create a competition-grade navigation system that can handle drift correction, multiple navigation patterns, and automatic calibration. Can you help me build a complete navigation class that I can use for any robotics competition?"
+            </div>
+
+            <div class="code-block">
+                <div class="code-with-lines">
+                    <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
+                    <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor_pair</div></div>
+                    <div class="code-line"><div class="line-number">3</div><div class="line-content">import motion_sensor</div></div>
+                    <div class="code-line"><div class="line-number">4</div><div class="line-content">import runloop</div></div>
+                    <div class="code-line"><div class="line-number">5</div><div class="line-content">import time</div></div>
+                    <div class="code-line"><div class="line-number">6</div><div class="line-content">import math</div></div>
+                    <div class="code-line"><div class="line-number">7</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">8</div><div class="line-content">class CompetitionGyroSystem:</div></div>
+                    <div class="code-line"><div class="line-number">9</div><div class="line-content">    def __init__(self):</div></div>
+                    <div class="code-line"><div class="line-number">10</div><div class="line-content">        motor_pair.pair(motor_pair.PAIR_1, port.B, port.C)</div></div>
+                    <div class="code-line"><div class="line-number">11</div><div class="line-content">        self.gyro_offset = 0</div></div>
+                    <div class="code-line"><div class="line-number">12</div><div class="line-content">        self.x, self.y = 0, 0  # Robot position tracking</div></div>
+                    <div class="code-line"><div class="line-number">13</div><div class="line-content">        self.heading = 0</div></div>
+                    <div class="code-line"><div class="line-number">14</div><div class="line-content">        self.calibration_history = []</div></div>
+                    <div class="code-line"><div class="line-number">15</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">16</div><div class="line-content">    async def enhanced_calibration(self, samples=10):</div></div>
+                    <div class="code-line"><div class="line-number">17</div><div class="line-content">        """Multi-point calibration with statistical analysis"""</div></div>
+                    <div class="code-line"><div class="line-number">18</div><div class="line-content">        readings = []</div></div>
+                    <div class="code-line"><div class="line-number">19</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">20</div><div class="line-content">        for i in range(samples):</div></div>
+                    <div class="code-line"><div class="line-number">21</div><div class="line-content">            motion_sensor.reset_yaw(0)</div></div>
+                    <div class="code-line"><div class="line-number">22</div><div class="line-content">            await runloop.sleep_ms(100)</div></div>
+                    <div class="code-line"><div class="line-number">23</div><div class="line-content">            </div></div>
+                    <div class="code-line"><div class="line-number">24</div><div class="line-content">            # Test 90-degree turn accuracy</div></div>
+                    <div class="code-line"><div class="line-number">25</div><div class="line-content">            await self.precision_turn(90)</div></div>
+                    <div class="code-line"><div class="line-number">26</div><div class="line-content">            actual_angle = motion_sensor.tilt_angles()[0]</div></div>
+                    <div class="code-line"><div class="line-number">27</div><div class="line-content">            error = 90 - actual_angle</div></div>
+                    <div class="code-line"><div class="line-number">28</div><div class="line-content">            readings.append(error)</div></div>
+                    <div class="code-line"><div class="line-number">29</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">30</div><div class="line-content">        # Use median for robust calibration</div></div>
+                    <div class="code-line"><div class="line-number">31</div><div class="line-content">        readings.sort()</div></div>
+                    <div class="code-line"><div class="line-number">32</div><div class="line-content">        self.gyro_offset = readings[len(readings) // 2]</div></div>
+                    <div class="code-line"><div class="line-number">33</div><div class="line-content">        print(f"Calibration complete. Offset: {self.gyro_offset:.2f}°")</div></div>
+                    <div class="code-line"><div class="line-number">34</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">35</div><div class="line-content">    async def precision_turn(self, target_angle, max_iterations=100):</div></div>
+                    <div class="code-line"><div class="line-number">36</div><div class="line-content">        """Competition-grade turning with adaptive PID"""</div></div>
+                    <div class="code-line"><div class="line-number">37</div><div class="line-content">        motion_sensor.reset_yaw(0)</div></div>
+                    <div class="code-line"><div class="line-number">38</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">39</div><div class="line-content">        # Adaptive parameters based on turn size</div></div>
+                    <div class="code-line"><div class="line-number">40</div><div class="line-content">        kp = 2.2 if abs(target_angle) > 90 else 3.0</div></div>
+                    <div class="code-line"><div class="line-number">41</div><div class="line-content">        ki = 0.03 if abs(target_angle) > 90 else 0.05</div></div>
+                    <div class="code-line"><div class="line-number">42</div><div class="line-content">        kd = 0.25 if abs(target_angle) > 90 else 0.4</div></div>
+                    <div class="code-line"><div class="line-number">43</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">44</div><div class="line-content">        # Compensate for systematic error</div></div>
+                    <div class="code-line"><div class="line-number">45</div><div class="line-content">        compensated_target = target_angle + self.gyro_offset</div></div>
+                    <div class="code-line"><div class="line-number">46</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">47</div><div class="line-content">        integral = 0</div></div>
+                    <div class="code-line"><div class="line-number">48</div><div class="line-content">        last_error = 0</div></div>
+                    <div class="code-line"><div class="line-number">49</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">50</div><div class="line-content">        for iteration in range(max_iterations):</div></div>
+                    <div class="code-line"><div class="line-number">51</div><div class="line-content">            current_angle = motion_sensor.tilt_angles()[0]</div></div>
+                    <div class="code-line"><div class="line-number">52</div><div class="line-content">            error = compensated_target - current_angle</div></div>
+                    <div class="code-line"><div class="line-number">53</div><div class="line-content">            </div></div>
+                    <div class="code-line"><div class="line-number">54</div><div class="line-content">            tolerance = 0.3 if abs(target_angle) < 45 else 0.5</div></div>
+                    <div class="code-line"><div class="line-number">55</div><div class="line-content">            if abs(error) <= tolerance:</div></div>
+                    <div class="code-line"><div class="line-number">56</div><div class="line-content">                break</div></div>
+                    <div class="code-line"><div class="line-number">57</div><div class="line-content">            </div></div>
+                    <div class="code-line"><div class="line-number">58</div><div class="line-content">            # Advanced PID with anti-windup</div></div>
+                    <div class="code-line"><div class="line-number">59</div><div class="line-content">            integral += error</div></div>
+                    <div class="code-line"><div class="line-number">60</div><div class="line-content">            integral = max(-50, min(50, integral))</div></div>
+                    <div class="code-line"><div class="line-number">61</div><div class="line-content">            derivative = error - last_error</div></div>
+                    <div class="code-line"><div class="line-number">62</div><div class="line-content">            </div></div>
+                    <div class="code-line"><div class="line-number">63</div><div class="line-content">            control_signal = (kp * error) + (ki * integral) + (kd * derivative)</div></div>
+                    <div class="code-line"><div class="line-number">64</div><div class="line-content">            velocity = max(40, min(400, abs(control_signal * 15)))</div></div>
+                    <div class="code-line"><div class="line-number">65</div><div class="line-content">            steering = 100 if control_signal > 0 else -100</div></div>
+                    <div class="code-line"><div class="line-number">66</div><div class="line-content">            </div></div>
+                    <div class="code-line"><div class="line-number">67</div><div class="line-content">            await motor_pair.move(motor_pair.PAIR_1, steering, velocity=int(velocity))</div></div>
+                    <div class="code-line"><div class="line-number">68</div><div class="line-content">            last_error = error</div></div>
+                    <div class="code-line"><div class="line-number">69</div><div class="line-content">            await runloop.sleep_ms(8)  # 125Hz control rate</div></div>
+                    <div class="code-line"><div class="line-number">70</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">71</div><div class="line-content">        await motor_pair.stop(motor_pair.PAIR_1)</div></div>
+                    <div class="code-line"><div class="line-number">72</div><div class="line-content">        self.heading = (self.heading + target_angle) % 360</div></div>
+                    <div class="code-line"><div class="line-number">73</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">74</div><div class="line-content">    async def navigate_polygon(self, sides, side_length_cm):</div></div>
+                    <div class="code-line"><div class="line-number">75</div><div class="line-content">        """Execute perfect polygon navigation"""</div></div>
+                    <div class="code-line"><div class="line-number">76</div><div class="line-content">        turn_angle = 360 / sides</div></div>
+                    <div class="code-line"><div class="line-number">77</div><div class="line-content">        </div></div>
+                    <div class="code-line"><div class="line-number">78</div><div class="line-content">        for i in range(sides):</div></div>
+                    <div class="code-line"><div class="line-number">79</div><div class="line-content">            # Move forward</div></div>
+                    <div class="code-line"><div class="line-number">80</div><div class="line-content">            degrees = side_length_cm * 360 / (6.24 * 3.14159)</div></div>
+                    <div class="code-line"><div class="line-number">81</div><div class="line-content">            await motor_pair.move_for_degrees(motor_pair.PAIR_1, int(degrees), 0, velocity=300)</div></div>
+                    <div class="code-line"><div class="line-number">82</div><div class="line-content">            </div></div>
+                    <div class="code-line"><div class="line-number">83</div><div class="line-content">            # Precise turn</div></div>
+                    <div class="code-line"><div class="line-number">84</div><div class="line-content">            await self.precision_turn(turn_angle)</div></div>
+                    <div class="code-line"><div class="line-number">85</div><div class="line-content">            await runloop.sleep_ms(500)</div></div>
+                    <div class="code-line"><div class="line-number">86</div><div class="line-content">    </div></div>
+                    <div class="code-line"><div class="line-number">87</div><div class="line-content">async def demo_competition_navigation():</div></div>
+                    <div class="code-line"><div class="line-number">88</div><div class="line-content">    nav = CompetitionGyroSystem()</div></div>
+                    <div class="code-line"><div class="line-number">89</div><div class="line-content">    await nav.enhanced_calibration()</div></div>
+                    <div class="code-line"><div class="line-number">90</div><div class="line-content">    await nav.navigate_polygon(6, 30)  # Perfect hexagon</div></div>
+                    <div class="code-line"><div class="line-number">91</div><div class="line-content">    print("Competition navigation demo complete!")</div></div>
+                    <div class="code-line"><div class="line-number">92</div><div class="line-content"></div></div>
+                    <div class="code-line"><div class="line-number">93</div><div class="line-content">runloop.run(demo_competition_navigation())</div></div>
+                </div>
+            </div>
+
+            <div class="ai-mapper">
+                This competition-grade system includes adaptive PID parameters, systematic error correction, robust calibration, and autonomous navigation patterns - ready for any robotics competition!
+            </div>
+        </div>
+
+        <!-- Slide 8: Final Challenge and Mastery -->
+        <div class="slide">
+            <div class="slide-counter">8 / 8</div>
+            <h1>🎯 Navigation Mastery Achieved!</h1>
+            <h2>Your Gyroscopic Journey Complete</h2>
+            
+            <p>Congratulations! You've mastered gyroscopic control from basic principles to competition-grade systems. You're now ready to tackle the most challenging autonomous robotics missions.</p>
+
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <span class="terrain-emoji">✅</span>
+                    <h3>Skills Mastered</h3>
+                    <p>Basic to advanced gyro control, PID systems, navigation patterns</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🚀</span>
+                    <h3>Ready For</h3>
+                    <p>Competition robotics, autonomous systems, precision navigation</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🎯</span>
+                    <h3>Next Level</h3>
+                    <p>Sensor fusion, SLAM mapping, swarm robotics coordination</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🌟</span>
+                    <h3>Future Path</h3>
+                    <p>Aerospace engineer, autonomous vehicle developer, roboticist</p>
+                </div>
+            </div>
+
+            <div class="wave-diagram">
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>Mastered inertial navigation principles and MEMS technology</li>
+                    <li>Implemented professional-grade PID control systems</li>
+                    <li>Applied advanced calibration and drift correction techniques</li>
+                    <li>Created competition-ready autonomous navigation systems</li>
+                </ul>
+                <div class="wave-animation"></div>
+            </div>
+
+            <div class="challenge-prompt">🚀 ULTIMATE GYRO CHALLENGE 🚀
+
+Design a "Precision Navigator" robot that demonstrates mastery:
+
+1. Execute a perfect 5-pointed star pattern (72° and 144° turns)
+2. Navigate autonomously to 3 waypoints and return to start
+3. Perform expanding spiral search maintaining heading accuracy
+4. Demonstrate drift correction over 3+ minutes of operation
+5. Complete all tasks with <0.5° accuracy and <1cm position error
+
+Mission Parameters:
+- Total time limit: 8 minutes
+- Surface: Competition mat with obstacles
+- Bonus: Add sensor fusion with color or distance sensors
+
+Success Criteria: Professional-grade precision worthy of aerospace applications!</div>
+
+            <div class="ai-mapper">
+                You've learned navigation principles that guide spacecraft, autonomous vehicles, drones, and precision manufacturing systems. These skills open doors to careers in aerospace, automotive, robotics, and AI-driven technologies. Your journey from basic gyro understanding to competition-grade navigation systems demonstrates the engineering mindset needed for tomorrow's autonomous world!
+            </div>
+
+            <div class="terrain-highlight" style="display: block; text-align: center; font-size: 1.4em; margin: 30px 0;">
+                Navigate boldly into the future - precision and innovation await! 🧭✨
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            
+            slides[currentSlide].classList.add('active');
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            
+            // Update progress bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                if (currentSlide < totalSlides - 1) changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                if (currentSlide > 0) changeSlide(-1);
+            }
+        });
+
+        // Create animated background elements
+        function createBubbles() {
+            const bubblesContainer = document.querySelector('.bubbles');
+            
+            setInterval(() => {
+                if (document.querySelectorAll('.bubble').length < 15) {
+                    const bubble = document.createElement('div');
+                    bubble.className = 'bubble';
+                    
+                    const size = Math.random() * 30 + 10;
+                    bubble.style.width = size + 'px';
+                    bubble.style.height = size + 'px';
+                    bubble.style.left = Math.random() * 100 + '%';
+                    bubble.style.bottom = '0px';
+                    bubble.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                    bubble.style.animationDelay = Math.random() * 2 + 's';
+                    bubble.style.animation = 'bubbleFloat ' + (Math.random() * 3 + 6) + 's linear infinite';
+                    
+                    bubblesContainer.appendChild(bubble);
+                    
+                    setTimeout(() => {
+                        if (bubble && bubble.parentNode) {
+                            bubble.parentNode.removeChild(bubble);
+                        }
+                    }, 8000);
+                }
+            }, 500);
+        }
+
+        // Initialize presentation
+        showSlide(0);
+        createBubbles();
+
+        // Add click handlers for any interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any specific interactive functionality here
+            console.log('LEGO Gyro Presentation initialized successfully');
+        });
+    </script>
+</body>
+</html>

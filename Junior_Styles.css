@@ -5,6 +5,17 @@
             box-sizing: border-box;
         }
 
+        .angle-indicator {
+            background: rgba(255, 255, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ffff00;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: radial-gradient(ellipse at center, #001122 0%, #003366 70%);
@@ -229,8 +240,9 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            width: 80px;   /* control image size */
-            height: 80px;
+            width: 200px;   /* control image size */
+            height: 200px;
+            opacity: 0.5;
 
             background-image: url("logo.PNG");
             background-size: contain;  /* keep aspect ratio */
@@ -633,6 +645,38 @@
             border-radius: 15px;
             border: 2px solid #0066cc;
         }
+         .gyro-compass {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003366, #006699);
+            border: 4px solid #00ccff;
+            position: relative;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            animation: rotate360 10s infinite linear;
+        }
+
+        @keyframes rotate360 {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .gyro-compass::before {
+            content: 'N';
+            position: absolute;
+            top: 10px;
+            color: #b3b3b3;
+            font-size: 1.2em;
+        }
+
+        .gyro-compass::after {
+            content: '🧭';
+        }
 
         .example-prompt-container {
             position: relative;
@@ -750,6 +794,32 @@
             margin: 20px 0;
             position: relative;
             border: 2px solid #00ffff;
+        }
+           .student-prompt {
+            background: linear-gradient(135deg, #1a2950, #2d4a7c);
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+            border: 2px solid #4c6bb0;
+            box-shadow: 0 0 25px rgba(76, 107, 176, 0.4);
+            position: relative;
+        }
+
+        .student-prompt::before {
+            content: '🎓 STUDENT PROMPT EXAMPLE';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(45deg, #4c6bb0, #6b82d9);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            font-style: normal;
         }
 
         .intensity-marker {
