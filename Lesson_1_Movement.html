@@ -437,11 +437,73 @@ This is critical for advanced robotics programming - precision is everything!</d
             </div>
         </div>
 
+        <!-- Slide 8: Attempt Beta - Reverse Mapping -->
+        <div class="slide">
+            <div class="slide-counter">Slide 11 / 13</div>
+            <h2>⬅️ Programming Beta: Reverse Movement</h2>
+            
+            <h3>🛑 Robot Engineer Learning Moment</h3>
+            <div class="survey-tip">
+                <strong>Programming Tip:</strong> Always reference successful robot movements with AI Programming Assistant and specify what modifications you need!
+            </div>
+            
+            <h3>❌ Weak Programming Signal (Don't do this!)</h3>
+            <div class="survey-prompt" style="background: linear-gradient(135deg, #003366, #005580); border-color: #004d99;">Make my robot go backward</div>
+            
+            <h3>✅ Strong Programming Command (Do this!)</h3>
+            <div class="survey-prompt">AI Programming Assistant, your previous forward movement sequence worked perfectly! 
+
+Now I need to execute a REVERSE MOVEMENT PATTERN:
+- Same robot configuration (SPIKE, motors B & D)
+- Same 4-second movement duration
+- Same speed but REVERSE direction
+- Maintain identical code structure
+
+Which programming parameter controls motor direction? Please transmit updated movement sequence!</div>
+            
+            <h3>📝 Example Student Prompt</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('example6')">🔍 Reveal Example Command</button>
+                <div id="example6" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                    <strong>Student's Example Command:</strong><br><br>
+                    "Hey AI! Remember the forward movement code you just gave me for my LEGO SPIKE robot? It worked great! Now I need to make the robot go backwards for 4 seconds instead. Same motors (B and D), same speed, just reverse. Can you modify the code to go backwards? Also, can you explain which parameter I need to change to control the direction?"
+                </div>
+            </div>
+            
+            <h3>🎯 Pro Programming Tip</h3>
+            <p>AI Programming Assistant remembers your previous code! Reference successful programs to get better programming assistance.</p>
+            
+            <h3>🤖 Expected Response from AI Programming Assistant</h3>
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('aiResponse6')">🔍 Reveal AI Response</button>
+                <div id="aiResponse6" class="code-block example-prompt-hidden" style="margin-top: 20px;">
+                    <div class="code-with-lines">
+                        <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
+                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor_pair</div></div>
+                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
+                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def reverse_movement():</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    # Initialize dual drive motors</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.B, port.D)</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    # Engage reverse movement for 4 seconds</div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    await motor_pair.move_for_time(motor_pair.PAIR_1, 4000, 0, velocity=-500)</div></div>
+                        <div class="code-line"><div class="line-number">11</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">12</div><div class="line-content">    # Robot stop protocol - halt all motors</div></div>
+                        <div class="code-line"><div class="line-number">13</div><div class="line-content">    motor_pair.stop(motor_pair.PAIR_1)</div></div>
+                        <div class="code-line"><div class="line-number">14</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">15</div><div class="line-content">runloop.run(reverse_movement())</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Slide 7: Robot Challenge - Mat Navigation -->
         <div class="slide">
             <div class="slide-counter">Slide 10 / 13</div>
             <h2>🤖 Robot Challenge: The Training Mat</h2>
-            <img src="map.PNG" style = padding:20px;padding-left:50px;padding-top:5px;>
+            <img src="challenge_visuals/week2_teach.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
             <div class="two-column">
                 <div>
@@ -545,73 +607,13 @@ This is critical for advanced robotics programming - precision is everything!</d
             </div>
         </div>
 
-        <!-- Slide 8: Attempt Beta - Reverse Mapping -->
-        <div class="slide">
-            <div class="slide-counter">Slide 11 / 13</div>
-            <h2>⬅️ Programming Beta: Reverse Movement</h2>
-            
-            <h3>🛑 Robot Engineer Learning Moment</h3>
-            <div class="survey-tip">
-                <strong>Programming Tip:</strong> Always reference successful robot movements with AI Programming Assistant and specify what modifications you need!
-            </div>
-            
-            <h3>❌ Weak Programming Signal (Don't do this!)</h3>
-            <div class="survey-prompt" style="background: linear-gradient(135deg, #003366, #005580); border-color: #004d99;">Make my robot go backward</div>
-            
-            <h3>✅ Strong Programming Command (Do this!)</h3>
-            <div class="survey-prompt">AI Programming Assistant, your previous forward movement sequence worked perfectly! 
-
-Now I need to execute a REVERSE MOVEMENT PATTERN:
-- Same robot configuration (SPIKE, motors B & D)
-- Same 4-second movement duration
-- Same speed but REVERSE direction
-- Maintain identical code structure
-
-Which programming parameter controls motor direction? Please transmit updated movement sequence!</div>
-            
-            <h3>📝 Example Student Prompt</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('example6')">🔍 Reveal Example Command</button>
-                <div id="example6" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
-                    <strong>Student's Example Command:</strong><br><br>
-                    "Hey AI! Remember the forward movement code you just gave me for my LEGO SPIKE robot? It worked great! Now I need to make the robot go backwards for 4 seconds instead. Same motors (B and D), same speed, just reverse. Can you modify the code to go backwards? Also, can you explain which parameter I need to change to control the direction?"
-                </div>
-            </div>
-            
-            <h3>🎯 Pro Programming Tip</h3>
-            <p>AI Programming Assistant remembers your previous code! Reference successful programs to get better programming assistance.</p>
-            
-            <h3>🤖 Expected Response from AI Programming Assistant</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse6')">🔍 Reveal AI Response</button>
-                <div id="aiResponse6" class="code-block example-prompt-hidden" style="margin-top: 20px;">
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor_pair</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def reverse_movement():</div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    # Initialize dual drive motors</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.B, port.D)</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    # Engage reverse movement for 4 seconds</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    await motor_pair.move_for_time(motor_pair.PAIR_1, 4000, 0, velocity=-500)</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">    # Robot stop protocol - halt all motors</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">    motor_pair.stop(motor_pair.PAIR_1)</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content">runloop.run(reverse_movement())</div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <!-- Slide 9: Ultimate Challenge - Obstacle Navigation -->
         <div class="slide">
             <div class="slide-counter">Slide 12 / 13</div>
             <h2>🏆 Ultimate Challenge: Obstacle Navigation</h2>
 
-            <img src="map.PNG" style = padding:20px;padding-left:50px;padding-top:5px;>
+            <img src="challenge_visuals/week2_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
             <div class="two-column">
                 <div>
