@@ -17,7 +17,7 @@
 
         <!-- Slide 1: Title -->
         <div class="slide active">
-            <div class="slide-counter">1 / 10</div>
+            <div class="slide-counter">1 / 12</div>
             <h1>🤖 LEGO Spike 3 Line Following</h1>
             <h2>Interactive Robot Programming Tutorial</h2>
             <p>Welcome to the ultimate underwater robotics expedition! Today, we'll learn how to program LEGO Spike 3 robots to follow lines like intelligent underwater explorers navigating ocean currents.</p>
@@ -50,7 +50,7 @@
 
         <!-- Slide 2: What is Line Following? -->
         <div class="slide">
-            <div class="slide-counter">2 / 10</div>
+            <div class="slide-counter">2 / 12</div>
             <h2>What is Line Following? 🛤️</h2>
             
             <p>Line following is a fundamental robotics technique where robots use sensors to detect and follow a path marked on the ground. Think of it as teaching your robot to swim along ocean currents!</p>
@@ -91,7 +91,7 @@
 
         <!-- Slide 3: LEGO Spike 3 Hardware -->
         <div class="slide">
-            <div class="slide-counter">3 / 10</div>
+            <div class="slide-counter">3 / 12</div>
             <h2>LEGO Spike 3 Hardware Components 🔧</h2>
             
             <p>Let's explore the essential components needed for your line-following robot expedition:</p>
@@ -131,7 +131,7 @@
 
         <!-- Slide 4: Color Sensor Basics -->
         <div class="slide">
-            <div class="slide-counter">4 / 10</div>
+            <div class="slide-counter">4 / 12</div>
             <h2>Understanding Color Sensors 👁️</h2>
             
             <p>Color sensors are your robot's underwater vision system. They detect light reflection to distinguish between different surfaces and colors.</p>
@@ -185,7 +185,7 @@
 
         <!-- Slide 5: Basic Line Following Code -->
         <div class="slide">
-            <div class="slide-counter">5 / 10</div>
+            <div class="slide-counter">5 / 12</div>
             <h2>Basic Line Following Programming 💻</h2>
             
             <p>Let's start with a simple line following algorithm. This basic approach reads the color sensor and steers accordingly.</p>
@@ -235,9 +235,26 @@
             </div>
         </div>
 
+        <!-- Slide 11: Challenge - try it yourself -->
+        <div class="slide">
+            <div class="slide-counter" id="slideCounter">Slide 6 / 12</div>
+            <h2>⚡ Now try it yourself: Basic Line follow</h2> 
+            <img src="challenge_visuals/week7_teacher.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
+            
+           
+                <div class="objective-card">
+                    <h3 style="color: #ffffff;">🔍 Mission Objective:</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li class="no-emoji">🔸Move from one end of the black line to the other</li>
+                        <li class="no-emoji">🔸Use line following principles, not just simple motor movements<li></li>
+                    </ul>
+                </div>
+            
+        </div>
+
         <!-- Slide 6: Proportional Control (P Controller) -->
         <div class="slide">
-            <div class="slide-counter">6 / 10</div>
+            <div class="slide-counter">7 / 12</div>
             <h2>Proportional Control Algorithm 🎯</h2>
             
             <p>Proportional control makes your robot's movements smoother by adjusting turning strength based on how far off-track it is.</p>
@@ -302,7 +319,7 @@
 
         <!-- Slide 7: PID Control Advanced -->
         <div class="slide">
-            <div class="slide-counter">7 / 10</div>
+            <div class="slide-counter">8 / 12</div>
             <h2>Advanced PID Control 🧠</h2>
             
             <p>PID (Proportional-Integral-Derivative) control is the gold standard for precise robot navigation. It combines three types of corrections for optimal performance.</p>
@@ -377,7 +394,7 @@
                         <div class="code-line"><div class="line-number">20</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">21</div><div class="line-content">    while True:</div></div>
                         <div class="code-line"><div class="line-number">22</div><div class="line-content">        current_time = time.ticks_ms()</div></div>
-                        <div class="code-line"><div class="line-number">23</div><div class="line-content">        dt = time.ticks_diff(current_time, last_time) / 1000.0</div></div>
+                        <div class="code-line"><div class="line-number">23</div><div class="line-content">        dt = time.ticks_diff(current_time, last_time) / 1200.0</div></div>
                         <div class="code-line"><div class="line-number">24</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">25</div><div class="line-content">        current_reflection = color_sensor.reflection(port.A)</div></div>
                         <div class="code-line"><div class="line-number">26</div><div class="line-content">        error = target_reflection - current_reflection</div></div>
@@ -413,7 +430,7 @@
 
         <!-- Slide 9: Challenges and Solutions -->
         <div class="slide">
-            <div class="slide-counter">8 / 10</div>
+            <div class="slide-counter">9 / 12</div>
             <h2>Common Challenges & Solutions 🔧</h2>
             
             <p>Every robotics expedition faces obstacles! Here are common line-following challenges and their solutions:</p>
@@ -456,7 +473,7 @@
 
         <!-- Slide 10: Advanced Features -->
         <div class="slide">
-            <div class="slide-counter">9 / 10</div>
+            <div class="slide-counter">10 / 12</div>
             <h2>Advanced Line Following Features 🚀</h2>
             
             <p>Take your line-following robot to the next level with these advanced capabilities!</p>
@@ -548,9 +565,25 @@
             </div>
         </div>
 
+        <!-- Slide 11: Challenge - try it yourself -->
+        <div class="slide">
+            <div class="slide-counter" id="slideCounter">Slide 11 / 12</div>
+            <h2>⚡ Now try it yourself: Advanced Line follow</h2> 
+            <img src="challenge_visuals/week7_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
+            
+            
+                <div class="objective-card">
+                    <h3 style="color: #ffffff;">🔍 Mission Objective</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li class="no-emoji">🔸 Start from the green square</li>
+                        <li class="no-emoji">🔸 Perform line follow for the entire course</li>
+                    </ul>
+                </div>
+            
+        </div>
         <!-- Slide 12: Summary and Next Steps -->
         <div class="slide">
-            <div class="slide-counter">10 / 10</div>
+            <div class="slide-counter">12 / 12</div>
             <h1>🎯 Mission Complete!</h1>
             <h2>Your Line Following Journey</h2>
             
@@ -632,7 +665,7 @@
                 bubble.className = 'bubble';
                 
                 // Random bubble size
-                const size = Math.random() * 100 + 30; // 10-40px
+                const size = Math.random() * 100 + 30; // 12-40px
                 bubble.style.width = size + 'px';
                 bubble.style.height = size + 'px';
                 
@@ -670,7 +703,7 @@
                 fish.className = 'fish fish-right';
                 fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
                 
-                const topPosition = Math.random() * 70 + 10; // 10% to 80% from top
+                const topPosition = Math.random() * 70 + 10; // 12% to 80% from top
                 fish.style.top = topPosition + '%';
                 fish.style.animationDuration = (Math.random() * 5 + 15) + 's'; // 15-20s
                 

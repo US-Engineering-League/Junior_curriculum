@@ -18,7 +18,7 @@
 
         <!-- Slide 1: Week 4 Introduction -->
         <div class="slide active">
-            <div class="slide-counter" id="slideCounter">Slide 1 / 6</div>
+            <div class="slide-counter" id="slideCounter">Slide 1 / 5</div>
             <h1>📡 Week 4: Ultrasonic Sensor Mastery</h1>
             <p style="font-size: 2em; text-align: center; color: #00ffff; margin: 40px 0;">Distance Detection & Obstacle Avoidance</p>
             
@@ -81,7 +81,7 @@
 
         <!-- Slide 2: Color Sensor Review & Application -->
         <div class="slide">
-            <div class="slide-counter">Slide 2 / 6</div>
+            <div class="slide-counter">Slide 2 / 5</div>
             <h2>📚 Review: Color Sensor Mastery</h2>
             <p style="text-align: center; font-size: 1.3em;">Building on your previous sensor experience for today's challenge</p>
             
@@ -162,7 +162,7 @@
 
         <!-- Slide 3: How Ultrasonic Sensors Work -->
         <div class="slide">
-            <div class="slide-counter">Slide 3 / 6</div>
+            <div class="slide-counter">Slide 3 / 5</div>
             <h2>🔊 How Ultrasonic Sensors Work</h2>
             
             <h3>🎵 Sound Wave Principle</h3>
@@ -227,7 +227,7 @@
 
         <!-- Slide 4: Python Implementation -->
         <div class="slide">
-            <div class="slide-counter">Slide 4 / 6</div>
+            <div class="slide-counter">Slide 4 / 5</div>
             <h2>🐍 AI Prompt: Ultrasonic Sensor Programming</h2>
             
             <h3>🎯 Your Programming Command to AI Assistant</h3>
@@ -308,31 +308,27 @@ PROGRAMMING REQUIREMENTS:
 
         <!-- Slide 5: Autonomous Navigation Challenge -->
         <div class="slide">
-            <div class="slide-counter">Slide 5 / 6</div>
-            <h2>⚡ Challenge: Autonomous Navigation</h2>
+            <div class="slide-counter">Slide 5 / 5</div>
+            <h2>⚡ Challenge: Object Detection</h2>
             <p style="text-align: center; font-size: 1.3em;">Create an intelligent robot that navigates using ultrasonic feedback!</p>
-            
+            <img src="challenge_visuals/week5_student.svg" style="margin-left: 30px;">
             <div style="background: rgba(0, 150, 255, 0.1); padding: 30px; border-radius: 20px; border: 3px solid #0099ff; margin: 20px auto; max-width: 950px;">
                 <h3 style="color: #ffffff; text-align: center; margin-bottom: 25px;">🎯 Mission Objectives</h3>
                 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
                     <div style="background: rgba(0, 150, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #0099ff;">
-                        <h4 style="color: #0099ff; margin-bottom: 15px; text-align: center;">🚗 Navigation Behavior</h4>
+                        <h4 style="color: #0099ff; margin-bottom: 15px; text-align: center;">🔍 Phase 1: Detection Behavior</h4>
                         <ul style="list-style: none; padding: 0; color: #e0e0ff;">
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Move forward until obstacle detected</li>
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Stop when object is within 15cm</li>
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Turn to find clear path</li>
-                            <li class="no-emoji">📍 Resume forward movement</li>
+                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Move forward until block is detected by the distance sensor</li>
+                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Stop once detected</li>
                         </ul>
                     </div>
                     
                     <div style="background: rgba(0, 150, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #0099ff;">
-                        <h4 style="color: #0099ff; margin-bottom: 15px; text-align: center;">📊 Distance Monitoring</h4>
+                        <h4 style="color: #0099ff; margin-bottom: 15px; text-align: center;">🚚 Phase 2: Retrieval</h4>
                         <ul style="list-style: none; padding: 0; color: #e0e0ff;">
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Continuous distance readings</li>
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Display distance on hub screen</li>
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Sound alerts for obstacles</li>
-                            <li class="no-emoji">📍 LED indicators for distance zones</li>
+                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Grab detected object with arms</li>
+                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Bring object back to starting square</li>
                         </ul>
                     </div>
                 </div>
@@ -347,15 +343,15 @@ PROGRAMMING REQUIREMENTS:
                         </div>
                         <div style="font-size: 2em;">→</div>
                         <div>
-                            <div style="font-size: 2em; margin-bottom: 5px;">🚧</div>
-                            <p style="font-size: 0.9em;">Obstacle Field</p>
-                            <p style="font-size: 0.8em; color: #aaa;">(Navigate around)</p>
+                            <div style="font-size: 2em; margin-bottom: 5px;">📦</div>
+                            <p style="font-size: 0.9em;">Object Pickup</p>
+                            <p style="font-size: 0.8em; color: #aaa;">(Detect and grab object)</p>
                         </div>
                         <div style="font-size: 2em;">→</div>
                         <div>
                             <div style="font-size: 2em; margin-bottom: 5px;">🏁</div>
                             <p style="font-size: 0.9em;">Finish Zone</p>
-                            <p style="font-size: 0.8em; color: #aaa;">(Reach without collision)</p>
+                            <p style="font-size: 0.8em; color: #aaa;">(Return back to start position)</p>
                         </div>
                     </div>
                 </div>
@@ -371,18 +367,17 @@ SENSOR CONFIGURATION:
 
 PROGRAMMING REQUIREMENTS:
 - Continuous distance monitoring
-- Forward movement until obstacle detected
-- Stop and turn when distance < 15cm
-- Resume movement in clear direction
-- Display real-time distance readings
-- Include collision avoidance logic</div>
+- Forward movement until object detected
+- Stop and turn when detected
+- Turn and use arm to grab object
+- Move back to starting position</div>
             
             <div class="survey-tip" style="margin-top: 25px;">
                 <strong>🏁 Success Criteria:</strong><br>
-                • Navigate obstacle course without collisions<br>
-                • Maintain safe 15cm stopping distance<br>
-                • Display distance readings throughout journey<br>
-                • Complete course in reasonable time<br>
+                • Detect object with distance sensor<br>
+                • Use skills from previous lessons to grab the object<br>
+                • Successfully come back to the starting position<br>
+                • Robot needs to start and finish within the starting square<br>
                 • Demonstrate smooth turning and movement
             </div>
 
@@ -393,8 +388,8 @@ PROGRAMMING REQUIREMENTS:
         </div>
 
         <!-- Slide 6: Master Challenge -->
-        <div class="slide">
-            <div class="slide-counter">Slide 6 / 6</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">Slide 6 / 5</div>
             <h2>🏆 Master Challenge: Block Detection & Retrieval</h2>
             <p style="text-align: center; font-size: 1.3em;">Ultimate integration of all sensor technologies and programming skills!</p>
             
@@ -549,7 +544,7 @@ PROGRAMMING PHASES:
                     <p style="color: #fff; margin-top: 5px;">You've mastered the fundamentals of autonomous robotics with multiple sensor coordination!</p>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="navigation">
             <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Previous</button>
@@ -593,7 +588,7 @@ PROGRAMMING PHASES:
                 bubble.style.top = '100vh'; // Start just below the visible area
                 
                 // Random animation duration
-                const duration = Math.random() * 4 + 6; // 6-10 seconds
+                const duration = Math.random() * 4 + 6; // 5-10 seconds
                 bubble.style.animation = `bubbleFloat ${duration}s linear`;
                 
                 bubblesContainer.appendChild(bubble);
