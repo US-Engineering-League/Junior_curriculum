@@ -153,91 +153,97 @@ PROGRAMMING REQUIREMENTS:
        
         <div class="slide">
             <div class="slide-counter" id="slideCounter">Slide 4 / 5</div>
-            <h2>⚡ Work Together Mission: Block Retrieval & Delivery</h2> 
+            <h2> 🛟 Run away Buoy</h2> 
+            <p style="text-align: center; font-size: 1.3em;">Oh no! A buoy floated off your dock and is floating away! Head out on your boat and grab it and bring it back to your dock.</p>
             <img src="challenge_visuals/week3_teach.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
-            <div class="two-column" style="margin: 30px 0;">
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">📦 Phase 1: Block Retrieval</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Navigate to assigned numbered square (1-6)</li>
-                        <li class="no-emoji">🔸 Use arm to grab the colored block</li>
-                        <li class="no-emoji">🔸 Each team gets different square assignment</li>
+            <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting at any RGB Logo Square(Red, Green, or Blue), a block is placed in one of the six numbered squares. Returns it to your starting square.
+
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Any RGB square that has the logo</li>
+                        <li class="no-emoji"><strong>Target Zone:</strong> Back to starting square</li>
+                        <li class="no-emoji"><strong>Objective:</strong> Block located in any of the 6 numbered squares</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Use the robot arms to retrieve the block and successfully return to starting square</li>
                     </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Pro Tip</h3>
+                        <p>Measure the distance between the starting square and the block. Start with shorter distance and gradually increase until you reach the target! Use your motor skills from previous lessons to perform the necessary actions and bring the block back!</p>
+                    </div>
                 </div>
                 
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">🚚 Phase 2: Block Delivery</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Transport block to starting area</li>
-                        <li class="no-emoji">🔸 Completed when block and robot are fully in start area</li>
-                    </ul>
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Analyze the route to the block, how to grab it, and come back<br>
+                            <strong>Step 2:</strong> Plan each movement, such as raising the arm and bringing it down<br>
+                            <strong>Step 3:</strong> Tell your plan to the AI Assistant for the code<br>
+                            <strong>Step 4:</strong> Test and adjust your path<br>
+                            <strong>Step 5:</strong> Execute the full navigation sequence
+                        </div>
+                    </div>
+                
                 </div>
             </div>
         </div>
+
 
         <!-- Slide 5: Student Challenge -->
         <div class="slide">
             <div class="slide-counter" id="slideCounter">Slide 5 / 5</div>
-            <h2>⚡ Student Mission: Block Retrieval & Delivery</h2> 
+            <h2> ⛵ Catch and Place</h2> 
+            <p style="text-align: center; font-size: 1.3em;">Another one came unattached from your dock. Head out and grab it on your boat and then bring it out to sea to be placed in a designated area for fishing!</p>
             <img src="challenge_visuals/week3_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
-            <div class="two-column" style="margin: 30px 0;">
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">📦 Phase 1: Block Retrieval</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Navigate to assigned numbered square (1-6)</li>
-                        <li class="no-emoji">🔸 Use arm to grab the colored block</li>
-                        <li class="no-emoji">🔸 Each team gets different square assignment</li>
+            <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Advanced Challenge:</strong> Starting at any RGB Square(Red, Green, or Blue), a block is placed in assigned numbered squares. Return it to the designated block color rectangle. After dropping it off, return back to the original starting box.
+
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Any RGB square that has a logo</li>
+                        <li class="no-emoji"><strong>Target Zone:</strong> Back to starting square</li>
+                        <li class="no-emoji"><strong>Objective 1:</strong> Square 3 = Red Block, Square 1 = Green Block, Square 6 = Blue Block</li>
+                        <li class="no-emoji"><strong>Objective 2:</strong> Colored rectangle that matches the color of your block</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Use the robot arms to retrieve the block, deliver it to the correct square, and successfully return to starting square</li>
                     </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Pro Tip</h3>
+                        <p>Measure the distance between the starting square and the block, as well as between the block and target colored rectangle. Make adjustments through trial and error to help you achieve your goal.</p>
+                    </div>
                 </div>
                 
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">🚚 Phase 2: Block Delivery</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Transport block to same colored zone</li>
-                        <li class="no-emoji">🔸 Red Block = Team Red delivery zone</li>
-                        <li class="no-emoji">🔸 Blue Block = Team Blue delivery zone</li>
-                        <li class="no-emoji">🔸 Green Block = Team Green delivery zone</li>
-
-                    </ul>
-                </div>
-            </div>
-
-            <div class="content-box survey-prompt"> Use the work together mission as a base to complete this challenge.
-
-MISSION PARAMETERS:
-- Your assigned pickup square: [Instructor assigns 1-6]
-- Your team delivery zone: [Red or Blue logo square]
-- Arm motor on Port C for block manipulation
-
-PROGRAMMING REQUIREMENTS:
-- Navigate to specific numbered square
-- Lower arm to grab block (arm down position)
-- Lift arm to transport height (arm middle/up)
-- Navigate to team delivery zone
-- Lower arm to place block (arm down)
-- Include error handling and status feedback</div>
-            
-            <div class="survey-tip">
-                <strong>🏁 Success Criteria:</strong><br>
-                • Successfully retrieve block from assigned square<br>
-                • Transport without dropping the block<br>
-                • Accurately place block in team's logo square<br>
-                • Complete mission in shortest time<br>
-                • Demonstrate smooth arm movements throughout
-            </div>
-
-            <div style="text-align: center; margin-top: 25px;">
-                <h3>🏆 Ready for the Challenge!</h3>
-                <p style="color: #00ffff;">Apply your arm control mastery in this exciting team competition!</p>
-                <div style="background: rgba(255, 255, 0, 0.1); padding: 15px; border-radius: 15px; border: 1px solid #ffff00; margin-top: 15px;">
-                    <p style="color: #ffff00; font-weight: bold;">🎨 Next Up: Color Sensor Integration</p>
-                    <p>Learn to combine arm positioning with color detection!</p>
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Analyze the route to the block, from the block to the target colored rectangle, and back to the starting square<br>
+                            <strong>Step 2:</strong> Plan for each step, including grabbing the block<br>
+                            <strong>Step 3:</strong> Tell the AI Assistant the steps you plan to take to get the execution code<br>
+                            <strong>Step 4:</strong> Test and adjust your path<br>
+                            <strong>Step 5:</strong> Execute the full navigation sequence
+                        </div>
+                    </div>
+                
                 </div>
             </div>
         </div>
-    </div>
+
 
     <div class="navigation">
         <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Previous</button>
