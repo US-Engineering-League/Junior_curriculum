@@ -234,15 +234,14 @@
             <div class="survey-prompt">Generate Python code for LEGO SPIKE ultrasonic sensor distance measurement.
 
 ROBOT CONFIGURATION:
+- Choose correct robot build (2025.2 USEL RoboPalooza Full Build)
 - Ultrasonic sensor connected to Port B
 - Measure distance to objects in centimeters
 - Display readings on hub screen
 
 PROGRAMMING REQUIREMENTS:
-- Import necessary LEGO SPIKE libraries
 - Create function to read distance continuously
 - Add distance threshold detection (obstacle warning)
-- Include error handling for out-of-range readings
 - Display distance values with clear formatting</div>
 
             <h3>📝 Example Student Prompt</h3>
@@ -250,44 +249,7 @@ PROGRAMMING REQUIREMENTS:
                 <button class="reveal-btn" onclick="toggleExample('example1')">🔍 Reveal Example Command</button>
                 <div id="example1" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
                     <strong>Student's Example Command:</strong><br><br>
-                    "Write Python code for a LEGO SPIKE robot with an ultrasonic sensor on Port B. I want to measure distances and show them on the hub screen. When an object is closer than 20cm, display a warning message. Include continuous reading and handle cases where nothing is detected. Make the code easy to understand with comments."
-                </div>
-            </div>
-            
-            <h3>🤖 Expected AI Response</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse1')">🔍 Reveal AI Response</button>
-                <div id="aiResponse1" class="code-block example-prompt-hidden" style="margin-top: 20px;">
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># LEGO SPIKE Ultrasonic Distance Measurement</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import distance_sensor</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import hub</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">async def measure_distance():</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    while True:</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content">        # Read distance from sensor on port B</div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">        distance = distance_sensor.distance('D')</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">        </div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content">        if distance is not None:</div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">            # Convert to centimeters</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">            distance_cm = distance / 10</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content">            </div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content">            # Check for obstacle warning</div></div>
-                        <div class="code-line"><div class="line-number">16</div><div class="line-content">            if distance_cm < 20:</div></div>
-                        <div class="code-line"><div class="line-number">17</div><div class="line-content">                hub.light_matrix.write("!")</div></div>
-                        <div class="code-line"><div class="line-number">18</div><div class="line-content">                print(f"WARNING: Object at {distance_cm:.1f}cm")</div></div>
-                        <div class="code-line"><div class="line-number">19</div><div class="line-content">            else:</div></div>
-                        <div class="code-line"><div class="line-number">20</div><div class="line-content">                hub.light_matrix.write(str(int(distance_cm)))</div></div>
-                        <div class="code-line"><div class="line-number">21</div><div class="line-content">                print(f"Distance: {distance_cm:.1f}cm")</div></div>
-                        <div class="code-line"><div class="line-number">22</div><div class="line-content">        else:</div></div>
-                        <div class="code-line"><div class="line-number">23</div><div class="line-content">            hub.light_matrix.write("?")</div></div>
-                        <div class="code-line"><div class="line-number">24</div><div class="line-content">            print("No object detected")</div></div>
-                        <div class="code-line"><div class="line-number">25</div><div class="line-content">        </div></div>
-                        <div class="code-line"><div class="line-number">26</div><div class="line-content">        await runloop.sleep_ms(500)</div></div>
-                        <div class="code-line"><div class="line-number">27</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">28</div><div class="line-content">runloop.run(measure_distance())</div></div>
-                    </div>
+                    "The robot drives forward until the distance sensor detects a block within 100mm, records how many wheel degrees it traveled, move forward 3 inches, turns right ~90°, raises the arm 45°, drives 5 in forward, lowers the arm 45°, drives 5 in backward, turns left ~90°, then drives backward the exact distance it recorded earlier plus 3 inches."
                 </div>
             </div>
             
