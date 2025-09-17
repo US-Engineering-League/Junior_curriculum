@@ -216,29 +216,6 @@ Create movement code for my robot to:
                 </div>
             </div>
             
-            <h3>🤖 Expected Response from AI Programming Assistant</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse5')">🔍 Reveal AI Response</button>
-                <div id="aiResponse5" class="code-block example-prompt-hidden" style="margin-top: 20px;">
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor_pair</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def forward_movement():</div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    # Initialize dual drive motors</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.E, port.F)</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    # Engage forward movement for 4 seconds</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    await motor_pair.move_for_time(motor_pair.PAIR_1, 4000, 0, velocity=500)</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">    # Robot stop protocol - halt all motors</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">    motor_pair.stop(motor_pair.PAIR_1)</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content">runloop.run(forward_movement())</div></div>
-                    </div>
-                </div>
-            </div>
         </div>
         <!-- Slide 2: Week 2 Objectives -->
         <div class="slide">
@@ -400,40 +377,7 @@ This is critical for advanced robotics programming - precision is everything!</d
                 <li class="no-emoji">Asks for the most precise programming method</li>
                 <li class="no-emoji">Includes calibration assistance request</li>
             </ul>
-            
-            <h3>🤖 Expected Response from AI Programming Assistant</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse8')">🔍 Reveal AI Response</button>
-                <div id="aiResponse8" class="code-block example-prompt-hidden" style="margin-top: 20px;">
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def precision_turns():</div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    # Differential drive for maximum precision</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    # Start with 600ms - adjust based on your robot's calibration</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    # LEFT 90° turn - B reverse, D forward simultaneously</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    motor.run(port.B, -500)  # Left motor reverse</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content">    motor.run(port.D, 500)   # Right motor forward</div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">    await runloop.sleep_ms(600)  # Calibrate this timing!</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">    motor.stop(port.B)</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content">    motor.stop(port.D)</div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">16</div><div class="line-content">    await runloop.sleep_ms(1000)  # Pause between turns</div></div>
-                        <div class="code-line"><div class="line-number">17</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">18</div><div class="line-content">    # RIGHT 90° turn - B forward, D reverse simultaneously</div></div>
-                        <div class="code-line"><div class="line-number">19</div><div class="line-content">    motor.run(port.B, 500)   # Left motor forward</div></div>
-                        <div class="code-line"><div class="line-number">20</div><div class="line-content">    motor.run(port.D, -500)  # Right motor reverse</div></div>
-                        <div class="code-line"><div class="line-number">21</div><div class="line-content">    await runloop.sleep_ms(600)  # Same calibration timing</div></div>
-                        <div class="code-line"><div class="line-number">22</div><div class="line-content">    motor.stop(port.B)</div></div>
-                        <div class="code-line"><div class="line-number">23</div><div class="line-content">    motor.stop(port.D)</div></div>
-                        <div class="code-line"><div class="line-number">24</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">25</div><div class="line-content">runloop.run(precision_turns())</div></div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <!-- Slide 8: Attempt Beta - Reverse Mapping -->
@@ -453,7 +397,7 @@ This is critical for advanced robotics programming - precision is everything!</d
             <div class="survey-prompt">AI Programming Assistant, your previous forward movement sequence worked perfectly! 
 
 Now I need to execute a REVERSE MOVEMENT PATTERN:
-- Same robot configuration (SPIKE, motors B & D)
+- Same robot configuration (SPIKE, motors E & F)
 - Same 4-second movement duration
 - Same speed but REVERSE direction
 - Maintain identical code structure
@@ -471,30 +415,7 @@ Which programming parameter controls motor direction? Please transmit updated mo
             
             <h3>🎯 Pro Programming Tip</h3>
             <p>AI Programming Assistant remembers your previous code! Reference successful programs to get better programming assistance.</p>
-            
-            <h3>🤖 Expected Response from AI Programming Assistant</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse6')">🔍 Reveal AI Response</button>
-                <div id="aiResponse6" class="code-block example-prompt-hidden" style="margin-top: 20px;">
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor_pair</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def reverse_movement():</div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    # Initialize dual drive motors</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.B, port.D)</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    # Engage reverse movement for 4 seconds</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    await motor_pair.move_for_time(motor_pair.PAIR_1, 4000, 0, velocity=-500)</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">    # Robot stop protocol - halt all motors</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">    motor_pair.stop(motor_pair.PAIR_1)</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content">runloop.run(reverse_movement())</div></div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
 
