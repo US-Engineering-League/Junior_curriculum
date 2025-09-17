@@ -46,7 +46,7 @@
             </div>
             
             <div class="survey-tip">
-                <strong>🎯 Learning Objectives:</strong> Master AI-assisted arm programming for object manipulation, understand motor positioning for color sensor integration, and create coordinated movement sequences for board-based challenges.
+                <strong>🎯 Learning Objectives:</strong> Master AI-assisted arm programming for object manipulation, understand motor positioning for arm motor integration, and create coordinated movement sequences for board-based challenges.
             </div>
         </div>
 
@@ -56,7 +56,7 @@
             <h2>🧠 AI Prompt: Basic Arm Control</h2>
             
             <div class="survey-tip">
-                <h4 style="color: white;"></h4><strong>🎯 Learning Objectives:</strong> Were going to Implement precise arm positioning (0°, 45°, 90°) on SPIKE using Python libraries and run_to_absolute_position(), with readable, commented code.”
+                <h4 style="color: white;"></h4><strong>🎯 Learning Objectives:</strong> Were going to Implement precise arm positioning (0°, 30°, 60°) on SPIKE using Python libraries and run_to_absolute_position(), with readable, commented code.”
             </div>
             
             <h3>🎯 Your Programming Command to AI Assistant</h3>
@@ -64,12 +64,11 @@
 
 ROBOT CONFIGURATION:
 - Arm motor is connected to Port C
-- The arm should move to three positions: 0° (down), 20° (middle), 45° (up)
+- The arm should move to three positions: 0° (down), 30° (middle), 60° (up)
 
 PROGRAMMING REQUIREMENTS:
-- Choose correct robot build (2025.2 USEL RoboPalooza Full Build)
-- Write a prompt explaining what you would like your robot to do
 - Include comments explaining each step
+- Break between each step
 - Remember to reset the arms position to 0 everytime!</div>
 
             <h3>📝 Example Student Prompt</h3>
@@ -77,35 +76,10 @@ PROGRAMMING REQUIREMENTS:
                 <button class="reveal-btn" onclick="toggleExample('example1')">🔍 Reveal Example Command</button>
                 <div id="example1" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
                     <strong>Student's Example Command:</strong><br><br>
-                    "Write me a code that will lift the arm motor upwards to 45° and stop, then lower it back down to 20° and stop and then back down to 0° and stop."
-                </div>
-            </div>
-            
-            <h3>🤖 Expected AI Response</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse1')">🔍 Reveal AI Response</button>
-                <div id="aiResponse1" class="code-block example-prompt-hidden">
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># LEGO SPIKE Robot Arm Control</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def main():</div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    reset_relative_position(port.C, 0)</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    # Move arm to up position</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content">    await motor.run_to_absolute_position('C', 40)</div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    # Move arm to middle</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    await motor.run_to_absolute_position('C', 20)</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content">    # Move arm down</div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">    await motor.run_to_absolute_position('C', 0)</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">    # Move arm down</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content">    await motor.run_to_absolute_position('C', 0)</div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">16</div><div class="line-content">runloop.run(main())</div></div>
-                </div>
-            </div>
+                    "Write me a code that will lift the arm motor upwards to 60° and stop for 1 second, then lower it back down to 30° and stop for 1 second and then back down to 0° and stop."                 </div>
+            </div>   
         </div>
-    </div>
+ 
 
         <!-- Slide 3: Motor Orientation -->
         <div class="slide">
@@ -120,9 +94,9 @@ PROGRAMMING REQUIREMENTS:
                     <h3 style="color: #ffffff; font-weight: bold;">COUNTER-CLOCKWISE = ARM UP</h3>
                     <ul style="list-style: none; padding: 0; margin-top: 15px;">
                         <li class="no-emoji">✅ Positive degree values</li>
-                        <li class="no-emoji">✅ Moving from 0° to 45°</li>
+                        <li class="no-emoji">✅ Moving from 0° to 60°</li>
                         <li class="no-emoji">✅ Lifts the arm higher</li>
-                        <li class="no-emoji">✅ As long as relative position of arm is set to 0, the highest it goes is 45°!</li>
+                        <li class="no-emoji">✅ As long as relative position of arm is set to 0, the highest it goes is 60°!</li>
                     </ul>
                 </div>
                 
@@ -131,7 +105,7 @@ PROGRAMMING REQUIREMENTS:
                     <h3 style="color: #ffffff; font-weight: bold;">CLOCKWISE = ARM DOWN</h3>
                     <ul style="list-style: none; padding: 0; margin-top: 15px;">
                         <li class="no-emoji">✅ Decreasing degree values</li>
-                        <li class="no-emoji">✅ Moving from 45° to 0°</li>
+                        <li class="no-emoji">✅ Moving from 60° to 0°</li>
                         <li class="no-emoji">✅ Lowers the arm</li>
                     </ul>
                 </div>
@@ -142,9 +116,9 @@ PROGRAMMING REQUIREMENTS:
                 <div style="display: flex; justify-content: space-around; margin-top: 20px;">
                     <div><p style="font-size: 2em;">0°</p><p>Arm Down</p></div>
                     <div style="font-size: 2em;">→</div>
-                    <div><p style="font-size: 2em;">20°</p><p>Arm Middle</p></div>
+                    <div><p style="font-size: 2em;">30°</p><p>Arm Middle</p></div>
                     <div style="font-size: 2em;">→</div>
-                    <div><p style="font-size: 2em;">45°</p><p>Arm Up</p></div>
+                    <div><p style="font-size: 2em;">60°</p><p>Arm Up</p></div>
                 </div>
             </div>
             
@@ -194,11 +168,17 @@ PROGRAMMING REQUIREMENTS:
                             <strong>Step 4:</strong> Test and adjust your path<br>
                             <strong>Step 5:</strong> Execute the full navigation sequence
                         </div>
-                    </div>
-                
+                    </div>  
+                    
+                    <div style="margin-top: 20px;">
+                        <button class="reveal-btn" onclick="toggleExample('advancedPrompt')" style="margin: 0 0 15px 0;">📝 Show AI Assistant Prompt</button>
+                        <div id="advancedPrompt" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080); margin-top: 0;">
+                            <strong>AI Assistant Prompt:</strong><br><br>
+                            The robot drives 7 inches backward, drives 3 inches forward, makes a ~90° left turn, drives 3 inches forward, makes a ~90° right turn, drives 23 inches forward, makes another ~90° right turn, lifts the arm 45°, drives 6 inches forward, lowers the arm 45°, drives 4 inches backward, makes a final ~90° right turn, drives 18 inches forward, and then shows the happy icon.                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
         <!-- Slide 5: Student Challenge -->
@@ -243,7 +223,13 @@ PROGRAMMING REQUIREMENTS:
                             <strong>Step 5:</strong> Execute the full navigation sequence
                         </div>
                     </div>
-                
+
+                     <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example8')">🔍 Reveal Example Command</button>
+                        <div id="example8" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                        Only using the master file: Turn right 90° and drive 6 inches; reverse 1.5 inches and turn left 90°; lift the arm and drive 80 inches, then lower the arm; turn left 90° and reverse 3 inches; drive 41 inches forward; reverse 1.5 inches; turn right 94°; reverse 40 inches, make a 5° left tweak, lift the arm, then reverse another 55 inches; drive forward 15 cm; turn right 90°; finally, drive 28 inches forward.                        </div>
+                    </div>
                 </div>
             </div>
         </div>
