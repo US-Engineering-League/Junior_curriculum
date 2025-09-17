@@ -3,7 +3,7 @@
 </head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocean Robotics Adventure - AI Survey Control</title>
+    <title>Lesson 1 Robot Movement</title>
     <link rel="stylesheet" href="Junior_Styles.css">
 </head>
 <body>
@@ -19,10 +19,10 @@
         <div class="slide active">
             <div class="slide-counter" id="slideCounter">Slide 1 / 13</div>
             <h1>Lego Robot Movements</h1>
-            <div style="text-align: center; margin-top: 40px;">
+            <div style="text-align: center; margin-top: 60px;">
                 <div class="terrain-highlight" style="font-size: 2em;">🤖 AI Robot Control Station 🫧</div>
                 <p style="font-size: 1.8em; margin-top: 30px; color: #00ccff;">Program Advanced Robots Movements with Your AI Assistant!</p>
-                <p style="font-size: 1.4em; margin-top: 20px; color: #66ccff;">Motors B & D • AI Programming Assistant Required</p>
+                <p style="font-size: 1.4em; margin-top: 20px; color: #66ccff;">Motors E & F • AI Programming Assistant Required</p>
                 
                 <div style="margin-top: 40px; font-size: 1.2em; color: #e0e0ff;">
                     <p>🤖 Welcome, Robot Engineer! Today you'll command advanced robots using only your instructions and AI Programming Technology! 🌊</p>
@@ -60,7 +60,7 @@
             </div>
             
             <div class="survey-tip" style="margin-top: 30px; text-align: center;">
-                <strong>Today's Focus:</strong> Foundation skills in AI-assisted robot programming using LEGO SPIKE motors B & D for movement control
+                <strong>Today's Focus:</strong> Foundation skills in AI-assisted robot programming using LEGO SPIKE motors E & F for movement control
             </div>
         </div>
 
@@ -129,8 +129,8 @@
                 <div>
                     <h3>🔧 Robot Specifications</h3>
                     <ul>
-                        <li class="no-emoji"><strong>Left Motor:</strong> Motor Port B</li>
-                        <li class="no-emoji"><strong>Right Motor:</strong> Motor Port D</li>
+                        <li class="no-emoji"><strong>Left Motor:</strong> Motor Port E</li>
+                        <li class="no-emoji"><strong>Right Motor:</strong> Motor Port F</li>
                         <li class="no-emoji"><strong>Mission:</strong> Execute complex movement patterns</li>
                         <li class="no-emoji"><strong>Special Ability:</strong> Follows AI Programming commands!</li>
                     </ul>
@@ -141,7 +141,7 @@
                 </div>
                 <div style="text-align: center; font-size: 8em; opacity: 0.8;">
                     🤖<br>
-                    <span style="font-size: 0.3em; color: #00ccff;">B ← → D</span><br>
+                    <span style="font-size: 0.3em; color: #00ccff;">E ← → F</span><br>
                     <span style="font-size: 0.2em; color: #66ccff;">Advanced Robot Model AR-1 🌊</span>
                 </div>
             </div>
@@ -163,7 +163,7 @@
                     <h4>🤖 DO Send These Details:</h4>
                     <ul style="color: #fff; font-weight: 600;">
                         <li class="no-emoji">Robot type: LEGO SPIKE robot</li>
-                        <li class="no-emoji">Drive motors: B and D</li>
+                        <li class="no-emoji">Drive motors: E and F</li>
                         <li class="no-emoji">Clear programming objective</li>
                         <li class="no-emoji">Python programming language</li>
                         <li class="no-emoji">Distance or time specifications</li>
@@ -191,29 +191,28 @@
             <div class="survey-prompt">Greetings AI Programming Assistant! I need coding help for my LEGO SPIKE robot.
 
 ROBOT SETUP:
-- Left drive motor: Port B
-- Right drive motor: Port D
+- Left drive motor: Port E
+- Right drive motor: Port F
 - Using SPIKE 3 Python programming system
 
 PROGRAMMING REQUEST:
 Create movement code for my robot to:
 
-1. Synchronize dual drive motors for coordinated movement
+1. Pair motors for coordinated movement
 
-2. Move forward for exactly 4 seconds at steady speed
+2. Move forward for exactly 4 seconds at 50% speed
 
 3. Execute stop protocol
 
-4. Use proper robot programming structure
-
-Requesting complete forward movement code!</div>
+4. Use proper robot programming structure 
+</div>
             
             <h3>📝 Example Student Prompt</h3>
             <div class="example-prompt-container">
                 <button class="reveal-btn" onclick="toggleExample('example5')">🔍 Reveal Example Command</button>
                 <div id="example5" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
                     <strong>Student's Example Command:</strong><br><br>
-                    "Hi AI! I have a LEGO SPIKE robot with motors on ports B (left) and D (right). I need Python code to make it move forward for 4 seconds. Please use the SPIKE 3 async functions with motor_pair. The robot should move straight at a moderate speed and then stop. Can you show me the complete program with proper imports?"
+                    "Hi AI! I have a LEGO SPIKE robot with motors on ports E (left) and F (right). I need Python code to make it move forward for 4 seconds. Please use the SPIKE 3 async functions with motor_pair. The robot should move straight at a moderate speed and then stop. Can you show me the complete program with proper imports?"
                 </div>
             </div>
             
@@ -228,7 +227,7 @@ Requesting complete forward movement code!</div>
                         <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">5</div><div class="line-content">async def forward_movement():</div></div>
                         <div class="code-line"><div class="line-number">6</div><div class="line-content">    # Initialize dual drive motors</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.B, port.D)</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.E, port.F)</div></div>
                         <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">9</div><div class="line-content">    # Engage forward movement for 4 seconds</div></div>
                         <div class="code-line"><div class="line-number">10</div><div class="line-content">    await motor_pair.move_for_time(motor_pair.PAIR_1, 4000, 0, velocity=500)</div></div>
@@ -290,7 +289,7 @@ Requesting complete forward movement code!</div>
                                 <span style="display: inline-block; transform: rotate(-90deg);">🤖</span>
                             </div>
                             <p style="color: #0099ff; font-weight: bold;">LEFT 90°</p>
-                            <p style="font-size: 0.9em; color: #e0e0ff;">Motor B: Backward<br>Motor D: Forward</p>
+                            <p style="font-size: 0.9em; color: #e0e0ff;">Motor E: Backward<br>Motor F: Forward</p>
                         </div>
                         
                         <div style="text-align: center;">
@@ -300,7 +299,7 @@ Requesting complete forward movement code!</div>
                                 <span style="display: inline-block; transform: rotate(90deg);">🤖</span>
                             </div>
                             <p style="color: #0099ff; font-weight: bold;">RIGHT 90°</p>
-                            <p style="font-size: 0.9em; color: #e0e0ff;">Motor B: Forward<br>Motor D: Backward</p>
+                            <p style="font-size: 0.9em; color: #e0e0ff;">Motor E: Forward<br>Motor F: Backward</p>
                         </div>
                     </div>
                     
@@ -321,7 +320,7 @@ Requesting complete forward movement code!</div>
                                 <span style="display: inline-block; transform: rotate(180deg);">🤖</span>
                             </div>
                             <p style="color: #0099ff; font-weight: bold;">LEFT 180°</p>
-                            <p style="font-size: 0.9em; color: #e0e0ff;">Motor B: Backward<br>Motor D: Forward<br>(2x duration of 90°)</p>
+                            <p style="font-size: 0.9em; color: #e0e0ff;">Motor E: Backward<br>Motor F: Forward<br>(2x duration of 90°)</p>
                         </div>
                         
                         <div style="text-align: center;">
@@ -331,7 +330,7 @@ Requesting complete forward movement code!</div>
                                 <span style="display: inline-block; transform: rotate(180deg);">🤖</span>
                             </div>
                             <p style="color: #0099ff; font-weight: bold;">RIGHT 180°</p>
-                            <p style="font-size: 0.9em; color: #e0e0ff;">Motor B: Forward<br>Motor D: Backward<br>(2x duration of 90°)</p>
+                            <p style="font-size: 0.9em; color: #e0e0ff;">Motor E: Forward<br>Motor F: Backward<br>(2x duration of 90°)</p>
                         </div>
                     </div>
                     
@@ -353,11 +352,11 @@ Requesting complete forward movement code!</div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
                     <div style="text-align: center;">
                         <p style="color: #ffffff; font-weight: bold; margin-bottom: 10px;">↶ Turn LEFT</p>
-                        <p style="color: #e0e0ff;">Motor B (left): Reverse ⬅️<br>Motor D (right): Forward ➡️</p>
+                        <p style="color: #e0e0ff;">Motor E (left): Reverse ⬅️<br>Motor F (right): Forward ➡️</p>
                     </div>
                     <div style="text-align: center;">
                         <p style="color: #ffffff; font-weight: bold; margin-bottom: 10px;">↷ Turn RIGHT</p>
-                        <p style="color: #e0e0ff;">Motor B (left): Forward ➡️<br>Motor D (right): Reverse ⬅️</p>
+                        <p style="color: #e0e0ff;">Motor E (left): Forward ➡️<br>Motor F (right): Reverse ⬅️</p>
                     </div>
                 </div>
             </div>
@@ -373,7 +372,7 @@ Requesting complete forward movement code!</div>
 
 SITUATION: My robot must execute precise navigation maneuvers with EXACT 90-degree turns for advanced robotics challenges.
 
-ROBOT SPECS: LEGO SPIKE, motors B (left) and D (right)
+ROBOT SPECS: LEGO SPIKE, motors E (left) and F (right)
 
 PROGRAMMING REQUIREMENTS:
 1. Execute LEFT turn exactly 90 degrees
@@ -439,7 +438,7 @@ This is critical for advanced robotics programming - precision is everything!</d
 
         <!-- Slide 8: Attempt Beta - Reverse Mapping -->
         <div class="slide">
-            <div class="slide-counter">Slide 11 / 13</div>
+            <div class="slide-counter">Slide 10 / 13</div>
             <h2>⬅️ Programming Beta: Reverse Movement</h2>
             
             <h3>🛑 Robot Engineer Learning Moment</h3>
@@ -499,9 +498,9 @@ Which programming parameter controls motor direction? Please transmit updated mo
         </div>
 
 
-        <!-- Slide 7: Robot Challenge - Mat Navigation -->
+        <!-- Slide 11: Robot Challenge - Mat Navigation -->
         <div class="slide">
-            <div class="slide-counter">Slide 10 / 13</div>
+            <div class="slide-counter">Slide 11 / 13</div>
             <h2>🐟 Dinner Gathering</h2>
             <p style="text-align: center; font-size: 1.3em;">Starting at your dock, sail over to your neighbors to pick them up for dinner then head back home!</p>
 
@@ -541,64 +540,7 @@ Which programming parameter controls motor direction? Please transmit updated mo
                         <button class="reveal-btn" onclick="toggleExample('advancedPrompt')" style="margin: 0 0 15px 0;">📝 Show AI Assistant Prompt</button>
                         <div id="advancedPrompt" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080); margin-top: 0;">
                             <strong>AI Assistant Prompt:</strong><br><br>
-                            "Write a SPIKE 3 Python program that creates a robot movement sequence using motor_pair. The robot should:
-                            Set up a motor pair on ports E and F Define conversion functions for inches to motor degrees and turn angle calculations Execute this sequence of movements: Move forward 75 inches, Turn left 115 degrees Move forward 25 inches Turn left 140 degrees Move forward 80 inches
-                            Use these robot specifications:
-                            Wheel diameter: 56mm Axle width: 120mm Forward movement velocity: 720 deg/s Turn velocity: 360 deg/s
-                            Include proper async/await structure with runloop."
-                        </div>
-                        
-                        <button class="reveal-btn" onclick="toggleExample('advancedCode')" style="margin: 15px 0;">🔍 Show Advanced Movement Code</button>
-                        <div id="advancedCode" class="code-block example-prompt-hidden" style="margin-top: 0; font-size: 0.9em;">
-                            <div class="code-with-lines">
-                                <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
-                                <div class="code-line"><div class="line-number">2</div><div class="line-content">import motor_pair</div></div>
-                                <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
-                                <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">5</div><div class="line-content">async def main():</div></div>
-                                <div class="code-line"><div class="line-number">6</div><div class="line-content">**   # Pair the motors on ports E and F**</div></div>
-                                <div class="code-line"><div class="line-number">7</div><div class="line-content">   motor_pair.pair(motor_pair.PAIR_1, port.E, port.F)</div></div>
-                                <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">9</div><div class="line-content">**   # Robot specifications (you may need to adjust these values)**</div></div>
-                                <div class="code-line"><div class="line-number">10</div><div class="line-content">   wheel_diameter = 56# mm (standard SPIKE wheel)</div></div>
-                                <div class="code-line"><div class="line-number">11</div><div class="line-content">   wheel_circumference = wheel_diameter * 3.14159</div></div>
-                                <div class="code-line"><div class="line-number">12</div><div class="line-content">   axle_width = 120# mm (distance between wheels - adjust for your robot)</div></div>
-                                <div class="code-line"><div class="line-number">13</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">14</div><div class="line-content">   # Convert inches to degrees of wheel rotation</div></div>
-                                <div class="code-line"><div class="line-number">15</div><div class="line-content">   def inches_to_degrees(inches):</div></div>
-                                <div class="code-line"><div class="line-number">16</div><div class="line-content">       mm = inches * 25.4# Convert inches to millimeters</div></div>
-                                <div class="code-line"><div class="line-number">17</div><div class="line-content">       return int((mm / wheel_circumference) * 360)</div></div>
-                                <div class="code-line"><div class="line-number">18</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">19</div><div class="line-content">   # Calculate turn degrees based on robot geometry</div></div>
-                                <div class="code-line"><div class="line-number">20</div><div class="line-content">   def turn_degrees(angle_degrees):</div></div>
-                                <div class="code-line"><div class="line-number">21</div><div class="line-content">       # Arc length for the turn</div></div>
-                                <div class="code-line"><div class="line-number">22</div><div class="line-content">       arc_length = (angle_degrees / 360) * 3.14159 * axle_width</div></div>
-                                <div class="code-line"><div class="line-number">23</div><div class="line-content">       return int((arc_length / wheel_circumference) * 360)</div></div>
-                                <div class="code-line"><div class="line-number">24</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">25</div><div class="line-content">   # Movement 1: Go forward 90 inches</div></div>
-                                <div class="code-line"><div class="line-number">26</div><div class="line-content">   forward_90_degrees = inches_to_degrees(80)</div></div>
-                                <div class="code-line"><div class="line-number">27</div><div class="line-content">    await motor_pair.move_for_degrees(motor_pair.PAIR_1, forward_90_degrees, 0,velocity=720)</div></div>
-                                <div class="code-line"><div class="line-number">28</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">29</div><div class="line-content">   # Movement 2: Turn left 90 degrees</div></div>
-                                <div class="code-line"><div class="line-number">30</div><div class="line-content">   turn_90_degrees = turn_degrees(105)</div></div>
-                                <div class="code-line"><div class="line-number">31</div><div class="line-content">   await motor_pair.move_for_degrees(</div></div>
-                                <div class="code-line"><div class="line-number">32</div><div class="line-content">       motor_pair.PAIR_1, turn_90_degrees,-100,velocity=360)</div></div>
-                                <div class="code-line"><div class="line-number">33</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">34</div><div class="line-content">   # Movement 3: Go forward 40 inches</div></div>
-                                <div class="code-line"><div class="line-number">35</div><div class="line-content">   forward_40_degrees = inches_to_degrees(30)</div></div>
-                                <div class="code-line"><div class="line-number">36</div><div class="line-content">   await motor_pair.move_for_degrees(motor_pair.PAIR_1, forward_40_degrees ,0 , velocity=720)</div></div>
-                                <div class="code-line"><div class="line-number">37</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">38</div><div class="line-content">   # Movement 4: Turn 135 degrees (assuming right turn)</div></div>
-                                <div class="code-line"><div class="line-number">39</div><div class="line-content">   turn_135_degrees = turn_degrees(-140)</div></div>
-                                <div class="code-line"><div class="line-number">40</div><div class="line-content">   await motor_pair.move_for_degrees(motor_pair.PAIR_1, Turn_135_degrees, 100, velocity=360 )</div></div>
-                                <div class="code-line"><div class="line-number">41</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">42</div><div class="line-content">   # Movement 5: Go forward 130 inches</div></div>
-                                <div class="code-line"><div class="line-number">43</div><div class="line-content">   forward_130_degrees = inches_to_degrees(85)</div></div>
-                                <div class="code-line"><div class="line-number">44</div><div class="line-content">   await motor_pair.move_for_degrees(motor_pair.PAIR_1,forward_130_degrees, 0,velocity=720)</div></div>
-                                <div class="code-line"><div class="line-number">45</div><div class="line-content"></div></div>
-                                <div class="code-line"><div class="line-number">46</div><div class="line-content"># Run the program</div></div>
-                                <div class="code-line"><div class="line-number">47</div><div class="line-content">runloop.run(main())</div></div>
-                            </div>
+                            From the red square facing the blue square, the robot drives 5 inches backward, then 36 inches forward, turns right 90°, drives 11 inches backward, drives 81 inches forward, drives 75 inches backward, turns left 90°, drives 6 inches forward, and drives 35 inches backward.
                         </div>
                     </div>
                     
@@ -610,7 +552,7 @@ Which programming parameter controls motor direction? Please transmit updated mo
         </div>
 
         
-        <!-- Slide 9: Ultimate Challenge - Obstacle Navigation -->
+        <!-- Slide 12: Ultimate Challenge - Obstacle Navigation -->
         <div class="slide">
             <div class="slide-counter">Slide 12 / 13</div>
             <h2>🛥️ Dock Escape</h2>
@@ -652,6 +594,14 @@ Which programming parameter controls motor direction? Please transmit updated mo
                         </div>
                     </div>
                     
+                     <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example8')">🔍 Reveal Example Command</button>
+                        <div id="example8" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "From the start icon, the robot drives 5 inches backward, drives 10 inches forward, turns right ~45°, drives 34 inches forward, turns right ~45°, drives 15 inches forward, turns right ~90°, drives 28 inches forward, turns left ~90°, drives 15 inches forward, turns left ~45°, drives 31 inches forward, turns left ~45°, drives 6 inches forward, then shows the happy icon and beeps."                     
+                        </div>
+                    </div>
+
                     <h3>🛡️ Safety Protocol</h3>
                     <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
                         <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
@@ -661,15 +611,16 @@ Which programming parameter controls motor direction? Please transmit updated mo
                             <li class="no-emoji">🤝 Team collaboration recommended</li>
                         </ul>
                     </div>
-                    
+            
                     <div style="text-align: center; margin-top: 20px; font-size: 4em; opacity: 0.6;">
-                        🤖🚧➡️🏁
+                            🤖🚧➡️🏁
                     </div>
+
                 </div>
             </div>
         </div>
 
-        <!-- Slide 10: Day's Accomplishments -->
+        <!-- Slide 13: Day's Accomplishments -->
         <div class="slide">
             <div class="slide-counter">Slide 13 / 13</div>
             <h2>🎉 Today's Robot Programming Accomplishments</h2>

@@ -17,7 +17,7 @@
 
         <!-- Slide 1: Title Slide -->
         <div class="slide active">
-            <div class="slide-counter" id="slideCounter">Slide 1 / 9</div>
+            <div class="slide-counter" id="slideCounter">Slide 1 / 8</div>
             <h1>👁️ LEGO SPIKE Color Sensor</h1>
             <p style="font-size: 2em; text-align: center; color: #00ffff; margin: 40px 0;">Master AI-Assisted Color Detection Programming</p>
             
@@ -28,15 +28,13 @@
                         <span class="terrain-emoji">👁️</span>
                         <h3 style="color: white;">Color Sensor</h3>
                         <p><span style="background: linear-gradient(45deg, #00ffff, #ff00ff); padding: 5px 12px; border-radius: 20px; color: #000; font-weight: 700; margin: 3px;">Port A</span></p>
-                        <p>Advanced color and light detection</p>
+                        <p>Advanced color detection</p>
                     </div>
                     <div class="objective-card">
                         <span class="terrain-emoji">🎯</span>
                         <h3 style="color: white;">Primary Use Cases</h3>
                         <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9em;">
                             <li class="no-emoji" style="margin-bottom: 8px;">• Color identification & sorting</li>
-                            <li class="no-emoji" style="margin-bottom: 8px;">• Light intensity measurement</li>
-                            <li class="no-emoji" style="margin-bottom: 8px;">• Line following (black/white)</li>
                             <li class="no-emoji" style="margin-bottom: 8px;">• Object detection & recognition</li>
                             <li class="no-emoji">• Environmental light sensing</li>
                         </ul>
@@ -60,7 +58,7 @@
 
         <!-- Slide 2: Learning Objectives -->
         <div class="slide">
-            <div class="slide-counter">Slide 2 / 9</div>
+            <div class="slide-counter">Slide 2 / 8</div>
             <h2>Today's Learning Objectives</h2>
             
             <p style="text-align: center; font-size: 1.4em; color: #00ffff; margin-bottom: 40px;">By the end of this lesson, you will master AI-assisted color sensor programming</p>
@@ -149,7 +147,7 @@
 
         <!-- Slide 3: Understanding Color Sensor Modes -->
         <div class="slide">
-            <div class="slide-counter">Slide 3 / 9</div>
+            <div class="slide-counter">Slide 3 / 8</div>
             <h2>Understanding the Color Sensor</h2>
             
             <h3 style="text-align: center;">🌈 How the LEGO Color Sensor Works</h3>
@@ -249,7 +247,7 @@
 
         <!-- Slide 4: Basic Color Detection -->
         <div class="slide">
-            <div class="slide-counter">Slide 4 / 9</div>
+            <div class="slide-counter">Slide 4 / 8</div>
             <h2>🧠 AI Prompt: Basic Color Detection</h2>
             
             <h3>🎯 Your Programming Command to AI Assistant</h3>
@@ -305,84 +303,10 @@ SPECIFIC RESPONSES NEEDED:
             </div>
         </div>
 
-        <!-- Slide 5: Light Intensity Programming -->
+
+        <!-- Slide 5: Final Challenge -->
         <div class="slide">
-            <div class="slide-counter">Slide 5 / 9</div>
-            <h2>⚡ AI Prompt: Light Intensity Detection</h2>
-            
-            <h3>🎯 Your Programming Command to AI Assistant</h3>
-            <div class="survey-prompt">Create Python code for LEGO SPIKE light intensity measurement using Port A sensor.
-
-REQUIREMENTS:
-- Use color_sensor.reflection() to measure brightness
-- Create threshold-based detection (0-100 scale)
-- Dark surfaces: intensity < 30
-- Medium surfaces: intensity 30-70  
-- Bright surfaces: intensity > 70
-- Include continuous monitoring with delays
-- Add intensity value display in print statements
-
-ADVANCED FEATURES:
-- Calculate average intensity over multiple readings
-- Detect sudden brightness changes
-- Create line-following logic for black/white detection</div>
-
-            <h3>📝 Example Student Prompt</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('example4')">🔍 Reveal Example Command</button>
-                <div id="example4" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
-                    <strong>Student's Example Command:</strong><br><br>
-                    "AI, I need my robot to follow a black line on white paper. The sensor is on port A. Can you write code that checks if it sees dark or light? Use numbers to measure brightness and make it good for line following. Show me the brightness values too so I can see what's happening."
-                </div>
-            </div>
-            
-            <h3>🤖 Expected AI Response</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse4')">🔍 Reveal AI Response</button>
-                <div id="aiResponse4" class="code-block example-prompt-hidden" style="margin-top: 20px;">
-                    <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content"># Light Intensity Line Following</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import color_sensor</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content">async def line_follower():</div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    while True:</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">        intensity = await color_sensor.reflection('A')</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content">        print(f"Light intensity: {intensity}")</div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">        </div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">        if intensity < 30:</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content">            print("On black line - continue straight")</div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">        elif intensity > 70:</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">            print("On white surface - turn to find line")</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content">        else:</div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content">            print("On line edge - adjust slightly")</div></div>
-                        <div class="code-line"><div class="line-number">16</div><div class="line-content">        </div></div>
-                        <div class="code-line"><div class="line-number">17</div><div class="line-content">        await runloop.sleep_ms(200)</div></div>
-                        <div class="code-line"><div class="line-number">18</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">19</div><div class="line-content">runloop.run(line_follower())</div></div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top: 30px;">
-                <h4>🎯 Simple AI Prompts for Each Mode</h4>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                    <div style="background: rgba(0, 255, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #00ffff;">
-                        <h4 style="color: #00ffff;">Color Detection Quick Prompt:</h4>
-                        <p style="font-size: 1.0em; margin-top: 10px;">"Write Python code for LEGO SPIKE to detect colors using the sensor on port A. Make it print different messages for red, green, and blue colors."</p>
-                    </div>
-                    
-                    <div style="background: rgba(0, 255, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #00ffff;">
-                        <h4 style="color: #00ffff;">Light Intensity Quick Prompt:</h4>
-                        <p style="font-size: 1.0em; margin-top: 10px;">"Write Python code for LEGO SPIKE to measure light brightness using the sensor on port A. Make it detect if a surface is dark (below 30) or bright (above 70)."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 6: Final Challenge -->
-        <div class="slide">
-            <div class="slide-counter">Slide 6 / 9</div>
+            <div class="slide-counter">Slide 5 / 8</div>
             <h2>🏆 Final Objective: Smart Color Sorting System</h2>
             
             <h3>🤖 Robot Mission Briefing</h3>
@@ -589,9 +513,9 @@ PROGRAMMING REQUIREMENTS:
             </div>
         </div>
 
-        <!-- Slide 7: Teacher Mission -->
+        <!-- Slide 6: Teacher Mission -->
         <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 7 / 9</div>
+            <div class="slide-counter" id="slideCounter">Slide 6 / 8</div>
             <h2>⚡ Find the color!</h2> 
             <img src="challenge_visuals/week4_teacher.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
@@ -616,7 +540,7 @@ PROGRAMMING REQUIREMENTS:
 
         <!-- Slide 8: Student Mission -->
         <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 8 / 9</div>
+            <div class="slide-counter" id="slideCounter">Slide 7 / 8</div>
             <h2>⚡ Deliver the color!</h2> 
             <img src="challenge_visuals/week4_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
@@ -640,9 +564,9 @@ PROGRAMMING REQUIREMENTS:
             </div>
         </div>
 
-        <!-- Slide 9: Course Completion -->
+        <!-- Slide 8: Course Completion -->
         <div class="slide">
-            <div class="slide-counter">Slide 9 / 9</div>
+            <div class="slide-counter">Slide 8 / 8</div>
             <h1 style="text-align: center;">🎓 Course Complete - Color Sensor Expert!</h1>
             
             <div style="margin: 40px 0;">
