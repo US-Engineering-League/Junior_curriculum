@@ -28,7 +28,7 @@
                     <div class="objective-card">
                         <span class="terrain-emoji">📡</span>
                         <h3 style="color: white;">Ultrasonic Sensor</h3>
-                        <p><span style="background: linear-gradient(45deg, #00ffff, #ff00ff); padding: 5px 12px; border-radius: 20px; color: #000; font-weight: 700; margin: 3px;">Port D</span></p>
+                        <p><span style="background: linear-gradient(45deg, #00ffff, #ff00ff); padding: 5px 12px; border-radius: 20px; color: #000; font-weight: 700; margin: 3px;">Port B</span></p>
                         <p>Distance measurement & detection</p>
                     </div>
                     <div class="objective-card">
@@ -91,7 +91,7 @@
                     <div style="background: rgba(0, 150, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #005a99;">
                         <h4 style="color: #ffffff; margin-bottom: 15px;">✅ What You've Learned</h4>
                         <ul style="list-style: none; padding: 0; color: #e0e0ff;">
-                            <li class="no-emoji" style="margin-bottom: 12px;">🔸 Connected to Port D</li>
+                            <li class="no-emoji" style="margin-bottom: 12px;">🔸 Connected to Port B</li>
                             <li class="no-emoji" style="margin-bottom: 12px;">🔸 Detected block colors accurately</li>
                             <li class="no-emoji" style="margin-bottom: 12px;">🔸 Used light reflection principles</li>
                             <li class="no-emoji" style="margin-bottom: 12px;">🔸 Coordinated with arm positioning</li>
@@ -234,7 +234,7 @@
             <div class="survey-prompt">Generate Python code for LEGO SPIKE ultrasonic sensor distance measurement.
 
 ROBOT CONFIGURATION:
-- Ultrasonic sensor connected to Port D
+- Ultrasonic sensor connected to Port B
 - Measure distance to objects in centimeters
 - Display readings on hub screen
 
@@ -250,7 +250,7 @@ PROGRAMMING REQUIREMENTS:
                 <button class="reveal-btn" onclick="toggleExample('example1')">🔍 Reveal Example Command</button>
                 <div id="example1" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
                     <strong>Student's Example Command:</strong><br><br>
-                    "Write Python code for a LEGO SPIKE robot with an ultrasonic sensor on Port D. I want to measure distances and show them on the hub screen. When an object is closer than 20cm, display a warning message. Include continuous reading and handle cases where nothing is detected. Make the code easy to understand with comments."
+                    "Write Python code for a LEGO SPIKE robot with an ultrasonic sensor on Port B. I want to measure distances and show them on the hub screen. When an object is closer than 20cm, display a warning message. Include continuous reading and handle cases where nothing is detected. Make the code easy to understand with comments."
                 </div>
             </div>
             
@@ -266,7 +266,7 @@ PROGRAMMING REQUIREMENTS:
                         <div class="code-line"><div class="line-number">5</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">6</div><div class="line-content">async def measure_distance():</div></div>
                         <div class="code-line"><div class="line-number">7</div><div class="line-content">    while True:</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content">        # Read distance from sensor on port D</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">        # Read distance from sensor on port B</div></div>
                         <div class="code-line"><div class="line-number">9</div><div class="line-content">        distance = distance_sensor.distance('D')</div></div>
                         <div class="code-line"><div class="line-number">10</div><div class="line-content">        </div></div>
                         <div class="code-line"><div class="line-number">11</div><div class="line-content">        if distance is not None:</div></div>
@@ -361,8 +361,8 @@ PROGRAMMING REQUIREMENTS:
             <div class="survey-prompt">Program your LEGO SPIKE robot for autonomous navigation using ultrasonic sensor.
 
 SENSOR CONFIGURATION:
-- Ultrasonic sensor on Port D
-- Drive motors on Ports A and B
+- Ultrasonic sensor on Port B
+- Drive motors on Ports E and F
 - Hub LEDs for status indication
 
 PROGRAMMING REQUIREMENTS:
@@ -502,7 +502,7 @@ PROGRAMMING REQUIREMENTS:
             <div class="survey-prompt">Create a comprehensive robot program combining all sensor technologies.
 
 REQUIRED SENSORS & ACTUATORS:
-- Ultrasonic sensor (Port D) for distance detection
+- Ultrasonic sensor (Port B) for distance detection
 - Color sensor for block identification
 - Arm motor (Port C) for block manipulation
 - Drive motors (Ports A & B) for navigation

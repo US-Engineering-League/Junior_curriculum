@@ -64,20 +64,20 @@
 
 ROBOT CONFIGURATION:
 - Arm motor is connected to Port C
-- The arm should move to three positions: 0° (down), 45° (middle), 90° (up)
+- The arm should move to three positions: 0° (down), 20° (middle), 45° (up)
 
 PROGRAMMING REQUIREMENTS:
-- Import the necessary LEGO SPIKE libraries
-- Create functions to move the arm to each position
-- Use the run_to_absolute_position() method for precision control
-- Include comments explaining each step</div>
+- Choose correct robot build (2025.2 USEL RoboPalooza Full Build)
+- Write a prompt explaining what you would like your robot to do
+- Include comments explaining each step
+- Remember to reset the arms position to 0 everytime!</div>
 
             <h3>📝 Example Student Prompt</h3>
             <div class="example-prompt-container">
                 <button class="reveal-btn" onclick="toggleExample('example1')">🔍 Reveal Example Command</button>
                 <div id="example1" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
                     <strong>Student's Example Command:</strong><br><br>
-                    "Write Python code for a LEGO SPIKE robot to control an arm motor on Port C. The arm should move to three positions: 0 degrees (down), 45 degrees (middle), and 90 degrees (up). Import the necessary LEGO SPIKE libraries, use the run_to_absolute_position() method, and include comments explaining each step. Make the code ready to run on LEGO SPIKE 3 Education App."
+                    "Write me a code that will lift the arm motor upwards to 45° and stop, then lower it back down to 20° and stop and then back down to 0° and stop."
                 </div>
             </div>
             
@@ -91,14 +91,17 @@ PROGRAMMING REQUIREMENTS:
                         <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop</div></div>
                         <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">5</div><div class="line-content">async def main():</div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    # Move arm to up position</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    await motor.run_to_absolute_position('C', 90)</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content">    # Move arm to middle</div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    await motor.run_to_absolute_position('C', 45)</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    # Move arm down</div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content">    await motor.run_to_absolute_position('C', 0)</div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">runloop.run(main())</div></div>
+                        <div class="code-line"><div class="line-number">6</div><div class="line-content">    reset_relative_position(port.C, 0)</div></div>
+                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    # Move arm to up position</div></div>
+                        <div class="code-line"><div class="line-number">8</div><div class="line-content">    await motor.run_to_absolute_position('C', 40)</div></div>
+                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    # Move arm to middle</div></div>
+                        <div class="code-line"><div class="line-number">10</div><div class="line-content">    await motor.run_to_absolute_position('C', 20)</div></div>
+                        <div class="code-line"><div class="line-number">11</div><div class="line-content">    # Move arm down</div></div>
+                        <div class="code-line"><div class="line-number">12</div><div class="line-content">    await motor.run_to_absolute_position('C', 0)</div></div>
+                        <div class="code-line"><div class="line-number">13</div><div class="line-content">    # Move arm down</div></div>
+                        <div class="code-line"><div class="line-number">14</div><div class="line-content">    await motor.run_to_absolute_position('C', 0)</div></div>
+                        <div class="code-line"><div class="line-number">15</div><div class="line-content"></div></div>
+                        <div class="code-line"><div class="line-number">16</div><div class="line-content">runloop.run(main())</div></div>
                 </div>
             </div>
         </div>
@@ -117,8 +120,9 @@ PROGRAMMING REQUIREMENTS:
                     <h3 style="color: #ffffff; font-weight: bold;">COUNTER-CLOCKWISE = ARM UP</h3>
                     <ul style="list-style: none; padding: 0; margin-top: 15px;">
                         <li class="no-emoji">✅ Positive degree values</li>
-                        <li class="no-emoji">✅ Moving from 0° to 90°</li>
+                        <li class="no-emoji">✅ Moving from 0° to 45°</li>
                         <li class="no-emoji">✅ Lifts the arm higher</li>
+                        <li class="no-emoji">✅ As long as relative position of arm is set to 0, the highest it goes is 45°!</li>
                     </ul>
                 </div>
                 
@@ -127,7 +131,7 @@ PROGRAMMING REQUIREMENTS:
                     <h3 style="color: #ffffff; font-weight: bold;">CLOCKWISE = ARM DOWN</h3>
                     <ul style="list-style: none; padding: 0; margin-top: 15px;">
                         <li class="no-emoji">✅ Decreasing degree values</li>
-                        <li class="no-emoji">✅ Moving from 90° to 0°</li>
+                        <li class="no-emoji">✅ Moving from 45° to 0°</li>
                         <li class="no-emoji">✅ Lowers the arm</li>
                     </ul>
                 </div>
@@ -138,9 +142,9 @@ PROGRAMMING REQUIREMENTS:
                 <div style="display: flex; justify-content: space-around; margin-top: 20px;">
                     <div><p style="font-size: 2em;">0°</p><p>Arm Down</p></div>
                     <div style="font-size: 2em;">→</div>
-                    <div><p style="font-size: 2em;">45°</p><p>Arm Middle</p></div>
+                    <div><p style="font-size: 2em;">20°</p><p>Arm Middle</p></div>
                     <div style="font-size: 2em;">→</div>
-                    <div><p style="font-size: 2em;">90°</p><p>Arm Up</p></div>
+                    <div><p style="font-size: 2em;">45°</p><p>Arm Up</p></div>
                 </div>
             </div>
             
