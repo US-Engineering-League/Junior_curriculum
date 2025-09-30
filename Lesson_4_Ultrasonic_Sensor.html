@@ -46,37 +46,13 @@
                 </div>
                 <div style="background: rgba(0, 150, 255, 0.15); padding: 30px; border-radius: 20px; border: 2px solid #00ffff; max-width: 950px; margin-left: auto; margin-right: auto;">
                     <h3 style="color: #00ffff; text-align: center; margin-bottom: 25px;">📡 Real-World Applications</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                        <div>
-                            <h4 style="color: #00ff00; margin-bottom: 15px;">🚧 Navigation Tasks</h4>
-                            <ul style="list-style: none; padding: 0; color: #e0e0ff;">
-                                <li class="no-emoji" style="margin-bottom: 8px;">📍 Autonomous navigation</li>
-                                <li class="no-emoji" style="margin-bottom: 8px;">📍 Wall following behavior</li>
-                                <li class="no-emoji" style="margin-bottom: 8px;">📍 Collision avoidance</li>
-                                <li class="no-emoji">📍 Safe stopping distances</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style="color: #ff00ff; margin-bottom: 15px;">📏 Measurement Applications</h4>
-                            <ul style="list-style: none; padding: 0; color: #e0e0ff;">
-                                <li class="no-emoji" style="margin-bottom: 8px;">📍 Room mapping</li>
-                                <li class="no-emoji" style="margin-bottom: 8px;">📍 Object size detection</li>
-                                <li class="no-emoji" style="margin-bottom: 8px;">📍 Parking assistance</li>
-                                <li class="no-emoji">📍 Proximity alerts</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 25px; text-align: center; padding: 15px; background: rgba(0, 150, 255, 0.1); border-radius: 15px; border: 1px solid #00ffff;">
-                        <p style="color: #fff; font-weight: bold; font-size: 1.1em;">🎯 Today's Goal</p>
-                        <p style="color: #fff; margin-top: 8px;">Master ultrasonic sensor programming for distance measurement and create intelligent obstacle avoidance behaviors!</p>
-                    </div>
+                    <p style = "text-align: center;">What are some uses for distance sensor that you can think of?</p>
                 </div>
             </div>
             
-            <div class="survey-tip" style="margin: 30px auto; max-width: 900px;">
+            <!-- <div class="survey-tip" style="margin: 30px auto; max-width: 900px;">
                 <strong>📚 Learning Objectives:</strong> Understand ultrasonic sensor principles, implement distance measurement code using AI assistance, and develop autonomous navigation strategies.
-            </div>
+            </div> -->
         </div>
 
         <!-- Slide 2: Color Sensor Review & Application -->
@@ -91,7 +67,7 @@
                     <div style="background: rgba(0, 150, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #005a99;">
                         <h4 style="color: #ffffff; margin-bottom: 15px;">✅ What You've Learned</h4>
                         <ul style="list-style: none; padding: 0; color: #e0e0ff;">
-                            <li class="no-emoji" style="margin-bottom: 12px;">🔸 Connected to Port B</li>
+                            <li class="no-emoji" style="margin-bottom: 12px;">🔸 Connected to Port A</li>
                             <li class="no-emoji" style="margin-bottom: 12px;">🔸 Detected block colors accurately</li>
                             <li class="no-emoji" style="margin-bottom: 12px;">🔸 Used light reflection principles</li>
                             <li class="no-emoji" style="margin-bottom: 12px;">🔸 Coordinated with arm positioning</li>
@@ -191,38 +167,7 @@
                 <p style="text-align: center; color: #ffffff; font-weight: bold; margin-top: 15px;">Sound travels at 343 meters/second in air</p>
             </div>
             
-            <h3>🧮 Distance Calculation Formula</h3>
-            <div style="background: rgba(17, 0, 255, 0.1); padding: 25px; border-radius: 20px; border: 2px solid #fff; margin: 25px 0; text-align: center;">
-                <p style="font-size: 1.8em; color: #0099ff; font-weight: bold; margin-bottom: 15px;">Distance = (Time × Speed) ÷ 2</p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
-                    <div>
-                        <p style="color: #ffffff; font-weight: bold;">Time</p>
-                        <p style="font-size: 0.9em;">Round-trip duration</p>
-                    </div>
-                    <div>
-                        <p style="color: #ffffff; font-weight: bold;">Speed</p>
-                        <p style="font-size: 0.9em;">343 m/s (sound)</p>
-                    </div>
-                    <div>
-                        <p style="color: #ffffff; font-weight: bold;">÷ 2</p>
-                        <p style="font-size: 0.9em;">One-way distance</p>
-                    </div>
-                </div>
-            </div>
             
-            <h3>📊 LEGO SPIKE Ultrasonic Specifications</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 25px 0;">
-                <div class="distance-indicator" style="background: rgba(0, 150, 255, 0.1); border-color: #0099ff;">
-                    <p style="color: #0099ff;">📏 Range: 1-400 cm</p>
-                </div>
-                <div class="distance-indicator" style="background: rgba(0, 150, 255, 0.1); border-color: #0099ff;">
-                    <p style="color: #0099ff;">⚡ Accuracy: ±1 cm</p>
-                </div>
-            </div>
-            
-            <div class="survey-tip" style="margin-top: 25px;">
-                <strong>🔬 Key Physics:</strong> The sensor automatically handles the complex calculations, returning distance values in centimeters. Understanding the principle helps you optimize sensor placement and interpret readings accurately.
-            </div>
         </div>
 
         <!-- Slide 4: Python Implementation -->
@@ -319,29 +264,6 @@ PROGRAMMING REQUIREMENTS:
                 </div>
             </div>
             
-            <h3>🤖 Challenge Programming Strategy</h3>
-            <div class="survey-prompt">Program your LEGO SPIKE robot for autonomous navigation using ultrasonic sensor.
-
-SENSOR CONFIGURATION:
-- Ultrasonic sensor on Port B
-- Drive motors on Ports E and F
-- Hub LEDs for status indication
-
-PROGRAMMING REQUIREMENTS:
-- Continuous distance monitoring
-- Forward movement until object detected
-- Stop and turn when detected
-- Turn and use arm to grab object
-- Move back to starting position</div>
-            
-            <div class="survey-tip" style="margin-top: 25px;">
-                <strong>🏁 Success Criteria:</strong><br>
-                • Detect object with distance sensor<br>
-                • Use skills from previous lessons to grab the object<br>
-                • Successfully come back to the starting position<br>
-                • Robot needs to start and finish within the starting square<br>
-                • Demonstrate smooth turning and movement
-            </div>
 
             <div style="margin-top: 25px; text-align: center;">
                 <h3>🏆 Navigation Mastery Achieved!</h3>
