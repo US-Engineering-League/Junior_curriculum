@@ -17,8 +17,8 @@
 
         <!-- Slide 1: Title -->
         <div class="slide active">
-            <div class="slide-counter">1 / 12</div>
-            <h1>🤖 LEGO Spike 3 Line Following</h1>
+            <div class="slide-counter">1 / 8</div>
+            <h1>🤖 Line Following</h1>
             <h2>Interactive Robot Programming Tutorial</h2>
             <p>Welcome to the ultimate underwater robotics expedition! Today, we'll learn how to program LEGO Spike 3 robots to follow lines like intelligent underwater explorers navigating ocean currents.</p>
             
@@ -45,12 +45,12 @@
                 </div>
             </div>
             
-            <div class="challenge-prompt">Get ready to dive into the exciting world of autonomous robotics! Your robot will learn to see, think, and navigate like a marine explorer following underwater pathways.</div>
+            
         </div>
 
         <!-- Slide 2: What is Line Following? -->
         <div class="slide">
-            <div class="slide-counter">2 / 12</div>
+            <div class="slide-counter">2 / 8</div>
             <h2>What is Line Following? 🛤️</h2>
             
             <p>Line following is a fundamental robotics technique where robots use sensors to detect and follow a path marked on the ground. Think of it as teaching your robot to swim along ocean currents!</p>
@@ -84,14 +84,12 @@
                 </div>
             </div>
 
-            <div class="ai-mapper">
-                Line following teaches robots spatial awareness, decision-making, and adaptive behavior - essential skills for any autonomous system navigating our world!
-            </div>
+            
         </div>
 
         <!-- Slide 3: LEGO Spike 3 Hardware -->
         <div class="slide">
-            <div class="slide-counter">3 / 12</div>
+            <div class="slide-counter">3 / 8</div>
             <h2>LEGO Spike 3 Hardware Components 🔧</h2>
             
             <p>Let's explore the essential components needed for your line-following robot expedition:</p>
@@ -115,7 +113,7 @@
                 <div class="objective-card">
                     <span class="terrain-emoji">🏗️</span>
                     <h3>Structure</h3>
-                    <p>Chassis, wheels, and mounting hardware</p>
+                    <p>LEGO pieces that hold all the parts together</p>
                 </div>
             </div>
 
@@ -130,8 +128,8 @@
         </div>
 
         <!-- Slide 4: Color Sensor Basics -->
-        <div class="slide">
-            <div class="slide-counter">4 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">4 / 8</div>
             <h2>Understanding Color Sensors 👁️</h2>
             
             <p>Color sensors are your robot's underwater vision system. They detect light reflection to distinguish between different surfaces and colors.</p>
@@ -181,63 +179,177 @@
                 <div class="color-sample" style="background-color: #999;">60-80</div>
                 <div class="color-sample" style="background-color: #ffffff;">80-100</div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Slide 5: Basic Line Following Code -->
         <div class="slide">
-            <div class="slide-counter">5 / 12</div>
-            <h2>Basic Line Following Programming 💻</h2>
+            <div class="slide-counter">4 / 8</div>
+            <h2>Line Following Programming 💻</h2>
             
-            <p>Let's start with a simple line following algorithm. This basic approach reads the color sensor and steers accordingly.</p>
-
-            <div class="survey-tip">
-                This basic algorithm works, but it creates jerky movement. Let's improve it with proportional control for smoother navigation!
-            </div>
-
+            <p>Let's create a line following algorithm.</p>
+            
                 <h3>📝 Example Student Prompt</h3>
                     <div class="survey-prompt">
                         <strong>Student's Example Command:</strong>
                         - Use motors connected to ports E and F as a motor pair
                         - Use a color sensor on port A to detect the line
-                        - Create an async function called 'enhanced_line_follow'
-                        - The robot should move straight forward at velocity 300 when it detects a dark line (reflection value less than 45)
-                        - When the robot goes off the line (reflection 45 or higher), it should turn left at -25 degrees with velocity 250 to search for the line again
                         - Use the appropriate LEGO Spike 3 imports (hub, port, color_sensor, motor_pair, runloop)
+                        - Have the robot line follow for 1000 relative degrees
                     </div>
                 
-
+            <img src="code_guide/linefollow_dir.png" style = padding-top:20px;padding-left:70px; width="1000" height=auto>
 
             <h3>🤖 Expected Response from AI Programming Assistant</h3>
             <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('aiResponse1')">🔍 Reveal Advanced Example</button>
+                <button class="reveal-btn" onclick="toggleExample('aiResponse1')">🔍 Reveal Basic Line Follow Code</button>
                 <div id="aiResponse1" class="code-block example-prompt-hidden" style="margin-top: 20px;">
                     <div class="code-with-lines">
-                        <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import port</div></div>
-                        <div class="code-line"><div class="line-number">2</div><div class="line-content">import color_sensor</div></div>
-                        <div class="code-line"><div class="line-number">3</div><div class="line-content">import motor_pair</div></div>
-                        <div class="code-line"><div class="line-number">4</div><div class="line-content">import runloop</div></div>
-                        <div class="code-line"><div class="line-number">5</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">6</div><div class="line-content">async def enhanced_line_follow():</div></div>
-                        <div class="code-line"><div class="line-number">7</div><div class="line-content">    # Initialize hardware components</div></div>
-                        <div class="code-line"><div class="line-number">8</div><div class="line-content">    motor_pair.pair(motor_pair.PAIR_1, port.E, port.F)</div></div>
-                        <div class="code-line"><div class="line-number">9</div><div class="line-content">    sensor = color_sensor</div></div>
-                        <div class="code-line"><div class="line-number">10</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">11</div><div class="line-content">    while True:</div></div>
-                        <div class="code-line"><div class="line-number">12</div><div class="line-content">        reflection = color_sensor.reflection(port.A)</div></div>
-                        <div class="code-line"><div class="line-number">13</div><div class="line-content">        if reflection < 45:  # On dark line</div></div>
-                        <div class="code-line"><div class="line-number">14</div><div class="line-content">            await motor_pair.move(motor_pair.PAIR_1, 0, velocity=300)</div></div>
-                        <div class="code-line"><div class="line-number">15</div><div class="line-content">        else:  # Off line - search pattern</div></div>
-                        <div class="code-line"><div class="line-number">16</div><div class="line-content">            await motor_pair.move(motor_pair.PAIR_1, -25, velocity=250)</div></div>
-                        <div class="code-line"><div class="line-number">17</div><div class="line-content"></div></div>
-                        <div class="code-line"><div class="line-number">18</div><div class="line-content">runloop.run(enhanced_line_follow())</div></div>
-                    </div>
+    <div class="code-line"><div class="line-number">1</div><div class="line-content">from hub import light_matrix, sound, light, motion_sensor, port</div></div>
+    <div class="code-line"><div class="line-number">2</div><div class="line-content">from motor import relative_position, reset_relative_position</div></div>
+    <div class="code-line"><div class="line-number">3</div><div class="line-content">import runloop, time, motor, motor_pair, color, color_sensor, distance_sensor</div></div>
+    <div class="code-line"><div class="line-number">4</div><div class="line-content"></div></div>
+    <div class="code-line"><div class="line-number">5</div><div class="line-content"># Pair the motors and define the ports</div></div>
+    <div class="code-line"><div class="line-number">6</div><div class="line-content">wheels = motor_pair.PAIR_1</div></div>
+    <div class="code-line"><div class="line-number">7</div><div class="line-content">motor_pair.pair(wheels, port.E, port.F)</div></div>
+    <div class="code-line"><div class="line-number">8</div><div class="line-content"></div></div>
+    <div class="code-line"><div class="line-number">9</div><div class="line-content">def follow_line(distance, v=360, target_reflection=55, kp=1.2):</div></div>
+    <div class="code-line"><div class="line-number">10</div><div class="line-content">    """</div></div>
+    <div class="code-line"><div class="line-number">11</div><div class="line-content">    Line following function with PID control</div></div>
+    <div class="code-line"><div class="line-number">12</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">13</div><div class="line-content">    Parameters:</div></div>
+    <div class="code-line"><div class="line-number">14</div><div class="line-content">    - distance: distance to travel in degrees of wheel rotation</div></div>
+    <div class="code-line"><div class="line-number">15</div><div class="line-content">    - v: velocity in degrees per second</div></div>
+    <div class="code-line"><div class="line-number">16</div><div class="line-content">    - target_reflection: midpoint between white and black surface (adjust as needed)</div></div>
+    <div class="code-line"><div class="line-number">17</div><div class="line-content">    - kp: proportional gain for steering correction</div></div>
+    <div class="code-line"><div class="line-number">18</div><div class="line-content">    """</div></div>
+    <div class="code-line"><div class="line-number">19</div><div class="line-content">    # Reset motor port F position to 0</div></div>
+    <div class="code-line"><div class="line-number">20</div><div class="line-content">    reset_relative_position(port.F, 0)</div></div>
+    <div class="code-line"><div class="line-number">21</div><div class="line-content">    running = True</div></div>
+    <div class="code-line"><div class="line-number">22</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">23</div><div class="line-content">    while running:</div></div>
+    <div class="code-line"><div class="line-number">24</div><div class="line-content">        # Get current reflection value from color sensor</div></div>
+    <div class="code-line"><div class="line-number">25</div><div class="line-content">        surface = color_sensor.reflection(port.A)</div></div>
+    <div class="code-line"><div class="line-number">26</div><div class="line-content">        motor_position = relative_position(port.F)</div></div>
+    <div class="code-line"><div class="line-number">27</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">28</div><div class="line-content">        # Calculate error (difference from target reflection)</div></div>
+    <div class="code-line"><div class="line-number">29</div><div class="line-content">        error = target_reflection - surface</div></div>
+    <div class="code-line"><div class="line-number">30</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">31</div><div class="line-content">        # Calculate steering correction using proportional control</div></div>
+    <div class="code-line"><div class="line-number">32</div><div class="line-content">        steering = int(error * kp)</div></div>
+    <div class="code-line"><div class="line-number">33</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">34</div><div class="line-content">        # Clamp steering to valid range (-100 to 100)</div></div>
+    <div class="code-line"><div class="line-number">35</div><div class="line-content">        if steering > 100:</div></div>
+    <div class="code-line"><div class="line-number">36</div><div class="line-content">            steering = 100</div></div>
+    <div class="code-line"><div class="line-number">37</div><div class="line-content">        elif steering < -100:</div></div>
+    <div class="code-line"><div class="line-number">38</div><div class="line-content">            steering = -100</div></div>
+    <div class="code-line"><div class="line-number">39</div><div class="line-content">            </div></div>
+    <div class="code-line"><div class="line-number">40</div><div class="line-content">        # Move with calculated steering</div></div>
+    <div class="code-line"><div class="line-number">41</div><div class="line-content">        motor_pair.move(wheels, steering, velocity=v)</div></div>
+    <div class="code-line"><div class="line-number">42</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">43</div><div class="line-content">        # Check if we've traveled the desired distance</div></div>
+    <div class="code-line"><div class="line-number">44</div><div class="line-content">        if motor_position >= distance:</div></div>
+    <div class="code-line"><div class="line-number">45</div><div class="line-content">            running = False</div></div>
+    <div class="code-line"><div class="line-number">46</div><div class="line-content">            motor_pair.stop(wheels)</div></div>
+    <div class="code-line"><div class="line-number">47</div><div class="line-content"></div></div>
+    <div class="code-line"><div class="line-number">48</div><div class="line-content">async def follow_line_with_distance_stop(v=360, target_reflection=55, kp=1.2, stop_distance_mm=110):</div></div>
+    <div class="code-line"><div class="line-number">49</div><div class="line-content">    """</div></div>
+    <div class="code-line"><div class="line-number">50</div><div class="line-content">    Line following until obstacle detected</div></div>
+    <div class="code-line"><div class="line-number">51</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">52</div><div class="line-content">    Parameters:</div></div>
+    <div class="code-line"><div class="line-number">53</div><div class="line-content">    - v: velocity in degrees per second</div></div>
+    <div class="code-line"><div class="line-number">54</div><div class="line-content">    - target_reflection: midpoint between white and black surface</div></div>
+    <div class="code-line"><div class="line-number">55</div><div class="line-content">    - kp: proportional gain for steering correction</div></div>
+    <div class="code-line"><div class="line-number">56</div><div class="line-content">    - stop_distance_mm: stop when obstacle is this close (in mm)</div></div>
+    <div class="code-line"><div class="line-number">57</div><div class="line-content">    """</div></div>
+    <div class="code-line"><div class="line-number">58</div><div class="line-content">    while True:</div></div>
+    <div class="code-line"><div class="line-number">59</div><div class="line-content">        # Get current reflection and distance readings</div></div>
+    <div class="code-line"><div class="line-number">60</div><div class="line-content">        surface = color_sensor.reflection(port.A)</div></div>
+    <div class="code-line"><div class="line-number">61</div><div class="line-content">        obstacle_distance = distance_sensor.distance(port.B)</div></div>
+    <div class="code-line"><div class="line-number">62</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">63</div><div class="line-content">        # Stop if obstacle detected</div></div>
+    <div class="code-line"><div class="line-number">64</div><div class="line-content">        if obstacle_distance != -1 and obstacle_distance < stop_distance_mm:</div></div>
+    <div class="code-line"><div class="line-number">65</div><div class="line-content">            motor_pair.stop(wheels)</div></div>
+    <div class="code-line"><div class="line-number">66</div><div class="line-content">            break</div></div>
+    <div class="code-line"><div class="line-number">67</div><div class="line-content">            </div></div>
+    <div class="code-line"><div class="line-number">68</div><div class="line-content">        # Calculate error and steering</div></div>
+    <div class="code-line"><div class="line-number">69</div><div class="line-content">        error = target_reflection - surface</div></div>
+    <div class="code-line"><div class="line-number">70</div><div class="line-content">        steering = int(error * kp)</div></div>
+    <div class="code-line"><div class="line-number">71</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">72</div><div class="line-content">        # Clamp steering to valid range</div></div>
+    <div class="code-line"><div class="line-number">73</div><div class="line-content">        if steering > 100:</div></div>
+    <div class="code-line"><div class="line-number">74</div><div class="line-content">            steering = 100</div></div>
+    <div class="code-line"><div class="line-number">75</div><div class="line-content">        elif steering < -100:</div></div>
+    <div class="code-line"><div class="line-number">76</div><div class="line-content">            steering = -100</div></div>
+    <div class="code-line"><div class="line-number">77</div><div class="line-content">            </div></div>
+    <div class="code-line"><div class="line-number">78</div><div class="line-content">        # Move with calculated steering</div></div>
+    <div class="code-line"><div class="line-number">79</div><div class="line-content">        motor_pair.move(wheels, steering, velocity=v)</div></div>
+    <div class="code-line"><div class="line-number">80</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">81</div><div class="line-content">        # Small delay for smooth operation</div></div>
+    <div class="code-line"><div class="line-number">82</div><div class="line-content">        await runloop.sleep_ms(10)</div></div>
+    <div class="code-line"><div class="line-number">83</div><div class="line-content"></div></div>
+    <div class="code-line"><div class="line-number">84</div><div class="line-content">async def follow_line_until_color(target_color, v=360, target_reflection=55, kp=1.2):</div></div>
+    <div class="code-line"><div class="line-number">85</div><div class="line-content">    """</div></div>
+    <div class="code-line"><div class="line-number">86</div><div class="line-content">    Line following until specific color detected</div></div>
+    <div class="code-line"><div class="line-number">87</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">88</div><div class="line-content">    Parameters:</div></div>
+    <div class="code-line"><div class="line-number">89</div><div class="line-content">    - target_color: color to stop at (e.g., color.RED, color.BLUE)</div></div>
+    <div class="code-line"><div class="line-number">90</div><div class="line-content">    - v: velocity in degrees per second</div></div>
+    <div class="code-line"><div class="line-number">91</div><div class="line-content">    - target_reflection: midpoint between white and black surface</div></div>
+    <div class="code-line"><div class="line-number">92</div><div class="line-content">    - kp: proportional gain for steering correction</div></div>
+    <div class="code-line"><div class="line-number">93</div><div class="line-content">    """</div></div>
+    <div class="code-line"><div class="line-number">94</div><div class="line-content">    while True:</div></div>
+    <div class="code-line"><div class="line-number">95</div><div class="line-content">        # Get current readings</div></div>
+    <div class="code-line"><div class="line-number">96</div><div class="line-content">        surface = color_sensor.reflection(port.A)</div></div>
+    <div class="code-line"><div class="line-number">97</div><div class="line-content">        detected_color = color_sensor.color(port.A)</div></div>
+    <div class="code-line"><div class="line-number">98</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">99</div><div class="line-content">        # Stop if target color detected</div></div>
+    <div class="code-line"><div class="line-number">100</div><div class="line-content">        if detected_color == target_color:</div></div>
+    <div class="code-line"><div class="line-number">101</div><div class="line-content">            motor_pair.stop(wheels)</div></div>
+    <div class="code-line"><div class="line-number">102</div><div class="line-content">            break</div></div>
+    <div class="code-line"><div class="line-number">103</div><div class="line-content">            </div></div>
+    <div class="code-line"><div class="line-number">104</div><div class="line-content">        # Calculate error and steering</div></div>
+    <div class="code-line"><div class="line-number">105</div><div class="line-content">        error = target_reflection - surface</div></div>
+    <div class="code-line"><div class="line-number">106</div><div class="line-content">        steering = int(error * kp)</div></div>
+    <div class="code-line"><div class="line-number">107</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">108</div><div class="line-content">        # Clamp steering</div></div>
+    <div class="code-line"><div class="line-number">109</div><div class="line-content">        if steering > 100:</div></div>
+    <div class="code-line"><div class="line-number">110</div><div class="line-content">            steering = 100</div></div>
+    <div class="code-line"><div class="line-number">111</div><div class="line-content">        elif steering < -100:</div></div>
+    <div class="code-line"><div class="line-number">112</div><div class="line-content">            steering = -100</div></div>
+    <div class="code-line"><div class="line-number">113</div><div class="line-content">            </div></div>
+    <div class="code-line"><div class="line-number">114</div><div class="line-content">        # Move with steering</div></div>
+    <div class="code-line"><div class="line-number">115</div><div class="line-content">        motor_pair.move(wheels, steering, velocity=v)</div></div>
+    <div class="code-line"><div class="line-number">116</div><div class="line-content">        </div></div>
+    <div class="code-line"><div class="line-number">117</div><div class="line-content">        await runloop.sleep_ms(10)</div></div>
+    <div class="code-line"><div class="line-number">118</div><div class="line-content"></div></div>
+    <div class="code-line"><div class="line-number">119</div><div class="line-content">async def main():</div></div>
+    <div class="code-line"><div class="line-number">120</div><div class="line-content">    # Example 1: Follow line for specific distance (3600 degrees ≈ 55cm)</div></div>
+    <div class="code-line"><div class="line-number">121</div><div class="line-content">    light_matrix.write("Line Follow Start")</div></div>
+    <div class="code-line"><div class="line-number">122</div><div class="line-content">    follow_line(3600, v=300)</div></div>
+    <div class="code-line"><div class="line-number">123</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">124</div><div class="line-content">    await runloop.sleep_ms(1000)</div></div>
+    <div class="code-line"><div class="line-number">125</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">126</div><div class="line-content">    # Example 2: Follow line until obstacle detected</div></div>
+    <div class="code-line"><div class="line-number">127</div><div class="line-content">    light_matrix.write("Follow Until Block")</div></div>
+    <div class="code-line"><div class="line-number">128</div><div class="line-content">    await follow_line_with_distance_stop(v=300, stop_distance_mm=110)</div></div>
+    <div class="code-line"><div class="line-number">129</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">130</div><div class="line-content">    await runloop.sleep_ms(1000)</div></div>
+    <div class="code-line"><div class="line-number">131</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">132</div><div class="line-content">    # Example 3: Follow line until red color detected</div></div>
+    <div class="code-line"><div class="line-number">133</div><div class="line-content">    light_matrix.write("Follow Until Red")</div></div>
+    <div class="code-line"><div class="line-number">134</div><div class="line-content">    await follow_line_until_color(color.RED, v=300)</div></div>
+    <div class="code-line"><div class="line-number">135</div><div class="line-content">    </div></div>
+    <div class="code-line"><div class="line-number">136</div><div class="line-content">    light_matrix.write("Done")</div></div>
+    <div class="code-line"><div class="line-number">137</div><div class="line-content"></div></div>
+    <div class="code-line"><div class="line-number">138</div><div class="line-content">runloop.run(main())</div></div>
+</div>
                 </div>
             </div>
         </div>
 
         <!-- Slide 11: Challenge - try it yourself -->
         <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 6 / 12</div>
+            <div class="slide-counter" id="slideCounter">5 / 8</div>
             <h2>⚡ Now try it yourself: Basic Line follow</h2> 
             <img src="challenge_visuals/week7_teacher.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
@@ -253,8 +365,8 @@
         </div>
 
         <!-- Slide 6: Proportional Control (P Controller) -->
-        <div class="slide">
-            <div class="slide-counter">7 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">7 / 8</div>
             <h2>Proportional Control Algorithm 🎯</h2>
             
             <p>Proportional control makes your robot's movements smoother by adjusting turning strength based on how far off-track it is.</p>
@@ -282,13 +394,11 @@
                     <div class="code-line"><div class="line-number">10</div><div class="line-content">        motors.start(base_speed, int(correction))</div></div>
                     <div class="code-line"><div class="line-number">11</div><div class="line-content">        time.sleep(0.01)</div></div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="ai-mapper">
-                The P-controller creates smooth, natural movement by making gentle corrections rather than abrupt turns. It's like how fish gracefully adjust their swimming to follow ocean currents!
-            </div>
+            
 
-            <h3>🤖 Expected Response from AI Programming Assistant</h3>
+            <!-- <h3>🤖 Expected Response from AI Programming Assistant</h3>
             <div class="example-prompt-container">
                 <button class="reveal-btn" onclick="toggleExample('aiResponse2')">🔍 Reveal Proportional Control Example</button>
                 <div id="aiResponse2" class="code-block example-prompt-hidden" style="margin-top: 20px;">
@@ -314,12 +424,12 @@
                         <div class="code-line"><div class="line-number">19</div><div class="line-content">runloop.run(proportional_control())</div></div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 
         <!-- Slide 7: PID Control Advanced -->
-        <div class="slide">
-            <div class="slide-counter">8 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">8 / 8</div>
             <h2>Advanced PID Control 🧠</h2>
             
             <p>PID (Proportional-Integral-Derivative) control is the gold standard for precise robot navigation. It combines three types of corrections for optimal performance.</p>
@@ -394,7 +504,7 @@
                         <div class="code-line"><div class="line-number">20</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">21</div><div class="line-content">    while True:</div></div>
                         <div class="code-line"><div class="line-number">22</div><div class="line-content">        current_time = time.ticks_ms()</div></div>
-                        <div class="code-line"><div class="line-number">23</div><div class="line-content">        dt = time.ticks_diff(current_time, last_time) / 1200.0</div></div>
+                        <div class="code-line"><div class="line-number">23</div><div class="line-content">        dt = time.ticks_diff(current_time, last_time) / 800.0</div></div>
                         <div class="code-line"><div class="line-number">24</div><div class="line-content"></div></div>
                         <div class="code-line"><div class="line-number">25</div><div class="line-content">        current_reflection = color_sensor.reflection(port.A)</div></div>
                         <div class="code-line"><div class="line-number">26</div><div class="line-content">        error = target_reflection - current_reflection</div></div>
@@ -426,11 +536,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Slide 9: Challenges and Solutions -->
         <div class="slide">
-            <div class="slide-counter">9 / 12</div>
+            <div class="slide-counter">6 / 8</div>
             <h2>Common Challenges & Solutions 🔧</h2>
             
             <p>Every robotics expedition faces obstacles! Here are common line-following challenges and their solutions:</p>
@@ -442,22 +552,20 @@
                 </div>
                 <div class="dont-box">
                     <h3>🚫 Problem: Robot loses line on curves</h3>
-                    <p><strong>Solution:</strong> Increase sensor sensitivity, use two sensors for edge detection, or implement curve prediction algorithms.</p>
+                    <p><strong>Solution:</strong> Increase Kp slightly, trial and error until the robot turns enough on a curve.</p>
                 </div>
             </div>
 
             <div class="do-dont">
                 <div class="do-box">
                     <h3>🚫 Problem: Inconsistent lighting affects performance</h3>
-                    <p><strong>Solution:</strong> Implement automatic calibration, use relative thresholds, or add ambient light compensation.</p>
+                    <p><strong>Solution:</strong> Make sure there is a stable light source and adjust values based on changes in lighting.</p>
                 </div>
                 <div class="dont-box">
                     <h3>🚫 Problem: Robot moves too slowly</h3>
-                    <p><strong>Solution:</strong> Optimize PID constants, improve mechanical design, or use predictive algorithms for faster response.</p>
+                    <p><strong>Solution:</strong> Increase velocity, and reduce Kp values to reduce oscillation.</p>
                 </div>
             </div>
-
-            <div class="challenge-prompt">Advanced Challenge: Can you program your robot to handle intersections, detect end-of-line markers, or follow colored lines instead of black ones?</div>
 
             <div class="expedition-box">
                 <h3>Troubleshooting Checklist</h3>
@@ -466,14 +574,14 @@
                     <li>Check motor connections and calibration</li>
                     <li>Test threshold values with actual track surface</li>
                     <li>Monitor sensor readings in real-time</li>
-                    <li>Adjust PID constants gradually</li>
+                    <li>Adjust constants (variables) gradually</li>
                 </ul>
             </div>
         </div>
 
         <!-- Slide 10: Advanced Features -->
-        <div class="slide">
-            <div class="slide-counter">10 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">10 / 8</div>
             <h2>Advanced Line Following Features 🚀</h2>
             
             <p>Take your line-following robot to the next level with these advanced capabilities!</p>
@@ -563,11 +671,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Slide 11: Challenge - try it yourself -->
         <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 11 / 12</div>
+            <div class="slide-counter" id="slideCounter">7 / 8</div>
             <h2>⚡ Now try it yourself: Advanced Line follow</h2> 
             <img src="challenge_visuals/week7_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
@@ -583,7 +691,7 @@
         </div>
         <!-- Slide 12: Summary and Next Steps -->
         <div class="slide">
-            <div class="slide-counter">12 / 12</div>
+            <div class="slide-counter">8 / 8</div>
             <h1>🎯 Mission Complete!</h1>
             <h2>Your Line Following Journey</h2>
             
@@ -623,9 +731,6 @@
                 <div class="wave-animation"></div>
             </div>
 
-            <div class="ai-mapper">
-                You've learned the principles that power self-driving cars, delivery drones, warehouse robots, and space rovers. Keep exploring, keep building, and keep pushing the boundaries of what robots can do!
-            </div>
 
             <div class="terrain-highlight" style="display: block; text-align: center; font-size: 1.4em; margin: 30px 0;">
                 The ocean of robotics knowledge is vast - dive deeper and discover amazing new territories! 🌊🤖
