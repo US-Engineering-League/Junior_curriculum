@@ -29,7 +29,7 @@
     <div class="presentation-container">
         <!-- Slide 1: Title -->
         <div class="slide active">
-            <div class="slide-counter">1 / 12</div>
+            <div class="slide-counter">1  / 6</div>
             <h1>🧭 LEGO Spike 3 Gyro Turns</h1>
             <h2>Interactive Robot Navigation Mastery</h2>
             <p>Welcome to the precision navigation command center! Master gyroscopic sensors to make your LEGO Spike 3 robot turn with submarine-level accuracy.</p>
@@ -38,12 +38,12 @@
                 <div class="objective-card">
                     <span class="terrain-emoji">🧭</span>
                     <h3>Gyro Fundamentals</h3>
-                    <p>Understand inertial navigation and angular sensing</p>
+                    <p>Learn what a gyroscope is and what it does</p>
                 </div>
                 <div class="objective-card">
                     <span class="terrain-emoji">🔄</span>
                     <h3>Precise Control</h3>
-                    <p>Master proportional and PID turning algorithms</p>
+                    <p>Master turning precisely to an indicated angle</p>
                 </div>
                 <div class="objective-card">
                     <span class="terrain-emoji">🎯</span>
@@ -57,28 +57,28 @@
                 </div>
             </div>
             
-            <div class="challenge-prompt">Prepare to unlock inertial navigation secrets! Your robot will learn to orient itself in space like a deep-sea explorer using advanced gyroscopic technology.</div>
+            
         </div>
 
         <!-- Slide 2: Gyro Fundamentals -->
         <div class="slide">
-            <div class="slide-counter">2 / 12</div>
+            <div class="slide-counter">2  / 6</div>
             <h2>Gyroscope Fundamentals 🧭</h2>
             
-            <p>A gyroscope sensor measures angular velocity and orientation, giving your robot spatial awareness. Modern MEMS gyroscopes use the Coriolis effect to detect rotation with incredible precision.</p>
+            <p>A gyroscope sensor measures angular velocity and orientation, giving robots spatial awareness and the ability to maintain precise orientation - essential for autonomous navigation in complex environments!</p>
 
             <div class="two-column">
                 <div>
                     <h3>Key Capabilities</h3>
                     <ul>
                         <li>Measures rotation rate in degrees per second</li>
-                        <li>Tracks absolute heading and orientation</li>
+                        <li>Tracks where the robot is facing</li>
                         <li>Detects motion and stability changes</li>
                         <li>Provides real-time feedback for control</li>
                     </ul>
 
                     <div class="wave-diagram">
-                        <h3>How MEMS Gyroscopes Work</h3>
+                        <h3>How Gyroscopes Work</h3>
                         <p>Tiny vibrating structures experience forces proportional to rotation rate. These forces are converted to electrical signals measuring angular velocity.</p>
                         <div class="wave-animation"></div>
                     </div>
@@ -86,7 +86,7 @@
                 
                 <div>
                     <div class="gyro-compass">
-                        Current: 127°
+                        <span id="counter">0</span>°
                     </div>
                     <div class="angle-indicator">
                         Real-time orientation tracking enables autonomous navigation
@@ -98,15 +98,11 @@
                     </div>
                 </div>
             </div>
-
-            <div class="ai-mapper">
-                Gyroscopes give robots spatial awareness and the ability to maintain precise orientation - essential for autonomous navigation in complex environments!
-            </div>
         </div>
 
         <!-- Slide 3: LEGO Spike 3 Setup -->
-        <div class="slide">
-            <div class="slide-counter">3 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">3  / 6</div>
             <h2>LEGO Spike 3 Gyro Implementation 🤖</h2>
             
             <p>The LEGO Spike 3 hub contains a built-in 6-axis IMU with a 3-axis gyroscope for precise rotation sensing. Proper setup and calibration are crucial for accurate performance.</p>
@@ -161,11 +157,31 @@
             </div>
 
             <div class="challenge-prompt">Key Success Factor: Perfect calibration is the foundation of precision navigation. Master this step and your robot will navigate with professional-grade accuracy!</div>
+        </div> -->
+
+        <!-- gyro turn tutorial-->
+         <div class="slide">
+            <div class="slide-counter">3  / 6</div>
+            <h2>Gyro Turn Program 💻</h2>
+            
+            <p>Let's use the gyroscope in our robot to have it perform a perfect turn.</p>
+            
+                <h3>📝 Example Student Prompt</h3>
+                    <div class="survey-prompt">
+                        <strong>Student's Example Command:</strong>
+                        - Specify the angle and direction to turn (i.e. turn right 90 degrees)
+                        - Specifically instruct the AI to use the gyroscope for turns
+                    </div>
+                
+            <img src="code_guide/gyro_dir.png" style = padding-top:20px;padding-left:70px; width="1000" height=auto>
+
+            
+            
         </div>
 
         <!-- Slide 4: Basic Gyro Turns -->
-        <div class="slide">
-            <div class="slide-counter">4 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">4  / 6</div>
             <h2>Basic Gyro Turn Programming 💻</h2>
             
             <p>Start with a fundamental gyro turn function that rotates the robot to a specific angle using real-time feedback control.</p>
@@ -211,11 +227,11 @@
             <div class="ai-mapper">
                 This simple feedback loop demonstrates the core concept: continuously check the current angle and adjust motor direction until the target is reached!
             </div>
-        </div>
+        </div> -->
 
         <!-- Slide 5: Proportional Gyro Control -->
-        <div class="slide">
-            <div class="slide-counter">5 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">5  / 6</div>
             <h2>Proportional Gyro Control 🎯</h2>
             
             <p>Proportional control adjusts turning speed based on angle error, creating smoother and more accurate turns by slowing down as you approach the target.</p>
@@ -281,11 +297,11 @@
             <div class="ai-mapper">
                 Proportional control creates smooth deceleration as the robot approaches its target angle, eliminating the overshoot and oscillation common with simple on-off control!
             </div>
-        </div>
+        </div> -->
 
         <!-- Slide 6: PID Gyro Control -->
-        <div class="slide">
-            <div class="slide-counter">6 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">6  / 6</div>
             <h2>PID Gyro Control System 🧠</h2>
             
             <p>PID control combines Proportional, Integral, and Derivative terms for the most precise gyroscopic turning control possible - the same technique used in aerospace systems.</p>
@@ -381,11 +397,11 @@
             <div class="ai-mapper">
                 This professional PID implementation includes time-based integration, anti-windup protection, and high-frequency control loops - the same techniques used in aerospace and autonomous vehicle systems!
             </div>
-        </div>
+        </div> -->
 
         <!-- Slide 7: Advanced Navigation Systems -->
-        <div class="slide">
-            <div class="slide-counter">7 / 12</div>
+        <!-- <div class="slide">
+            <div class="slide-counter">7  / 6</div>
             <h2>Advanced Navigation & Competition Techniques 🚀</h2>
             
             <p>Master advanced techniques for competition-winning robots: sensor fusion, adaptive control, calibration systems, and autonomous navigation patterns.</p>
@@ -526,57 +542,148 @@
             <div class="ai-mapper">
                 This competition-grade system includes adaptive PID parameters, systematic error correction, robust calibration, and autonomous navigation patterns - ready for any robotics competition!
             </div>
-        </div>
+        </div> -->
 
         <!-- Slide 8 Teacher challenge-->
          <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 8 / 12</div>
-            <h2>⚡ Point the spotlight</h2> 
+            <div class="slide-counter" id="slideCounter">Slide 4  / 6</div>
+            <h2>⚡ Teacher Challenge: Point the spotlight</h2> 
+            <p>Surrounded by cargo crates, use your navigation tools to turn and face directly toward them one at a time.</p>
             <img src="challenge_visuals/week8_teacher.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
            
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">🔍 Mission Objective:</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸Start anywhere, surround robot with 3 blocks</li>
-                        <li class="no-emoji">🔸Use gyro to turn directly at the blocks in any order, after completing a 360 degree turn</li>
+                <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting anywhere, surround the robot in the center of 3 blocks (Red, Green, and Yellow). Use gyro to turn directly at the blocks in any order.
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Anywhere on the mat</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Point the robot at each of the 3 blocks while using the gyroscope to turn.</li>
                     </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Measure the approximate degrees the robot would need to turn to face each block. Remember to reset the gyro yaw after each turn.</p>
+                    </div>
                 </div>
+                
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Measure the degree the robot would need to turn to face the first block.<br>
+                            <strong>Step 2:</strong> Have the robot reset the yaw before performing any movement.<br>
+                            <strong>Step 3:</strong> Reset the yaw after the first turn and wait 1-2 seconds, before turning again to the second block.<br>
+                            <strong>Step 4:</strong> Repeat this for the 3 blocks.<br>
+                            <strong>Step 5:</strong> Tell the AI each step, including a request to reset the yaw, before sending the prompt.<br>
+                            <strong>Step 6:</strong> Trial and error to adjust the degrees needed for the turns.<br>
+                        </div>
+                    </div>
+                    
+                     <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example9')">🔍 Reveal Example Command</button>
+                        <div id="example9" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "At the start, reset my robot's gyroscope yaw. Repeat the following movement 3 times: my robot needs to turn 45 degrees to the right using the gyroscope. After turning, reset the yaw and wait 1 second."                     
+                        </div>
+                    </div>
+
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">⚠️ Remember to use gyro turns, not normal turns, for more precise movement.</li>
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Measure or guestimate the degrees it would take for the robot to turn to the next block</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             
         </div>
 
         <!-- Slide 9 Student challenge-->
          <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 9 / 12</div>
-            <h2>⚡ Colorful Crate Haul</h2> 
+            <div class="slide-counter" id="slideCounter">Slide 5  / 6</div>
+            <h2>📦 Student Challenge: Colorful Crate Haul</h2> 
+            <p>Surrounded by crates, use your compass to turn, scan them to identify crate colors, and collect the one that matches your orders</p>
             <img src="challenge_visuals/week8_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
            
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">🔍 Mission Objective:</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Starting anywhere, surround the robot in the center of 6 blocks.</li>
-                        <li class="no-emoji">🔸Use gyro to turn and read blocks colors.</li>
-                        <li class="no-emoji">🔸When a designated color is found, have the robot grab it.</li>
+                <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting anywhere, surround the robot in the center of 6 blocks. Use gyro to turn and read blocks colors. When a designated color is found, have the robot grab it.
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Anywhere on the mat</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Gyro turn towards the blocks and identify the designated color block with the color sensor before using the robot arm to grab it.</li>
                     </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Raise the robot arm up before starting any movement so the color sensor can detect the block colors. Troubleshoot by having the robot print the color detected in the console.</p>
+                    </div>
                 </div>
+                
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Measure the degree the robot would need to turn to face the first block.<br>
+                            <strong>Step 2:</strong> Have the robot reset the yaw before performing any movement. Raise the arm up to use the color sensor on the blocks.<br>
+                            <strong>Step 3:</strong> Reset the yaw after the first turn and read the color of the block before turning again to the second block.<br>
+                            <strong>Step 4:</strong> Repeat this until you find the designated block, then move forward to grab it with the robot arm.<br>
+                            <strong>Step 5:</strong> Tell the AI each step, including a request to reset the yaw, before sending the prompt.<br>
+                            <strong>Step 6:</strong> Trial and error to adjust the degrees needed for the turns.<br>
+                        </div>
+                    </div>
+                    
+                    <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example8')">🔍 Reveal Example Command</button>
+                        <div id="example8" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "At the start, reset my robot's gyroscope yaw and raise the arm by 45 degrees. Turn 45 degrees to the right and print the color detected with the color sensor in the console. Then reset the yaw. Repeat this until the designated color of RED is found."                     
+                        </div>
+                    </div>
+
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">⚠️ Remember to use gyro turns, not normal turns, for more precise movement.</li>
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Measure or guestimate the degrees it would take for the robot to turn to the next block</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             
         </div>
 
 
         <!-- Slide 10: Final Challenge and Mastery -->
         <div class="slide">
-            <div class="slide-counter">10 / 12</div>
+            <div class="slide-counter">6  / 6</div>
             <h1>🎯 Navigation Mastery Achieved!</h1>
             <h2>Your Gyroscopic Journey Complete</h2>
             
-            <p>Congratulations! You've mastered gyroscopic control from basic principles to competition-grade systems. You're now ready to tackle the most challenging autonomous robotics missions.</p>
+            <p>Congratulations! You've mastered the principles of the gyroscope and performed precise turns!</p>
 
             <div class="objectives-grid">
                 <div class="objective-card">
                     <span class="terrain-emoji">✅</span>
                     <h3>Skills Mastered</h3>
-                    <p>Basic to advanced gyro control, PID systems, navigation patterns</p>
+                    <p>An understanding of gyroscopes and how to use them.</p>
                 </div>
                 <div class="objective-card">
                     <span class="terrain-emoji">🚀</span>
@@ -586,7 +693,7 @@
                 <div class="objective-card">
                     <span class="terrain-emoji">🎯</span>
                     <h3>Next Level</h3>
-                    <p>Sensor fusion, SLAM mapping, swarm robotics coordination</p>
+                    <p>Putting every sensor together for an advanced competition!</p>
                 </div>
                 <div class="objective-card">
                     <span class="terrain-emoji">🌟</span>
@@ -598,38 +705,14 @@
             <div class="wave-diagram">
                 <h3>Key Achievements</h3>
                 <ul>
-                    <li>Mastered inertial navigation principles and MEMS technology</li>
-                    <li>Implemented professional-grade PID control systems</li>
+                    <li>Mastered gyroscopes</li>
+                    <li>Implemented precise turns</li>
                     <li>Applied advanced calibration and drift correction techniques</li>
                     <li>Created competition-ready autonomous navigation systems</li>
                 </ul>
                 <div class="wave-animation"></div>
             </div>
-
-            <div class="challenge-prompt">🚀 ULTIMATE GYRO CHALLENGE 🚀
-
-Design a "Precision Navigator" robot that demonstrates mastery:
-
-1. Execute a perfect 5-pointed star pattern (72° and 144° turns)
-2. Navigate autonomously to 3 waypoints and return to start
-3. Perform expanding spiral search maintaining heading accuracy
-4. Demonstrate drift correction over 3+ minutes of operation
-5. Complete all tasks with <0.5° accuracy and <1cm position error
-
-Mission Parameters:
-- Total time limit: 8 minutes
-- Surface: Competition mat with obstacles
-- Bonus: Add sensor fusion with color or distance sensors
-
-Success Criteria: Professional-grade precision worthy of aerospace applications!</div>
-
-            <div class="ai-mapper">
-                You've learned navigation principles that guide spacecraft, autonomous vehicles, drones, and precision manufacturing systems. These skills open doors to careers in aerospace, automotive, robotics, and AI-driven technologies. Your journey from basic gyro understanding to competition-grade navigation systems demonstrates the engineering mindset needed for tomorrow's autonomous world!
-            </div>
-
-            <div class="terrain-highlight" style="display: block; text-align: center; font-size: 1.4em; margin: 30px 0;">
-                Navigate boldly into the future - precision and innovation await! 🧭✨
-            </div>
+            
         </div>
     </div>
 
@@ -701,7 +784,40 @@ Success Criteria: Professional-grade precision worthy of aerospace applications!
                     }, 8000);
                 }
             }, 500);
+            
+            
         }
+
+        // Toggle open example commands
+        function toggleExample(exampleId) {
+            const example = document.getElementById(exampleId);
+            const button = example.previousElementSibling;
+            
+            if (example.classList.contains('example-prompt-hidden')) {
+                example.classList.remove('example-prompt-hidden');
+                example.classList.add('example-prompt-visible');
+                button.innerHTML = '🔽 Hide Example Command';
+            } else {
+                example.classList.remove('example-prompt-visible');
+                example.classList.add('example-prompt-hidden');
+                button.innerHTML = '🔍 Reveal Example Command';
+            }
+        }
+        
+        // Degree counting simulator
+        let number = 0;
+        const increment = 5;  
+        const max = 360;
+        const interval = 150; 
+        const counterElement = document.getElementById("counter");
+
+        setInterval(() => {
+        counterElement.textContent = number; // update the HTML
+        number += increment;
+        if (number > max) {
+            number = 0;
+        }
+        }, interval);
 
         // Initialize presentation
         showSlide(0);

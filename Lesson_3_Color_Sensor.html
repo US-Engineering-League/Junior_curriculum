@@ -222,69 +222,125 @@ SPECIFIC RESPONSES NEEDED:
         <!-- Slide 5: Teacher Mission -->
         <div class="slide">
             <div class="slide-counter" id="slideCounter">Slide 5 / 7</div>
-            <h2>⚡ Fish Spotter</h2> 
-            <h4>🐠 Your fishing boat is out at sea! The fish are swimming and are different colors, and your boat needs to find the right kind! Scan them and record what colored fish are there so you can come back for them!</h4>
+            <h2>🐠 Teacher Challenge: Fish Spotter</h2> 
+            <p>Your fishing boat is out at sea! The fish are swimming and are different colors, and your boat needs to find the right kind! Scan them and record what colored fish are there so you can come back for them!</p>
 
             <img src="challenge_visuals/week4_teacher.svg" style = padding:20px;padding-left:50px;padding-top:20px;>
             
-            <div class="two-column" style="margin: 30px 0;">
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">🏁 Phase 1: Start requirements</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Start between red and blue starting squares</li>
-                        <li class="no-emoji">🔸 Each team gets different color assignment</li>
+            
+            <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting in between the red and blue starting squares, move in a straight line until you sense the designated color, stop the robot, and print the color.
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Between the red and blue starting squares</li>
+                        <li class="no-emoji"><strong>Target Zone:</strong> Next to the designated block</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Detect the colors with the color sensor, and stop the robot along with printing the color in the console once found.</li>
                     </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Keep the robot arm raised to use the color sensor; raising the arm by 45 degrees is usually a good angle but try and see if there is a better angle.</p>
+                    </div>
                 </div>
                 
-            <div class="objective-card">
-                    <h3 style="color: #ffffff;">👁️ Phase 2: Color idenfitication</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Move in a straight line until designated color is sensed</li>
-                        <li class="no-emoji">🔸 Print the color!</li>
-                    </ul>
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Raise the robot arm to use the color sensor before moving.<br>
+                            <strong>Step 2:</strong> Have the robot keep moving forward until your assigned color is detected.<br>
+                            <strong>Step 3:</strong> Test and adjust your path, adjust robot arm positioning as needed.<br>
+                            <strong>Step 4:</strong> Execute the full navigation sequence<br>
+                        </div>
+                    </div>
+                    
+                     <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example8')">🔍 Reveal Example Command</button>
+                        <div id="example8" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "Raise my robot arm up clockwise by 45 degrees. Have it move forward until the color sensor see red. Then, stop the robot and print in the console 'red detected.' "                     
+                        </div>
+                    </div>
+
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">⚠️ Remember to stop the robot once it finds the color.</li>
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Trial and error is the best for this situation</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             
-            <h3>📝 Example Student Prompt</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('example4')">🔍 Reveal Example Command</button>
-                <div id="example4" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
-                    <strong>Student's Example Command:</strong><br><br>
-                    The robot lifts its arm up 35 degrees and begins to move forward. It continues to move until its sensor detects one of four specific colors: blue, red, green, or yellow. Once a color is found, the robot will print the name of that color. Finally, it will lower its arm down 35 degrees to its original position.                </div>
-            </div>
+            
         </div>
 
         <!-- Slide 8: Student Mission -->
         <div class="slide">
             <div class="slide-counter" id="slideCounter">Slide 6 / 7</div>
-            <h2>⚡ Deliver the color!</h2> 
+            <h2>🌊 Student Challenge: Deliver the color!</h2> 
+            <p>You’re heading back to pick up the fish for the day. Take your boat straight out and find the colored fish that you've been assigned to catch today and bring them back to your starting dock.</p>
             <img src="challenge_visuals/week4_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
             
-            <div class="two-column" style="margin: 30px 0;">
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">🔍 Phase 1: Find the block</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Start between red and blue starting squares</li>
-                        <li class="no-emoji">🔸 Each team gets different color assignment</li>
-                        <li class="no-emoji">🔸 Move in a straight line until designated color is sensed</li>
+            <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting in between the Red and Blue starting squares, move in a straight line until you sense the designated color and bring it to the same color filled rectangle.
+
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Between the red and blue starting squares</li>
+                        <li class="no-emoji"><strong>Target Zone:</strong> Rectangle that is the same color as your designated color</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Bring the correct colored block to the correct colored rectangle</li>
                     </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Once the block has been grabbed, drive the robot to the end of the rectangles and use the color sensor to detect the correct rectangle as you drive forward.</p>
+                    </div>
                 </div>
                 
-                <div class="objective-card">
-                    <h3 style="color: #ffffff;">🚚 Phase 2: Deliver the block</h3>
-                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                        <li class="no-emoji">🔸 Bring the block over to the same color filled rectangle.</li>
-                        <li class="no-emoji">🔸 Use the color sensor to find the rectangle.</li>
-                    </ul>
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Raise your robot arm to use the color sensor. Have the robot keep moving forward until your assigned color is detected.<br>
+                            <strong>Step 2:</strong> Grab the block (drive forward and lower the arm) and drive to the end of the rectangles.<br>
+                            <strong>Step 3:</strong> Move forward until the correct rectangle is detected.<br>
+                            <strong>Step 4:</strong> Adjust values and path as needed.<br>
+                        </div>
+                    </div>
+                    
+                     <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example9')">🔍 Reveal Example Command</button>
+                        <div id="example9" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "Raise my robot arm up clockwise by 45 degrees. Have it move forward until the color sensor see red. Then, stop the robot and print in the console 'red detected.' "                     
+                        </div>
+                    </div>
+
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">⚠️ Remember to stop the robot once it finds the color.</li>
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Trial and error is the best for this situation</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            
-            <h3>📝 Example Student Prompt</h3>
-            <div class="example-prompt-container">
-                <button class="reveal-btn" onclick="toggleExample('example5')">🔍 Reveal Example Command</button>
-                <div id="example5" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
-                    <strong>Student's Example Command:</strong><br><br>
-                    Move arm up by 35 degrees, move forward 85 inches, while moving forward, scan for a color Blue, Red, Green or Yellow and print it, while moving forward, When color sensor picks up the color Blue, Red, Green or Yellow, while moving forward, save the color in a variable to use later, continue forward to finish the 85 inches, after moving forward 85 inches, drop the arm by 35 degrees, move backwards 3 inches, turn right 90 degrees move forward 25 inches, move backwards 1.5 inch, turn right 85 degrees, go forward slowly until the sensor senses the same saved color move forward 2 inches.            </div>
             </div>
         </div>
 
