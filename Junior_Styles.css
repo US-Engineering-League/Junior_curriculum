@@ -837,4 +837,8 @@
         .marker-30 { left: 30%; }
         .marker-70 { left: 70%; }
         .marker-100 { left: 100%; }
-    
+
+        video{
+            width: 100%;
+            height: auto;
+        }
