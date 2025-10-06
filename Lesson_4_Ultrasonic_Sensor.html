@@ -216,58 +216,58 @@ PROGRAMMING REQUIREMENTS:
         <!-- Slide 5: Autonomous Navigation Challenge -->
         <div class="slide">
             <div class="slide-counter">Slide 5 / 5</div>
-            <h2>⚡ Challenge: Object Detection</h2>
-            <p style="text-align: center; font-size: 1.3em;">Create an intelligent robot that navigates using ultrasonic feedback!</p>
+            <h2>⚡ Challenge: Detect the Treasure</h2>
+            <p>Starting from shore, navigate across the bay and use sonar to detect hidden sea treasures (blocks). Once detected, stop and bring the treasure back to the port.</p>
             <img src="challenge_visuals/week5_student.svg" style="margin-left: 30px;">
-            <div style="background: rgba(0, 150, 255, 0.1); padding: 30px; border-radius: 20px; border: 3px solid #0099ff; margin: 20px auto; max-width: 950px;">
-                <h3 style="color: #ffffff; text-align: center; margin-bottom: 25px;">🎯 Mission Objectives</h3>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
-                    <div style="background: rgba(0, 150, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #0099ff;">
-                        <h4 style="color: #0099ff; margin-bottom: 15px; text-align: center;">🔍 Phase 1: Detection Behavior</h4>
-                        <ul style="list-style: none; padding: 0; color: #e0e0ff;">
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Move forward until block is detected by the distance sensor</li>
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Stop once detected</li>
-                        </ul>
+            <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting from the Green Square or Single Straight black line, the robot will move forward and detect an object in one of the six squares. Once the robot finds the object, turn and bring it back to the starting position.
                     </div>
                     
-                    <div style="background: rgba(0, 150, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid #0099ff;">
-                        <h4 style="color: #0099ff; margin-bottom: 15px; text-align: center;">🚚 Phase 2: Retrieval</h4>
-                        <ul style="list-style: none; padding: 0; color: #e0e0ff;">
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Grab detected object with arms</li>
-                            <li class="no-emoji" style="margin-bottom: 10px;">📍 Bring object back to starting square</li>
-                        </ul>
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Green square or one end of the black straight line</li>
+                        <li class="no-emoji"><strong>Target Zone:</strong> Back to the starting position</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Detect the object with the ultrasonic sensor and use the robot arm to bring it back.</li>
+                    </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Using the information about the sensors on the top of the Spike app, find out the value that the ultrasonic sensor gives when the block is near the robot. That value means something is near the robot! For best results, test this on the mat with both the robot and block positioned correctly.</p>
                     </div>
                 </div>
                 
-                <div style="background: rgba(0, 255, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #00ffff; margin-bottom: 25px;">
-                    <h4 style="color: #00ffff; text-align: center; margin-bottom: 15px;">🗺️ Challenge Course Layout</h4>
-                    <div style="display: flex; justify-content: space-around; align-items: center; text-align: center;">
-                        <div>
-                            <div style="font-size: 2em; margin-bottom: 5px;">🟢</div>
-                            <p style="font-size: 0.9em;">Start Zone</p>
-                            <p style="font-size: 0.8em; color: #aaa;">(Robot begins here)</p>
-                        </div>
-                        <div style="font-size: 2em;">→</div>
-                        <div>
-                            <div style="font-size: 2em; margin-bottom: 5px;">📦</div>
-                            <p style="font-size: 0.9em;">Object Pickup</p>
-                            <p style="font-size: 0.8em; color: #aaa;">(Detect and grab object)</p>
-                        </div>
-                        <div style="font-size: 2em;">→</div>
-                        <div>
-                            <div style="font-size: 2em; margin-bottom: 5px;">🏁</div>
-                            <p style="font-size: 0.9em;">Finish Zone</p>
-                            <p style="font-size: 0.8em; color: #aaa;">(Return back to start position)</p>
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Move robot forward until an object is detected by the ultrasonic sensor.<br>
+                            <strong>Step 2:</strong> Have the robot turn towards the object and use the arm to grab the block.<br>
+                            <strong>Step 3:</strong> Turn back and move backwards to starting spot. Or turn towards starting spot and move forward.<br>
+                            <strong>Step 4:</strong> Adjust path as needed.<br>
                         </div>
                     </div>
-                </div>
-            </div>
-            
+                    
+                     <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example8')">🔍 Reveal Example Command</button>
+                        <div id="example8" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "Reset my robot's relative degrees moved. Move my robot forward until the ultrasonic sensor detects an object at the distance of 200 or under. Record the relative degrees moved up till this point and store it in a variable called "distance." Then, turn 90 degrees to the right, raise the arm by 45 degrees clockwise, move forward 1 inch, lower the arm by 45 degrees, and move backward 1 inch. At last, turn the robot left 90 degrees and move backward by the value stored in the distance variable."                     
+                        </div>
+                    </div>
 
-            <div style="margin-top: 25px; text-align: center;">
-                <h3>🏆 Navigation Mastery Achieved!</h3>
-                <p style="font-size: 1.2em; color: #00ffff;">You've mastered ultrasonic sensor programming for autonomous robot navigation!</p>
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Trial and error is the best for this situation</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
