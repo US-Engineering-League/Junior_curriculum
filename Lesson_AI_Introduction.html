@@ -1,219 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Assistant Guide</title>
-    <link rel="stylesheet" href="Junior_Styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="Junior_Styles.css" />
+  </head>
+  <style>
+    .slide h1 {
+      font-size: 3rem;
+    }
+    .slide h2 {
+      font-size: 2rem;
+    }
+
+    .survey-tip {
+      text-align: center;
+    }
+
+    /* Responsive image styling */
+    .slide img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      padding: 20px;
+    }
+
+    .slide .two-column {
+      grid-template-columns: 2fr 1fr;
+      align-items: center;
+      gap: 0;
+    }
+
+    .slide .two-column img {
+      max-width: 100%;
+      width: 100%;
+      padding: 20px;
+      padding-top: 50px;
+    }
+
+    @media (width <= 1000px) {
+      .slide h1 {
+        font-size: 2.5rem;
+      }
+      .slide h2 {
+        font-size: 1.75rem;
+      }
+
+      .slide .two-column {
+        grid-template-columns: none;
+        grid-template-rows: 1fr auto;
+        align-items: center;
+      }
+
+      .slide img {
+        padding: 10px;
+        padding-left: 20px;
+      }
+
+      .slide .two-column img {
+        padding: 10px;
+        padding-top: 20px;
+      }
+    }
+
+    @media (width <= 600px) {
+      .slide h1 {
+        font-size: 2rem;
+      }
+      .slide h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+  <body>
     <div class="topographic-grid"></div>
-    <div class="contour-lines" id="contourLines"></div> 
+    <div class="contour-lines" id="contourLines"></div>
     <div class="bubbles" id="bubbles"></div>
     <div class="fish-container" id="fishContainer"></div>
-    
+
     <div class="presentation-container">
-        <div class="progress-bar" id="progressBar"></div>
-     
-        <!-- Slide 1: Title -->
-        <div class="slide">
-            <div class="slide-counter">Slide 1 / 4</div>
-                <h1>USEL Steam Coach Guide</h1>
-                <h2>AI-Conversation Select</h2>
-                <div class="two-column">
-                    <div>
-                        <img src="ai_visuals/ai_chat_selection.png" style = padding:20px;padding-top:50px; width="800" height=auto>
-                    </div>
-                    <div>
-                        <div class="survey-tip" style="margin-top: 200px; text-align: center;">
-                            <strong>AI Tip:</strong> AI Learns from your chat. The more information you give it, the more it helps you.
-                        </div>
-                    </div>
-                </div>
+      <div class="progress-bar" id="progressBar"></div>
+
+      <!-- Slide 1: Title -->
+      <div class="slide">
+        <div class="slide-counter">Slide 1 / 4</div>
+        <h1>USEL Steam Coach Guide</h1>
+        <h2>AI-Conversation Select</h2>
+        <div>
+          <img
+            src="ai_visuals/ai_chat_selection.png"
+            alt="AI Chat Selection Interface"
+          />
+          <div class="survey-tip">
+            <strong>AI Tip:</strong> AI Learns from your chat. The more
+            information you give it, the more it helps you.
+          </div>
         </div>
+      </div>
 
-         <!-- Slide 2: Title -->
-        <div class="slide">
-            <div class="slide-counter">Slide 2 / 4</div>
-            <h1>USEL Steam Coach Guide</h1>
-            <h2>AI-Text Box</h2>
+      <!-- Slide 2: Title -->
+      <div class="slide">
+        <div class="slide-counter">Slide 2 / 4</div>
+        <h1>USEL Steam Coach Guide</h1>
+        <h2>AI-Text Box</h2>
 
-            <img src="ai_visuals/ai_convo.png" style = padding:20px;padding-left:100px;padding-top:20px; width="1000" height=auto>
+        <img src="ai_visuals/ai_convo.png" alt="AI Conversation Interface" />
+      </div>
+
+      <!-- Slide 3: Title -->
+      <div class="slide">
+        <div class="slide-counter" id="slideCounter">Slide 3 / 4</div>
+        <h1>USEL Steam Coach Guide</h1>
+        <h2>AI-Chat</h2>
+
+        <img src="ai_visuals/ai_chatlog.png" alt="AI Chat Log Interface" />
+
+        <div class="survey-tip" style="margin-top: 30px; text-align: center">
+          <strong>AI Tip:</strong> Check out the AI notes — they’ll help you
+          understand what the code is doing or let you know what to look out
+          for!
         </div>
+      </div>
 
-        <!-- Slide 3: Title -->
-        <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 3 / 4</div>
-            <h1>USEL Steam Coach Guide</h1>
-            <h2>AI-Chat</h2>
+      <!-- Slide 4: Title -->
+      <div class="slide">
+        <div class="slide-counter" id="slideCounter">Slide 4 / 4</div>
+        <h1>USEL Steam Coach Guide</h1>
+        <h2>AI-Bot Selection</h2>
 
-            <img src="ai_visuals/ai_chatlog.png" style = padding-left:100px;padding-top:5px; width="1000" height=auto>
-            
-            <div class="survey-tip" style="margin-top: 30px; text-align: center;">
-                <strong>AI Tip:</strong> Check out the AI notes — they’ll help you understand what the code is doing or let you know what to look out for!
-            </div>
+        <img
+          src="ai_visuals/ai_bot_selection.png"
+          alt="AI Bot Selection Interface"
+        />
+
+        <div class="survey-tip" style="margin-top: 30px; text-align: center">
+          <strong>AI Tip:</strong> Now that the robot is selected, we no longer
+          need to worry about the wire ports.
         </div>
+      </div>
 
-        <!-- Slide 4: Title -->
-        <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 4 / 4</div>
-            <h1>USEL Steam Coach Guide</h1>
-            <h2>AI-Bot Selection</h2>
-
-            <img src="ai_visuals/ai_bot_selection.png" style = padding-left:100px;padding-top:5px; width="1000" height=auto>
-            
-            <div class="survey-tip" style="margin-top: 30px; text-align: center;">
-                <strong>AI Tip:</strong> Now that the robot is selected, we no longer need to worry about the wire ports.
-            </div>
-        </div>
-       
-    
-
-        <div class="navigation">
-            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Back</button>
-            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
-        </div>
+      <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+          ◀ Back
+        </button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+          Next ▶
+        </button>
+      </div>
     </div>
-   
 
-<script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const totalSlides = slides.length;
 
-        function createContours() {
-            const contoursContainer = document.getElementById('contourLines');
-            for (let i = 0; i < 8; i++) {
-                const contour = document.createElement('div');
-                contour.className = 'contour';
-                contour.style.left = Math.random() * 80 + '%';
-                contour.style.top = Math.random() * 80 + '%';
-                contour.style.width = Math.random() * 200 + 100 + 'px';
-                contour.style.height = contour.style.width;
-                contour.style.animationDelay = Math.random() * 8 + 's';
-                contoursContainer.appendChild(contour);
+      function createContours() {
+        const contoursContainer = document.getElementById("contourLines");
+        for (let i = 0; i < 8; i++) {
+          const contour = document.createElement("div");
+          contour.className = "contour";
+          contour.style.left = Math.random() * 80 + "%";
+          contour.style.top = Math.random() * 80 + "%";
+          contour.style.width = Math.random() * 200 + 100 + "px";
+          contour.style.height = contour.style.width;
+          contour.style.animationDelay = Math.random() * 8 + "s";
+          contoursContainer.appendChild(contour);
+        }
+      }
+
+      function createBubbles() {
+        const bubblesContainer = document.getElementById("bubbles");
+
+        function addBubble() {
+          const bubble = document.createElement("div");
+          bubble.className = "bubble";
+
+          // Random bubble size
+          const size = Math.random() * 100 + 30; // 10-40px
+          bubble.style.width = size + "px";
+          bubble.style.height = size + "px";
+
+          // Position bubble at random horizontal position, below screen
+          bubble.style.left = Math.random() * 95 + "%";
+          bubble.style.top = "100vh"; // Start just below the visible area
+
+          // Random animation duration
+          const duration = Math.random() * 4 + 6; // 6-10 seconds
+          bubble.style.animation = `bubbleFloat ${duration}s linear`;
+
+          bubblesContainer.appendChild(bubble);
+
+          // Remove bubble after animation completes
+          setTimeout(() => {
+            if (bubble.parentNode) {
+              bubble.parentNode.removeChild(bubble);
             }
+          }, duration * 1000);
         }
 
-        function createBubbles() {
-            const bubblesContainer = document.getElementById('bubbles');
-            
-            function addBubble() {
-                const bubble = document.createElement('div');
-                bubble.className = 'bubble';
-                
-                // Random bubble size
-                const size = Math.random() * 100 + 30; // 10-40px
-                bubble.style.width = size + 'px';
-                bubble.style.height = size + 'px';
-                
-                // Position bubble at random horizontal position, below screen
-                bubble.style.left = Math.random() * 95 + '%';
-                bubble.style.top = '100vh'; // Start just below the visible area
-                
-                // Random animation duration
-                const duration = Math.random() * 4 + 6; // 6-10 seconds
-                bubble.style.animation = `bubbleFloat ${duration}s linear`;
-                
-                bubblesContainer.appendChild(bubble);
-                
-                // Remove bubble after animation completes
-                setTimeout(() => {
-                    if (bubble.parentNode) {
-                        bubble.parentNode.removeChild(bubble);
-                    }
-                }, duration * 1000);
+        // Create bubbles at regular intervals
+        setInterval(addBubble, 100);
+
+        // Create initial bubble
+        setTimeout(addBubble, 500);
+      }
+
+      function createFish() {
+        const fishContainer = document.getElementById("fishContainer");
+        const fishEmojis = ["🐠", "🐟", "🦈", "🐙", "🦑", "🐡"];
+
+        function addFish() {
+          const fish = document.createElement("div");
+          fish.className = "fish fish-right";
+          fish.textContent =
+            fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+
+          const topPosition = Math.random() * 70 + 10; // 10% to 80% from top
+          fish.style.top = topPosition + "%";
+          fish.style.animationDuration = Math.random() * 5 + 15 + "s"; // 15-20s
+
+          fishContainer.appendChild(fish);
+
+          // Remove fish after animation
+          const duration = parseFloat(fish.style.animationDuration) * 1000;
+          setTimeout(() => {
+            if (fish.parentNode) {
+              fish.parentNode.removeChild(fish);
             }
-            
-            // Create bubbles at regular intervals
-            setInterval(addBubble, 100);
-            
-            // Create initial bubble
-            setTimeout(addBubble, 500);
+          }, duration);
         }
 
-        function createFish() {
-            const fishContainer = document.getElementById('fishContainer');
-            const fishEmojis =  ['🐠', '🐟', '🦈', '🐙', '🦑', '🐡'];
-            
-            function addFish() {
-                const fish = document.createElement('div');
-                fish.className = 'fish fish-right';
-                fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
-                
-                const topPosition = Math.random() * 70 + 10; // 10% to 80% from top
-                fish.style.top = topPosition + '%';
-                fish.style.animationDuration = (Math.random() * 5 + 15) + 's'; // 15-20s
-                
-                fishContainer.appendChild(fish);
-                
-                // Remove fish after animation
-                const duration = parseFloat(fish.style.animationDuration) * 1000;
-                setTimeout(() => {
-                    if (fish.parentNode) {
-                        fish.parentNode.removeChild(fish);
-                    }
-                }, duration);
-            }
-            
-            // Create fish at intervals
-            setInterval(addFish, 3000);
-            
-            // Create initial fish
-            setTimeout(addFish, 2000);
-        }
+        // Create fish at intervals
+        setInterval(addFish, 3000);
 
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + totalSlides) % totalSlides;
-            slides[currentSlide].classList.add('active');
-            
-            const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
-            document.getElementById('progressBar').style.width = progressPercent + '%';
-            
-            document.getElementById('slideCounter').textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
-            
-            document.getElementById('prevBtn').disabled = currentSlide === 0;
-            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
-        }
+        // Create initial fish
+        setTimeout(addFish, 2000);
+      }
 
-        function changeSlide(direction) {
-            showSlide(currentSlide + direction);
-        }
+      function showSlide(n) {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (n + totalSlides) % totalSlides;
+        slides[currentSlide].classList.add("active");
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-                changeSlide(-1);
-            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-                changeSlide(1);
-            } else if (event.key === ' ') {
-                event.preventDefault();
-                changeSlide(1);
-            } else if (event.key === 'Escape') {
-                currentSlide = 0;
-                showSlide(0);
-            }
-        });
+        const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
+        document.getElementById("progressBar").style.width =
+          progressPercent + "%";
 
-        function toggleExample(exampleId) {
-            const example = document.getElementById(exampleId);
-            const button = example.previousElementSibling;
-            
-            if (example.classList.contains('example-prompt-hidden')) {
-                example.classList.remove('example-prompt-hidden');
-                example.classList.add('example-prompt-visible');
-                button.innerHTML = '🔽 Hide Example Command';
-            } else {
-                example.classList.remove('example-prompt-visible');
-                example.classList.add('example-prompt-hidden');
-                button.innerHTML = '🔍 Reveal Example Command';
-            }
+        document.getElementById("slideCounter").textContent = `Slide ${
+          currentSlide + 1
+        } / ${totalSlides}`;
+
+        document.getElementById("prevBtn").disabled = currentSlide === 0;
+        document.getElementById("nextBtn").disabled =
+          currentSlide === totalSlides - 1;
+      }
+
+      function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          changeSlide(-1);
+        } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          changeSlide(1);
+        } else if (event.key === " ") {
+          event.preventDefault();
+          changeSlide(1);
+        } else if (event.key === "Escape") {
+          currentSlide = 0;
+          showSlide(0);
         }
-        
-        createBubbles();
-        createContours();
-        createFish();
-        showSlide(0);
+      });
+
+      function toggleExample(exampleId) {
+        const example = document.getElementById(exampleId);
+        const button = example.previousElementSibling;
+
+        if (example.classList.contains("example-prompt-hidden")) {
+          example.classList.remove("example-prompt-hidden");
+          example.classList.add("example-prompt-visible");
+          button.innerHTML = "🔽 Hide Example Command";
+        } else {
+          example.classList.remove("example-prompt-visible");
+          example.classList.add("example-prompt-hidden");
+          button.innerHTML = "🔍 Reveal Example Command";
+        }
+      }
+
+      createBubbles();
+      createContours();
+      createFish();
+      showSlide(0);
     </script>
-</body>
+  </body>
 </html>
