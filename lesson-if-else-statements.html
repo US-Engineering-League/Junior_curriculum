@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: If-Else Decision Making</title>
+    <link rel="stylesheet" href="Junior_Styles.css">
+</head>
+<body>
+    <div class="topographic-grid"></div>
+    <div class="contour-lines" id="contourLines"></div>
+    <div class="bubbles" id="bubbles"></div>
+    <div class="fish-container" id="fishContainer"></div>
+    
+    <div class="presentation-container">
+        <div class="progress-bar" id="progressBar"></div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="slide-counter" id="slideCounter">Slide 1 / 10</div>
+            <h1>Robot Decision Making</h1>
+            <div style="text-align: center; margin-top: 60px;">
+                <div class="terrain-highlight" style="font-size: 2em;">🤖 If-Else Statement Control 🌊</div>
+                <p style="font-size: 1.8em; margin-top: 30px; color: #00ccff;">Teaching Your Robot to Make Smart Decisions!</p>
+                <p style="font-size: 1.4em; margin-top: 20px; color: #66ccff;">If-Else Logic • Conditional Programming • Smart Behaviors</p>
+                
+                <div style="margin-top: 40px; font-size: 1.2em; color: #e0e0ff;">
+                    <p>🤖 Welcome back, Robot Engineer! Today you'll teach your robot to think and make decisions on its own! 🧠</p>
+                </div>
+            </div>
+            <div style="position: absolute; bottom: 20px; right: 30px; font-size: 6em; opacity: 0.3;">🤔</div>
+        </div>
+
+        <!-- Slide 2: Mission Objectives -->
+        <div class="slide">
+            <div class="slide-counter">Slide 2 / 10</div>
+            <h2>📋 Decision Programming Mission Objectives</h2>
+            <p style="font-size: 1.4em; margin-bottom: 30px; color: #00ccff;">By the end of today's lesson, you will master:</p>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <span class="terrain-emoji">🧠</span>
+                    <h3>If-Else Logic</h3>
+                    <p>Understand how robots make decisions using conditional statements</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🔀</span>
+                    <h3>Branching Paths</h3>
+                    <p>Create programs with multiple decision paths and outcomes</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🎯</span>
+                    <h3>Comparison Operators</h3>
+                    <p>Use operators like >, <, ==, != to compare values</p>
+                </div>
+                <div class="objective-card">
+                    <span class="terrain-emoji">🤖</span>
+                    <h3>Smart Robot Behaviors</h3>
+                    <p>Program robots that respond intelligently to different situations</p>
+                </div>
+            </div>
+            
+            <div class="survey-tip" style="margin-top: 30px; text-align: center;">
+                <strong>Today's Focus:</strong> Making your robot intelligent by teaching it to make decisions based on conditions
+            </div>
+        </div>
+
+        <!-- Slide 3: What Are If-Else Statements? -->
+        <div class="slide">
+            <div class="slide-counter">Slide 3 / 10</div>
+            <h2>🤔 What Are If-Else Statements?</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>💭 Real-World Decisions</h3>
+                    <div class="expedition-box">
+                        <h3>Everyday Examples:</h3>
+                        <ul style="color: white; font-size: 1.1em; line-height: 1.8;">
+                            <li class="no-emoji">☔ IF it's raining → Take an umbrella<br>ELSE → Leave umbrella at home</li>
+                            <li class="no-emoji">🚦 IF light is green → Drive<br>ELSE → Stop</li>
+                            <li class="no-emoji">🌡️ IF temperature > 75°F → Wear shorts<br>ELSE → Wear pants</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="survey-tip" style="margin-top: 20px;">
+                        <strong>Key Concept:</strong> If-else statements let your program choose between different actions based on whether a condition is TRUE or FALSE
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🤖 Robot Decisions</h3>
+                    <div style="background: rgba(0, 100, 150, 0.2); padding: 20px; border-radius: 15px; border: 2px solid #00ccff;">
+                        <h4 style="color: #00ccff; margin-bottom: 15px;">🌊 Navigation Example</h4>
+                        <div style="font-size: 1em; color: #e0e0ff; line-height: 1.8;">
+                            <p><strong>Scenario:</strong> Robot encounters an obstacle</p>
+                            <br>
+                            <p>IF obstacle detected:</p>
+                            <p style="margin-left: 20px;">→ Stop moving</p>
+                            <p style="margin-left: 20px;">→ Turn left</p>
+                            <p style="margin-left: 20px;">→ Continue forward</p>
+                            <br>
+                            <p>ELSE:</p>
+                            <p style="margin-left: 20px;">→ Keep moving forward</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px; font-size: 5em; opacity: 0.6;">
+                        🤖➡️🚧❓
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: If-Else Syntax -->
+        <div class="slide">
+            <div class="slide-counter">Slide 4 / 10</div>
+            <h2>📝 If-Else Statement Structure</h2>
+            
+            <h3>🔧 Basic Syntax in Python</h3>
+            <div class="code-block">
+<div class="code-with-lines">
+<div class="code-line"><span class="line-number">1</span><span class="line-content">if condition:</span></div>
+<div class="code-line"><span class="line-number">2</span><span class="line-content">    # Code runs if condition is TRUE</span></div>
+<div class="code-line"><span class="line-number">3</span><span class="line-content">    action_when_true()</span></div>
+<div class="code-line"><span class="line-number">4</span><span class="line-content">else:</span></div>
+<div class="code-line"><span class="line-number">5</span><span class="line-content">    # Code runs if condition is FALSE</span></div>
+<div class="code-line"><span class="line-number">6</span><span class="line-content">    action_when_false()</span></div>
+</div>
+            </div>
+            
+            <div class="two-column">
+                <div>
+                    <h3>⚠️ Critical Syntax Rules</h3>
+                    <ul>
+                        <li class="no-emoji">🔹 <strong>Colon (:)</strong> after if and else</li>
+                        <li class="no-emoji">🔹 <strong>Indentation</strong> is required (4 spaces or 1 tab)</li>
+                        <li class="no-emoji">🔹 Condition must evaluate to <strong>True or False</strong></li>
+                        <li class="no-emoji">🔹 The <strong>else</strong> block is optional</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>✅ Simple Example</h3>
+                    <div class="code-block">
+<div class="code-with-lines">
+<div class="code-line"><span class="line-number">1</span><span class="line-content">speed = 60</span></div>
+<div class="code-line"><span class="line-number">2</span><span class="line-content"></span></div>
+<div class="code-line"><span class="line-number">3</span><span class="line-content">if speed > 50:</span></div>
+<div class="code-line"><span class="line-number">4</span><span class="line-content">    print("Moving fast!")</span></div>
+<div class="code-line"><span class="line-number">5</span><span class="line-content">else:</span></div>
+<div class="code-line"><span class="line-number">6</span><span class="line-content">    print("Moving slowly")</span></div>
+</div>
+                    </div>
+                    <div class="survey-tip" style="margin-top: 15px;">
+                        <strong>Output:</strong> "Moving fast!" (because 60 > 50 is TRUE)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Comparison Operators -->
+        <div class="slide">
+            <div class="slide-counter">Slide 5 / 10</div>
+            <h2>🔍 Comparison Operators</h2>
+            
+            <h3>📊 How to Compare Values</h3>
+            <div style="background: rgba(0, 100, 150, 0.2); padding: 25px; border-radius: 15px; border: 2px solid #00ccff; margin: 20px 0;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; font-size: 1.1em;">
+                    <div style="text-align: center;">
+                        <div class="terrain-highlight" style="margin-bottom: 10px;">&gt;</div>
+                        <p><strong>Greater Than</strong></p>
+                        <p style="font-size: 0.9em; color: #66ccff;">5 &gt; 3 → True</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="terrain-highlight" style="margin-bottom: 10px;">&lt;</div>
+                        <p><strong>Less Than</strong></p>
+                        <p style="font-size: 0.9em; color: #66ccff;">2 &lt; 7 → True</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="terrain-highlight" style="margin-bottom: 10px;">==</div>
+                        <p><strong>Equal To</strong></p>
+                        <p style="font-size: 0.9em; color: #66ccff;">4 == 4 → True</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="terrain-highlight" style="margin-bottom: 10px;">!=</div>
+                        <p><strong>Not Equal</strong></p>
+                        <p style="font-size: 0.9em; color: #66ccff;">5 != 3 → True</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="terrain-highlight" style="margin-bottom: 10px;">&gt;=</div>
+                        <p><strong>Greater or Equal</strong></p>
+                        <p style="font-size: 0.9em; color: #66ccff;">5 &gt;= 5 → True</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="terrain-highlight" style="margin-bottom: 10px;">&lt;=</div>
+                        <p><strong>Less or Equal</strong></p>
+                        <p style="font-size: 0.9em; color: #66ccff;">3 &lt;= 8 → True</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>🎯 Practice Examples</h3>
+            <div class="code-block">
+<div class="code-with-lines">
+<div class="code-line"><span class="line-number">1</span><span class="line-content">battery_level = 25</span></div>
+<div class="code-line"><span class="line-number">2</span><span class="line-content"></span></div>
+<div class="code-line"><span class="line-number">3</span><span class="line-content">if battery_level < 30:</span></div>
+<div class="code-line"><span class="line-number">4</span><span class="line-content">    print("🔋 Warning! Battery low!")</span></div>
+<div class="code-line"><span class="line-number">5</span><span class="line-content">    robot.stop()</span></div>
+<div class="code-line"><span class="line-number">6</span><span class="line-content">else:</span></div>
+<div class="code-line"><span class="line-number">7</span><span class="line-content">    print("✅ Battery OK - continuing mission")</span></div>
+<div class="code-line"><span class="line-number">8</span><span class="line-content">    robot.move_forward()</span></div>
+</div>
+            </div>
+            
+            <div class="survey-tip" style="margin-top: 20px;">
+                <strong>⚠️ Common Mistake:</strong> Using = (assignment) instead of == (comparison). Remember: = assigns a value, == checks if values are equal!
+            </div>
+        </div>
+
+        <!-- Slide 6: Elif Statements -->
+        <div class="slide">
+            <div class="slide-counter">Slide 6 / 10</div>
+            <h2>🔀 Multiple Conditions with Elif</h2>
+            
+            <h3>🌟 When You Need More Than Two Options</h3>
+            <div class="survey-tip">
+                <strong>elif</strong> (else if) lets you check multiple conditions in sequence. The first TRUE condition wins!
+            </div>
+            
+            <div class="two-column">
+                <div>
+                    <h3>📝 Syntax Structure</h3>
+                    <div class="code-block">
+<div class="code-with-lines">
+<div class="code-line"><span class="line-number">1</span><span class="line-content">if condition1:</span></div>
+<div class="code-line"><span class="line-number">2</span><span class="line-content">    action1()</span></div>
+<div class="code-line"><span class="line-number">3</span><span class="line-content">elif condition2:</span></div>
+<div class="code-line"><span class="line-number">4</span><span class="line-content">    action2()</span></div>
+<div class="code-line"><span class="line-number">5</span><span class="line-content">elif condition3:</span></div>
+<div class="code-line"><span class="line-number">6</span><span class="line-content">    action3()</span></div>
+<div class="code-line"><span class="line-number">7</span><span class="line-content">else:</span></div>
+<div class="code-line"><span class="line-number">8</span><span class="line-content">    default_action()</span></div>
+</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🤖 Robot Speed Example</h3>
+                    <div class="code-block">
+<div class="code-with-lines">
+<div class="code-line"><span class="line-number">1</span><span class="line-content">distance = 15  # inches</span></div>
+<div class="code-line"><span class="line-number">2</span><span class="line-content"></span></div>
+<div class="code-line"><span class="line-number">3</span><span class="line-content">if distance < 10:</span></div>
+<div class="code-line"><span class="line-number">4</span><span class="line-content">    speed = 30  # Slow</span></div>
+<div class="code-line"><span class="line-number">5</span><span class="line-content">elif distance < 30:</span></div>
+<div class="code-line"><span class="line-number">6</span><span class="line-content">    speed = 60  # Medium</span></div>
+<div class="code-line"><span class="line-number">7</span><span class="line-content">else:</span></div>
+<div class="code-line"><span class="line-number">8</span><span class="line-content">    speed = 100  # Fast</span></div>
+<div class="code-line"><span class="line-number">9</span><span class="line-content"></span></div>
+<div class="code-line"><span class="line-number">10</span><span class="line-content">robot.move(speed)</span></div>
+</div>
+                    </div>
+                    <div class="survey-tip" style="margin-top: 15px;">
+                        <strong>Result:</strong> Speed = 60 (medium), since distance is 15 inches
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #66ccff; margin-top: 20px;">
+                <p style="color: #66ccff; text-align: center; font-weight: bold; margin: 0;">
+                    💡 Pro Tip: You can have as many elif statements as you need, but only ONE will execute (the first TRUE condition)
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Robot Movement Example -->
+        <!-- <div class="slide">
+            <div class="slide-counter">Slide 7 / 10</div>
+            <h2>🤖 Robot Navigation Example</h2>
+            
+            <h3>🎯 Smart Robot Direction Decision</h3>
+            <div class="challenge-prompt">SCENARIO: Your robot needs to navigate based on distance measurements.
+
+Program the robot to:
+- Move BACKWARD if distance < 5 inches (too close!)
+- STOP if distance is between 5-10 inches (perfect spot)
+- Move FORWARD if distance > 10 inches (too far away)
+</div>
+            
+            <h3>✅ Complete Solution</h3>
+            <div class="code-block">
+<div class="code-with-lines">
+<div class="code-line"><span class="line-number">1</span><span class="line-content">from spike import Motor, MotorPair</span></div>
+<div class="code-line"><span class="line-number">2</span><span class="line-content">import time</span></div>
+<div class="code-line"><span class="line-number">3</span><span class="line-content"></span></div>
+<div class="code-line"><span class="line-number">4</span><span class="line-content"># Initialize motors</span></div>
+<div class="code-line"><span class="line-number">5</span><span class="line-content">motors = MotorPair('E', 'F')</span></div>
+<div class="code-line"><span class="line-number">6</span><span class="line-content"></span></div>
+<div class="code-line"><span class="line-number">7</span><span class="line-content"># Get distance measurement</span></div>
+<div class="code-line"><span class="line-number">8</span><span class="line-content">distance = 7  # Example: 7 inches</span></div>
+<div class="code-line"><span class="line-number">9</span><span class="line-content"></span></div>
+<div class="code-line"><span class="line-number">10</span><span class="line-content">if distance < 5:</span></div>
+<div class="code-line"><span class="line-number">11</span><span class="line-content">    print("Too close! Moving back...")</span></div>
+<div class="code-line"><span class="line-number">12</span><span class="line-content">    motors.move(-10, unit='cm')  # Backward</span></div>
+<div class="code-line"><span class="line-number">13</span><span class="line-content">elif distance <= 10:</span></div>
+<div class="code-line"><span class="line-number">14</span><span class="line-content">    print("Perfect distance! Stopping.")</span></div>
+<div class="code-line"><span class="line-number">15</span><span class="line-content">    motors.stop()</span></div>
+<div class="code-line"><span class="line-number">16</span><span class="line-content">else:</span></div>
+<div class="code-line"><span class="line-number">17</span><span class="line-content">    print("Too far! Moving forward...")</span></div>
+<div class="code-line"><span class="line-number">18</span><span class="line-content">    motors.move(10, unit='cm')  # Forward</span></div>
+</div>
+            </div>
+            
+            <div class="survey-tip" style="margin-top: 20px;">
+                <strong>🎯 What Happens:</strong> With distance = 7 inches, the robot will STOP (because 5 ≤ 7 ≤ 10 is TRUE)
+            </div>
+        </div> -->
+
+        <!-- Slide 8: Nested If Statements -->
+        <div class="slide">
+            <div class="slide-counter">Slide 7 / 10</div>
+            <h2>🔄 Nested If Statements</h2>
+            
+            <h3>🎯 Decisions Within Decisions</h3>
+            <div class="survey-tip">
+                Sometimes you need to make a decision, and then make ANOTHER decision based on the first result. That's nesting!
+            </div>
+            
+            <div class="two-column">
+                <div>
+                    <h3>📝 Structure</h3>
+                    <div class="code-block">
+<div class="code-with-lines">
+<div class="code-line"><span class="line-number">1</span><span class="line-content">if outer_condition:</span></div>
+<div class="code-line"><span class="line-number">2</span><span class="line-content">    if inner_condition:</span></div>
+<div class="code-line"><span class="line-number">3</span><span class="line-content">        action1()</span></div>
+<div class="code-line"><span class="line-number">4</span><span class="line-content">    else:</span></div>
+<div class="code-line"><span class="line-number">5</span><span class="line-content">        action2()</span></div>
+<div class="code-line"><span class="line-number">6</span><span class="line-content">else:</span></div>
+<div class="code-line"><span class="line-number">7</span><span class="line-content">    action3()</span></div>
+</div>
+                    </div>
+                    
+                    <div style="background: rgba(0, 100, 150, 0.2); padding: 15px; border-radius: 10px; margin-top: 20px; border: 2px solid #00ccff;">
+                        <p style="color: #00ccff; margin: 0;">⚠️ <strong>Key Rule:</strong> Each nested level adds 4 more spaces of indentation!</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🤖 Robot Safety Check</h3>
+                    <div class="code-block">
+<div class="code-with-lines">
+<div class="code-line"><span class="line-number">1</span><span class="line-content">battery = 75</span></div>
+<div class="code-line"><span class="line-number">2</span><span class="line-content">obstacle = False</span></div>
+<div class="code-line"><span class="line-number">3</span><span class="line-content"></span></div>
+<div class="code-line"><span class="line-number">4</span><span class="line-content">if battery > 50:</span></div>
+<div class="code-line"><span class="line-number">5</span><span class="line-content">    print("Battery OK")</span></div>
+<div class="code-line"><span class="line-number">6</span><span class="line-content">    </span></div>
+<div class="code-line"><span class="line-number">7</span><span class="line-content">    if obstacle:</span></div>
+<div class="code-line"><span class="line-number">8</span><span class="line-content">        print("Turning...")</span></div>
+<div class="code-line"><span class="line-number">9</span><span class="line-content">        robot.turn(90)</span></div>
+<div class="code-line"><span class="line-number">10</span><span class="line-content">    else:</span></div>
+<div class="code-line"><span class="line-number">11</span><span class="line-content">        print("Moving!")</span></div>
+<div class="code-line"><span class="line-number">12</span><span class="line-content">        robot.forward()</span></div>
+<div class="code-line"><span class="line-number">13</span><span class="line-content">else:</span></div>
+<div class="code-line"><span class="line-number">14</span><span class="line-content">    print("🔋 Low battery!")</span></div>
+<div class="code-line"><span class="line-number">15</span><span class="line-content">    robot.stop()</span></div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Common Mistakes -->
+        <!-- <div class="slide">
+            <div class="slide-counter">Slide 9 / 10</div>
+            <h2>⚠️ Common If-Else Mistakes</h2>
+            
+            <h3>🚫 What NOT to Do</h3>
+            <div class="do-dont">
+                <div class="dont-box">
+                    <h4>❌ Wrong: Missing Colon</h4>
+                    <div style="background: rgba(255, 0, 0, 0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <code style="color: #ff6666;">if speed > 50<br>    move_fast()</code>
+                    </div>
+                    <p style="margin-top: 10px; color: #ff9999;">Missing : after condition!</p>
+                </div>
+                <div class="do-box">
+                    <h4>✅ Correct: With Colon</h4>
+                    <div style="background: rgba(0, 255, 0, 0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <code style="color: #66ff66;">if speed > 50:<br>    move_fast()</code>
+                    </div>
+                    <p style="margin-top: 10px; color: #66ff99;">Colon required!</p>
+                </div>
+            </div>
+            
+            <div class="do-dont" style="margin-top: 20px;">
+                <div class="dont-box">
+                    <h4>❌ Wrong: No Indentation</h4>
+                    <div style="background: rgba(255, 0, 0, 0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <code style="color: #ff6666;">if speed > 50:<br>move_fast()</code>
+                    </div>
+                    <p style="margin-top: 10px; color: #ff9999;">Must indent code block!</p>
+                </div>
+                <div class="do-box">
+                    <h4>✅ Correct: Proper Indent</h4>
+                    <div style="background: rgba(0, 255, 0, 0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <code style="color: #66ff66;">if speed > 50:<br>    move_fast()</code>
+                    </div>
+                    <p style="margin-top: 10px; color: #66ff99;">4 spaces or 1 tab!</p>
+                </div>
+            </div>
+            
+            <div class="do-dont" style="margin-top: 20px;">
+                <div class="dont-box">
+                    <h4>❌ Wrong: = Instead of ==</h4>
+                    <div style="background: rgba(255, 0, 0, 0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <code style="color: #ff6666;">if speed = 50:<br>    print("50!")</code>
+                    </div>
+                    <p style="margin-top: 10px; color: #ff9999;">= assigns, == compares!</p>
+                </div>
+                <div class="do-box">
+                    <h4>✅ Correct: == for Comparison</h4>
+                    <div style="background: rgba(0, 255, 0, 0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <code style="color: #66ff66;">if speed == 50:<br>    print("50!")</code>
+                    </div>
+                    <p style="margin-top: 10px; color: #66ff99;">== checks equality!</p>
+                </div>
+            </div>
+        </div> -->
+
+        <div class = "slide">
+            <div class = "slide-counter">Slide 8 / 10</div>
+            <h2>Whiteboard on AI Coach App</h2>
+            <h3>How to open the whiteboard:</h3>
+            <img src="ai_visuals/ai_whiteboard.svg" alt = "whiteboard steps" style = padding-top:20px;padding-left:70px; width="1000" height=auto>
+            <h3>Flow Diagram:</h3>
+            <img src="ai_visuals/whiteboard_flow.svg" alt = "flow diagram" style = padding-top:20px;padding-left:70px; width="1000" height=auto>
+            <h3>Mat Drawing:</h3>
+            <img src = "ai_visuals/whiteboard_mat.svg" alt = "mat drawing" style = padding-top:20px;padding-left:70px; width="1000" height=auto>
+
+        </div>
+
+        <!-- Slide 10: Practice Challenge 1 -->
+        <div class="slide">
+            <div class="slide-counter">Slide 9 / 10</div>
+            <h2>🎯 Practice Challenge</h2>
+            
+            <div class="challenge-prompt">MISSION: 
+
+REQUIREMENTS:
+            
+           
+</div>
+            
+            <div class="two-column">
+                <div>
+                    <h3>📋 Test Cases</h3>
+                    <div style="background: rgba(0, 100, 150, 0.2); padding: 20px; border-radius: 15px; border: 2px solid #00ccff;">
+                        <p><strong>Test 1:</strong> battery=15, obstacle=True<br>
+                        <span style="color: #66ccff;">→ Should stop (low battery)</span></p>
+                        
+                        <p style="margin-top: 15px;"><strong>Test 2:</strong> battery=60, obstacle=True<br>
+                        <span style="color: #66ccff;">→ Should turn right 90°</span></p>
+                        
+                        <p style="margin-top: 15px;"><strong>Test 3:</strong> battery=30, obstacle=True<br>
+                        <span style="color: #66ccff;">→ Should turn around 180°</span></p>
+                        
+                        <p style="margin-top: 15px;"><strong>Test 4:</strong> battery=80, obstacle=False<br>
+                        <span style="color: #66ccff;">→ Should move forward</span></p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🎯 Success Criteria</h3>
+                    <ul>
+                        <li class="no-emoji">✅ Uses nested if statements correctly</li>
+                        <li class="no-emoji">✅ Proper indentation throughout</li>
+                        <li class="no-emoji">✅ Handles all four test cases correctly</li>
+                        <li class="no-emoji">✅ Includes helpful print statements</li>
+                        <li class="no-emoji">✅ Uses proper comparison operators</li>
+                    </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em; margin-top: 20px;">
+                        <h3>💡 Hints</h3>
+                        <p>• Check battery FIRST (most critical)<br>
+                        • Use nested if for the obstacle logic<br>
+                        • Remember: elif only runs if previous conditions were FALSE<br>
+                        • Test each case individually!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="example-prompt-container">
+                <button class="reveal-btn" onclick="toggleExample('advanced1')">🔓 Reveal Solution Structure</button>
+                <div id="advanced1" class="ai-mapper example-prompt-hidden">
+                    <strong>Solution Structure:</strong><br><br>
+                    <code>
+                    if battery < 20:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;# Stop and warn<br>
+                    elif obstacle_detected:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if battery > 50:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Turn right 90<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Turn around 180<br>
+                    else:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;# Move forward
+                    </code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Summary -->
+        <div class="slide">
+            <div class="slide-counter">Slide 10 / 10</div>
+            <h2>🎉 Today's Accomplishments</h2>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <div class="terrain-highlight" style="font-size: 2.2em;">🤖 You're Now a Decision Master! 🧠</div>
+            </div>
+            
+            <div class="two-column">
+                <div>
+                    <h3>✅ Skills Mastered</h3>
+                    <div class="expedition-box">
+                        <h3>Core Concepts</h3>
+                        <ul style="color: white; font-size: 1.1em; line-height: 1.8;">
+                            <li class="no-emoji">🎯 If-else statement syntax</li>
+                            <li class="no-emoji">🔍 Comparison operators (>, <, ==, !=, >=, <=)</li>
+                            <li class="no-emoji">🔀 Multiple conditions with elif</li>
+                            <li class="no-emoji">🔄 Nested if statements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="expedition-box">
+                        <h3>Programming Skills</h3>
+                        <ul style="color: white; font-size: 1.1em; line-height: 1.8;">
+                            <li class="no-emoji">🤖 Smart robot behaviors</li>
+                            <li class="no-emoji">🧠 Logical decision making</li>
+                            <li class="no-emoji">⚠️ Error prevention</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <div style="font-size: 8em; opacity: 0.8;">🏆</div>
+                        <p style="color: #00ccff; font-size: 1.4em; font-weight: bold;">Lesson 2 Complete!</p>
+                    </div>
+                    
+                    <div style="background: rgba(0, 100, 150, 0.2); padding: 25px; border-radius: 15px; border: 2px solid #00ccff;">
+                        <h4 style="color: #00ccff; text-align: center; margin-bottom: 20px;">📚 Key Takeaways</h4>
+                        <div style="font-size: 1em; color: #e0e0ff; line-height: 1.8;">
+                            <p>✅ If-else statements make code intelligent</p>
+                            <p>✅ Indentation is crucial in Python</p>
+                            <p>✅ Use == for comparison, = for assignment</p>
+                            <p>✅ Test all possible conditions!</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #66ccff; margin-top: 20px;">
+                        <h4 style="color: #66ccff; text-align: center; margin-bottom: 15px;">🚀 Next Lesson Preview</h4>
+                        <p style="color: #66ccff; text-align: center; margin: 0; line-height: 1.6;">
+                            Loops: Making your robot repeat actions automatically!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Back</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function createContours() {
+            const contoursContainer = document.getElementById('contourLines');
+            for (let i = 0; i < 8; i++) {
+                const contour = document.createElement('div');
+                contour.className = 'contour';
+                contour.style.left = Math.random() * 80 + '%';
+                contour.style.top = Math.random() * 80 + '%';
+                contour.style.width = Math.random() * 200 + 100 + 'px';
+                contour.style.height = contour.style.width;
+                contour.style.animationDelay = Math.random() * 8 + 's';
+                contoursContainer.appendChild(contour);
+            }
+        }
+
+        function createBubbles() {
+            const bubblesContainer = document.getElementById('bubbles');
+            
+            function addBubble() {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                const size = Math.random() * 100 + 30;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                
+                bubble.style.left = Math.random() * 95 + '%';
+                bubble.style.top = '100vh';
+                
+                const duration = Math.random() * 4 + 6;
+                bubble.style.animation = `bubbleFloat ${duration}s linear`;
+                
+                bubblesContainer.appendChild(bubble);
+                
+                setTimeout(() => {
+                    if (bubble.parentNode) {
+                        bubble.parentNode.removeChild(bubble);
+                    }
+                }, duration * 1000);
+            }
+            
+            setInterval(addBubble, 100);
+            setTimeout(addBubble, 500);
+        }
+
+        function createFish() {
+            const fishContainer = document.getElementById('fishContainer');
+            const fishEmojis = ['🐠', '🐟', '🦈', '🐙', '🦑', '🐡'];
+            
+            function addFish() {
+                const fish = document.createElement('div');
+                fish.className = 'fish fish-right';
+                fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+                
+                const topPosition = Math.random() * 70 + 10;
+                fish.style.top = topPosition + '%';
+                fish.style.animationDuration = (Math.random() * 5 + 15) + 's';
+                
+                fishContainer.appendChild(fish);
+                
+                const duration = parseFloat(fish.style.animationDuration) * 1000;
+                setTimeout(() => {
+                    if (fish.parentNode) {
+                        fish.parentNode.removeChild(fish);
+                    }
+                }, duration);
+            }
+            
+            setInterval(addFish, 3000);
+            setTimeout(addFish, 2000);
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progressPercent + '%';
+            
+            document.getElementById('slideCounter').textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                changeSlide(1);
+            } else if (event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Escape') {
+                currentSlide = 0;
+                showSlide(0);
+            }
+        });
+
+        function toggleExample(exampleId) {
+            const example = document.getElementById(exampleId);
+            const button = example.previousElementSibling;
+            
+            if (example.classList.contains('example-prompt-hidden')) {
+                example.classList.remove('example-prompt-hidden');
+                example.classList.add('example-prompt-visible');
+                button.innerHTML = '🔽 Hide Example';
+            } else {
+                example.classList.remove('example-prompt-visible');
+                example.classList.add('example-prompt-hidden');
+                button.innerHTML = button.innerHTML.includes('Solution') ? '💡 Show Solution Hints' : '🔓 Reveal Solution Structure';
+            }
+        }
+
+        createBubbles();
+        createContours();
+        createFish();
+        showSlide(0);
+    </script>
+</body>
+</html>
