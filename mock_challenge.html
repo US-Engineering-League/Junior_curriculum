@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: If-Else Decision Making</title>
+    <link rel="stylesheet" href="Junior_Styles.css">
+</head>
+<body>
+    <div class="topographic-grid"></div>
+    <div class="contour-lines" id="contourLines"></div>
+    <div class="bubbles" id="bubbles"></div>
+    <div class="fish-container" id="fishContainer"></div>
+    
+    <div class="presentation-container">
+        <div class="progress-bar" id="progressBar"></div>
+
+
+        <!-- Slide 10: Practice Challenge 1 -->
+        <div class="slide">
+            <div class="slide-counter" id="slideCounter">Slide 4  / 6</div>
+            <h2>⚡ Teacher Challenge: Point the spotlight</h2> 
+            <p>Surrounded by cargo crates, use your navigation tools to turn and face directly toward them one at a time.</p>
+            <img src="challenge_visuals/week8_teacher.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
+            
+           
+                <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting anywhere, surround the robot in the center of 3 blocks (Red, Green, and Yellow). Use gyro to turn directly at the blocks in any order.
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Anywhere on the mat</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Point the robot at each of the 3 blocks while using the gyroscope to turn.</li>
+                    </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Measure the approximate degrees the robot would need to turn to face each block. Remember to reset the gyro yaw after each turn.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Measure the degree the robot would need to turn to face the first block.<br>
+                            <strong>Step 2:</strong> Have the robot reset the yaw before performing any movement.<br>
+                            <strong>Step 3:</strong> Reset the yaw after the first turn and wait 1-2 seconds, before turning again to the second block.<br>
+                            <strong>Step 4:</strong> Repeat this for the 3 blocks.<br>
+                            <strong>Step 5:</strong> Tell the AI each step, including a request to reset the yaw, before sending the prompt.<br>
+                            <strong>Step 6:</strong> Trial and error to adjust the degrees needed for the turns.<br>
+                        </div>
+                    </div>
+                    
+                     <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example9')">🔍 Reveal Example Command</button>
+                        <div id="example9" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "At the start, reset my robot's gyroscope yaw. Repeat the following movement 3 times: my robot needs to turn 45 degrees to the right using the gyroscope. After turning, reset the yaw and wait 1 second."                     
+                        </div>
+                    </div>
+
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">⚠️ Remember to use gyro turns, not normal turns, for more precise movement.</li>
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Measure or guestimate the degrees it would take for the robot to turn to the next block</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Slide 9 Student challenge-->
+         <div class="slide">
+            <div class="slide-counter" id="slideCounter">Slide 5  / 6</div>
+            <h2>📦 Student Challenge: Colorful Crate Haul</h2> 
+            <p>Surrounded by crates, use your compass to turn, scan them to identify crate colors, and collect the one that matches your orders</p>
+            <img src="challenge_visuals/week8_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
+            
+           
+                <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting anywhere, surround the robot in the center of 6 blocks. Use gyro to turn and read blocks colors. When a designated color is found, have the robot grab it.
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Anywhere on the mat</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Gyro turn towards the blocks and identify the designated color block with the color sensor before using the robot arm to grab it.</li>
+                    </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Raise the robot arm up before starting any movement so the color sensor can detect the block colors. Troubleshoot by having the robot print the color detected in the console.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Measure the degree the robot would need to turn to face the first block.<br>
+                            <strong>Step 2:</strong> Have the robot reset the yaw before performing any movement. Raise the arm up to use the color sensor on the blocks.<br>
+                            <strong>Step 3:</strong> Reset the yaw after the first turn and read the color of the block before turning again to the second block.<br>
+                            <strong>Step 4:</strong> Repeat this until you find the designated block, then move forward to grab it with the robot arm.<br>
+                            <strong>Step 5:</strong> Tell the AI each step, including a request to reset the yaw, before sending the prompt.<br>
+                            <strong>Step 6:</strong> Trial and error to adjust the degrees needed for the turns.<br>
+                        </div>
+                    </div>
+                    
+                    <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example8')">🔍 Reveal Example Command</button>
+                        <div id="example8" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "At the start, reset my robot's gyroscope yaw and raise the arm by 45 degrees. Turn 45 degrees to the right and print the color detected with the color sensor in the console. Then reset the yaw. Repeat this until the designated color of RED is found."                     
+                        </div>
+                    </div>
+
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">⚠️ Remember to use gyro turns, not normal turns, for more precise movement.</li>
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Measure or guestimate the degrees it would take for the robot to turn to the next block</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="slide">
+            <div class="slide-counter" id="slideCounter">Slide 4  / 6</div>
+            <h2>⚡ Teacher Challenge: Point the spotlight</h2> 
+            <p>Surrounded by cargo crates, use your navigation tools to turn and face directly toward them one at a time.</p>
+            <img src="challenge_visuals/week8_teacher.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
+            
+           
+                <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting anywhere, surround the robot in the center of 3 blocks (Red, Green, and Yellow). Use gyro to turn directly at the blocks in any order.
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Anywhere on the mat</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Point the robot at each of the 3 blocks while using the gyroscope to turn.</li>
+                    </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Measure the approximate degrees the robot would need to turn to face each block. Remember to reset the gyro yaw after each turn.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Measure the degree the robot would need to turn to face the first block.<br>
+                            <strong>Step 2:</strong> Have the robot reset the yaw before performing any movement.<br>
+                            <strong>Step 3:</strong> Reset the yaw after the first turn and wait 1-2 seconds, before turning again to the second block.<br>
+                            <strong>Step 4:</strong> Repeat this for the 3 blocks.<br>
+                            <strong>Step 5:</strong> Tell the AI each step, including a request to reset the yaw, before sending the prompt.<br>
+                            <strong>Step 6:</strong> Trial and error to adjust the degrees needed for the turns.<br>
+                        </div>
+                    </div>
+                    
+                     <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example9')">🔍 Reveal Example Command</button>
+                        <div id="example9" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "At the start, reset my robot's gyroscope yaw. Repeat the following movement 3 times: my robot needs to turn 45 degrees to the right using the gyroscope. After turning, reset the yaw and wait 1 second."                     
+                        </div>
+                    </div>
+
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">⚠️ Remember to use gyro turns, not normal turns, for more precise movement.</li>
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Measure or guestimate the degrees it would take for the robot to turn to the next block</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Slide 9 Student challenge-->
+         <div class="slide">
+            <div class="slide-counter" id="slideCounter">Slide 5  / 6</div>
+            <h2>📦 Student Challenge: Colorful Crate Haul</h2> 
+            <p>Surrounded by crates, use your compass to turn, scan them to identify crate colors, and collect the one that matches your orders</p>
+            <img src="challenge_visuals/week8_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
+            
+           
+                <div class="two-column">
+                <div>
+                    <h3>🚧 Mission Specification</h3>
+                    <div class="survey-tip">
+                        <strong>Challenge:</strong> Starting anywhere, surround the robot in the center of 6 blocks. Use gyro to turn and read blocks colors. When a designated color is found, have the robot grab it.
+                    </div>
+                    
+                    <h3>🎯 Mission Parameters</h3>
+                    <ul>
+                        <li class="no-emoji"><strong>Starting Position:</strong> Anywhere on the mat</li>
+                        <li class="no-emoji"><strong>Success Criteria:</strong> Gyro turn towards the blocks and identify the designated color block with the color sensor before using the robot arm to grab it.</li>
+                    </ul>
+                    
+                    <div class="expedition-box" style="font-size: 0.9em;">
+                        <h3>💡 Navigation Strategy</h3>
+                        <p>Raise the robot arm up before starting any movement so the color sensor can detect the block colors. Troubleshoot by having the robot print the color detected in the console.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🤖 Programming Approach</h3>
+                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
+                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
+                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
+                            <strong>Step 1:</strong> Measure the degree the robot would need to turn to face the first block.<br>
+                            <strong>Step 2:</strong> Have the robot reset the yaw before performing any movement. Raise the arm up to use the color sensor on the blocks.<br>
+                            <strong>Step 3:</strong> Reset the yaw after the first turn and read the color of the block before turning again to the second block.<br>
+                            <strong>Step 4:</strong> Repeat this until you find the designated block, then move forward to grab it with the robot arm.<br>
+                            <strong>Step 5:</strong> Tell the AI each step, including a request to reset the yaw, before sending the prompt.<br>
+                            <strong>Step 6:</strong> Trial and error to adjust the degrees needed for the turns.<br>
+                        </div>
+                    </div>
+                    
+                    <div class="example-prompt-container">
+                        <button class="reveal-btn" onclick="toggleExample('example8')">🔍 Reveal Example Command</button>
+                        <div id="example8" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
+                        <strong>Student's Example Command:</strong><br><br>
+                            "At the start, reset my robot's gyroscope yaw and raise the arm by 45 degrees. Turn 45 degrees to the right and print the color detected with the color sensor in the console. Then reset the yaw. Repeat this until the designated color of RED is found."                     
+                        </div>
+                    </div>
+
+                    <h3>🛡️ Safety Protocol</h3>
+                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
+                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
+                            <li class="no-emoji">⚠️ Remember to use gyro turns, not normal turns, for more precise movement.</li>
+                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
+                            <li class="no-emoji">📏 Measure or guestimate the degrees it would take for the robot to turn to the next block</li>
+                            <li class="no-emoji">🤝 Team collaboration recommended</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+          ◀ Previous
+        </button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+          Next ▶
+        </button>
+      </div>
+    </div>
+
+
+       
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function createContours() {
+            const contoursContainer = document.getElementById('contourLines');
+            for (let i = 0; i < 8; i++) {
+                const contour = document.createElement('div');
+                contour.className = 'contour';
+                contour.style.left = Math.random() * 80 + '%';
+                contour.style.top = Math.random() * 80 + '%';
+                contour.style.width = Math.random() * 200 + 100 + 'px';
+                contour.style.height = contour.style.width;
+                contour.style.animationDelay = Math.random() * 8 + 's';
+                contoursContainer.appendChild(contour);
+            }
+        }
+
+        function createBubbles() {
+            const bubblesContainer = document.getElementById('bubbles');
+            
+            function addBubble() {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                const size = Math.random() * 100 + 30;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                
+                bubble.style.left = Math.random() * 95 + '%';
+                bubble.style.top = '100vh';
+                
+                const duration = Math.random() * 4 + 6;
+                bubble.style.animation = `bubbleFloat ${duration}s linear`;
+                
+                bubblesContainer.appendChild(bubble);
+                
+                setTimeout(() => {
+                    if (bubble.parentNode) {
+                        bubble.parentNode.removeChild(bubble);
+                    }
+                }, duration * 1000);
+            }
+            
+            setInterval(addBubble, 100);
+            setTimeout(addBubble, 500);
+        }
+
+        function createFish() {
+            const fishContainer = document.getElementById('fishContainer');
+            const fishEmojis = ['🐠', '🐟', '🦈', '🐙', '🦑', '🐡'];
+            
+            function addFish() {
+                const fish = document.createElement('div');
+                fish.className = 'fish fish-right';
+                fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+                
+                const topPosition = Math.random() * 70 + 10;
+                fish.style.top = topPosition + '%';
+                fish.style.animationDuration = (Math.random() * 5 + 15) + 's';
+                
+                fishContainer.appendChild(fish);
+                
+                const duration = parseFloat(fish.style.animationDuration) * 1000;
+                setTimeout(() => {
+                    if (fish.parentNode) {
+                        fish.parentNode.removeChild(fish);
+                    }
+                }, duration);
+            }
+            
+            setInterval(addFish, 3000);
+            setTimeout(addFish, 2000);
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progressPercent + '%';
+            
+            document.getElementById('slideCounter').textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                changeSlide(1);
+            } else if (event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Escape') {
+                currentSlide = 0;
+                showSlide(0);
+            }
+        });
+
+        function toggleExample(exampleId) {
+            const example = document.getElementById(exampleId);
+            const button = example.previousElementSibling;
+            
+            if (example.classList.contains('example-prompt-hidden')) {
+                example.classList.remove('example-prompt-hidden');
+                example.classList.add('example-prompt-visible');
+                button.innerHTML = '🔽 Hide Example';
+            } else {
+                example.classList.remove('example-prompt-visible');
+                example.classList.add('example-prompt-hidden');
+                button.innerHTML = button.innerHTML.includes('Solution') ? '💡 Show Solution Hints' : '🔓 Reveal Solution Structure';
+            }
+        }
+
+        createBubbles();
+        createContours();
+        createFish();
+        showSlide(0);
+    </script>
+</body>
+</html>
