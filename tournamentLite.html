@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Bracket</title>
+    <link rel="stylesheet" href="Junior_Styles.css">
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(ellipse at center, #001122 0%, #003366 70%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #00ccff;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(0, 204, 255, 0.8);
+        }
+
+        .controls {
+            background: rgba(0, 30, 60, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(0, 180, 255, 0.6);
+            box-shadow: 0 0 30px rgba(0, 150, 255, 0.3);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .tournament-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-group label {
+            font-size: 0.9em;
+            color: #66ccff;
+            font-weight: 600;
+        }
+
+        select {
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 2px solid #0099ff;
+            background: rgba(0, 50, 100, 0.8);
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        select option {
+            background: #003366;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 50, 100, 0.5);
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 2px solid #0099ff;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 2px solid #0099ff;
+            background: rgba(0, 50, 100, 0.8);
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        input[type="text"]::placeholder {
+            color: #66ccff;
+        }
+
+        button {
+            background: linear-gradient(45deg, #00ccff, #0099ff);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 700;
+            color: #000;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 204, 255, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .reset-btn {
+            background: linear-gradient(45deg, #ff4444, #cc0000);
+        }
+
+        .reset-btn:hover {
+            background: linear-gradient(45deg, #ff6666, #ff0000);
+        }
+
+        .warning-message {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: #000;
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-weight: bold;
+            border: 2px solid #ff9500;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            animation: shake 0.5s;
+            display: none;
+        }
+
+        .warning-message.visible {
+            display: block;
+        }
+
+        .player-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .player-tag {
+            background: linear-gradient(135deg, #004466, #006699);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 2px solid #0099ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .remove-player {
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 0.8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .tournament-bracket {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px;
+            margin-top: 40px;
+            max-height: 60vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 20, 40, 0.3);
+            border-radius: 20px;
+            border: 2px solid rgba(0, 180, 255, 0.4);
+        }
+
+        .tournament-bracket > * {
+            flex-shrink: 0;
+        }
+
+        .tournament-bracket::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .tournament-bracket::-webkit-scrollbar-track {
+            background: rgba(0, 50, 100, 0.3);
+            border-radius: 10px;
+        }
+
+        .tournament-bracket::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #0099ff, #00ccff);
+            border-radius: 10px;
+        }
+
+        .tournament-bracket::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #00ccff, #66ffff);
+        }
+
+        .round-wrapper {
+            width: 100%;
+            background: rgba(0, 40, 80, 0.4);
+            border-radius: 15px;
+            padding: 15px;
+            border: 2px solid rgba(0, 180, 255, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .round {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: visible;
+            padding: 10px 5px;
+        }
+
+        .round::-webkit-scrollbar {
+            height: 12px;
+        }
+
+        .round::-webkit-scrollbar-track {
+            background: rgba(0, 50, 100, 0.5);
+            border-radius: 10px;
+            margin: 0 10px;
+        }
+
+        .round::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #0099ff, #00ccff);
+            border-radius: 10px;
+            border: 2px solid rgba(0, 20, 40, 0.3);
+        }
+
+        .round::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #00ccff, #66ffff);
+        }
+
+        .round-title {
+            text-align: center;
+            font-size: 1.8em;
+            color: #00ccff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.8);
+        }
+
+        .matches-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: nowrap;
+            width: fit-content;
+        }
+
+        .match {
+            background: rgba(0, 30, 60, 0.95);
+            border-radius: 15px;
+            padding: 15px;
+            border: 2px solid rgba(0, 180, 255, 0.6);
+            min-width: 250px;
+            box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+        }
+
+        .player {
+            background: linear-gradient(135deg, #004466, #006699);
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 10px;
+            border: 2px solid #0099ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .player:hover {
+            background: linear-gradient(135deg, #005577, #0088aa);
+            transform: translateX(5px);
+        }
+
+        .player.winner {
+            background: linear-gradient(135deg, #006600, #009900);
+            border-color: #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .player.eliminated {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .trophy {
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+
+        .vs {
+            text-align: center;
+            color: #00ccff;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        .champion-section {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .champion-section.visible {
+            display: block;
+        }
+
+        .champion-podium {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            border: 3px solid #ffaa00;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+            animation: championGlow 2s infinite alternate;
+        }
+
+        @keyframes championGlow {
+            from { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+            to { box-shadow: 0 0 60px rgba(255, 215, 0, 1); }
+        }
+
+        .round-robin-table {
+            background: rgba(0, 30, 60, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid rgba(0, 180, 255, 0.6);
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .round-robin-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 1.2em;
+        }
+
+        .round-robin-table th,
+        .round-robin-table td {
+            padding: 15px 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 180, 255, 0.3);
+        }
+
+        .round-robin-table th {
+            background: linear-gradient(135deg, #004466, #006699);
+            color: #00ccff;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .round-robin-table tr:hover {
+            background: rgba(0, 100, 200, 0.2);
+        }
+
+        .round-robin-table td strong {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topographic-grid"></div>
+    <div class="contour-lines" id="contourLines"></div>
+    <div class="bubbles" id="bubbles"></div>
+    <div class="fish-container" id="fishContainer"></div>
+    
+    <div class="container">
+        <h1>🏆 Tournament Bracket</h1>
+        
+        <div class="controls">
+            <div class="input-group">
+                <input type="text" id="playerName" placeholder="Enter player/team name">
+                <button onclick="addPlayer()">Add Player</button>
+            </div>
+
+            <div id="warningMessage" class="warning-message"></div>
+
+            <div class="tournament-options">
+                <div class="option-group">
+                    <label>Tournament Type:</label>
+                    <select id="tournamentType">
+                        <option value="single">Single Elimination</option>
+                        <option value="double">Double Elimination</option>
+                        <option value="roundrobin">Round Robin</option>
+                    </select>
+                </div>ß
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="randomize" checked>
+                    <label for="randomize">Randomize Brackets</label>
+                </div>
+
+                <button onclick="startTournament()">Start Tournament</button>
+                <button onclick="resetTournament()" class="reset-btn">Reset</button>
+            </div>
+
+            <div class="player-list" id="playerList"></div>
+        </div>
+
+        <div id="bracket" class="tournament-bracket"></div>
+        
+        <div id="championSection" class="champion-section">
+            <div class="champion-podium" id="championPodium"></div>
+        </div>
+    </div>
+
+    <script>
+        let players = [];
+        let tournament = [];
+        let tournamentType = 'single';
+        let losersBracket = [];
+
+        function addPlayer() {
+            const input = document.getElementById('playerName');
+            const name = input.value.trim();
+            
+            if (!name) return;
+            
+            if (players.includes(name)) {
+                showWarning(`⚠️ "${name}" is already in the tournament! Please use a unique name.`);
+                return;
+            }
+            
+            players.push(name);
+            input.value = '';
+            updatePlayerList();
+            hideWarning();
+        }
+
+        function showWarning(message) {
+            const warningDiv = document.getElementById('warningMessage');
+            warningDiv.textContent = message;
+            warningDiv.classList.add('visible');
+            
+            setTimeout(() => {
+                hideWarning();
+            }, 5000);
+        }
+
+        function hideWarning() {
+            const warningDiv = document.getElementById('warningMessage');
+            warningDiv.classList.remove('visible');
+        }
+
+        function removePlayer(index) {
+            players.splice(index, 1);
+            updatePlayerList();
+        }
+
+        function updatePlayerList() {
+            const list = document.getElementById('playerList');
+            list.innerHTML = players.map((player, index) => `
+                <div class="player-tag">
+                    <span>${player}</span>
+                    <button class="remove-player" onclick="removePlayer(${index})">×</button>
+                </div>
+            `).join('');
+        }
+
+        function startTournament() {
+            if (players.length < 2) {
+                alert('Need at least 2 players to start!');
+                return;
+            }
+
+            tournamentType = document.getElementById('tournamentType').value;
+            const shouldRandomize = document.getElementById('randomize').checked;
+            
+            const playerList = shouldRandomize 
+                ? [...players].sort(() => Math.random() - 0.5)
+                : [...players];
+
+            document.getElementById('championSection').classList.remove('visible');
+
+            if (tournamentType === 'roundrobin') {
+                startRoundRobin(playerList);
+            } else if (tournamentType === 'double') {
+                startDoubleElimination(playerList);
+            } else {
+                startSingleElimination(playerList);
+            }
+        }
+
+        function startSingleElimination(playerList) {
+            tournament = [];
+            losersBracket = [];
+            
+            const firstRound = [];
+            for (let i = 0; i < playerList.length; i += 2) {
+                firstRound.push({
+                    player1: playerList[i],
+                    player2: playerList[i + 1] || null,
+                    winner: playerList[i + 1] ? null : playerList[i]
+                });
+            }
+            
+            tournament.push(firstRound);
+            
+            const rounds = Math.ceil(Math.log2(playerList.length));
+            for (let i = 1; i < rounds; i++) {
+                tournament.push([]);
+            }
+            
+            renderBracket();
+        }
+
+        function startDoubleElimination(playerList) {
+            tournament = [];
+            losersBracket = [];
+            
+            const firstRound = [];
+            for (let i = 0; i < playerList.length; i += 2) {
+                firstRound.push({
+                    player1: playerList[i],
+                    player2: playerList[i + 1] || null,
+                    winner: playerList[i + 1] ? null : playerList[i],
+                    isLosersBracket: false
+                });
+            }
+            
+            tournament.push(firstRound);
+            losersBracket.push([]);
+            
+            const rounds = Math.ceil(Math.log2(playerList.length));
+            for (let i = 1; i < rounds; i++) {
+                tournament.push([]);
+                losersBracket.push([]);
+            }
+            
+            renderBracket();
+        }
+
+        function startRoundRobin(playerList) {
+            const bracket = document.getElementById('bracket');
+            bracket.innerHTML = '';
+            
+            // Initialize standings
+            const standings = {};
+            playerList.forEach(player => {
+                standings[player] = { wins: 0, losses: 0 };
+            });
+            
+            // Create all matchups
+            const matches = [];
+            for (let i = 0; i < playerList.length; i++) {
+                for (let j = i + 1; j < playerList.length; j++) {
+                    matches.push({
+                        player1: playerList[i],
+                        player2: playerList[j],
+                        winner: null
+                    });
+                }
+            }
+            
+            // Create matches section
+            const matchesSection = document.createElement('div');
+            matchesSection.style.marginBottom = '30px';
+            
+            const matchesTitle = document.createElement('div');
+            matchesTitle.className = 'round-title';
+            matchesTitle.textContent = 'ROUND ROBIN MATCHES';
+            matchesSection.appendChild(matchesTitle);
+            
+            const matchesContainer = document.createElement('div');
+            matchesContainer.className = 'matches-container';
+            matchesContainer.style.flexWrap = 'wrap';
+            matchesContainer.style.justifyContent = 'center';
+            
+            matches.forEach((match, index) => {
+                const matchDiv = document.createElement('div');
+                matchDiv.className = 'match';
+                matchDiv.id = `rr-match-${index}`;
+                
+                const p1 = document.createElement('div');
+                p1.className = 'player';
+                p1.innerHTML = `<span>${match.player1}</span>`;
+                p1.onclick = () => selectRoundRobinWinner(index, match.player1, standings);
+                matchDiv.appendChild(p1);
+                
+                const vs = document.createElement('div');
+                vs.className = 'vs';
+                vs.textContent = 'VS';
+                matchDiv.appendChild(vs);
+                
+                const p2 = document.createElement('div');
+                p2.className = 'player';
+                p2.innerHTML = `<span>${match.player2}</span>`;
+                p2.onclick = () => selectRoundRobinWinner(index, match.player2, standings);
+                matchDiv.appendChild(p2);
+                
+                matchesContainer.appendChild(matchDiv);
+            });
+            
+            matchesSection.appendChild(matchesContainer);
+            bracket.appendChild(matchesSection);
+            
+            // Create standings table
+            const standingsSection = document.createElement('div');
+            standingsSection.className = 'round-robin-table';
+            
+            const title = document.createElement('div');
+            title.className = 'round-title';
+            title.textContent = 'STANDINGS';
+            standingsSection.appendChild(title);
+            
+            const table = document.createElement('table');
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Win %</th>
+                    </tr>
+                </thead>
+                <tbody id="standingsBody">
+                </tbody>
+            `;
+            
+            standingsSection.appendChild(table);
+            bracket.appendChild(standingsSection);
+            
+            // Store data globally
+            window.roundRobinData = { matches, standings, playerList };
+            updateRoundRobinStandings();
+        }
+
+        function selectRoundRobinWinner(matchIndex, winner, standings) {
+            const { matches, standings: currentStandings } = window.roundRobinData;
+            const match = matches[matchIndex];
+            
+            if (match.winner) return; // Already decided
+            
+            match.winner = winner;
+            const loser = winner === match.player1 ? match.player2 : match.player1;
+            
+            // Update standings
+            currentStandings[winner].wins++;
+            currentStandings[loser].losses++;
+            
+            // Update match display
+            const matchDiv = document.getElementById(`rr-match-${matchIndex}`);
+            const players = matchDiv.querySelectorAll('.player');
+            players.forEach(playerDiv => {
+                const playerName = playerDiv.querySelector('span').textContent;
+                if (playerName === winner) {
+                    playerDiv.classList.add('winner');
+                    playerDiv.innerHTML += '<span class="trophy">🏆</span>';
+                } else {
+                    playerDiv.classList.add('eliminated');
+                }
+                playerDiv.onclick = null;
+            });
+            
+            updateRoundRobinStandings();
+            checkRoundRobinComplete();
+        }
+
+        function updateRoundRobinStandings() {
+            const { standings, playerList } = window.roundRobinData;
+            const standingsBody = document.getElementById('standingsBody');
+            
+            // Sort by wins (descending), then by losses (ascending)
+            const sorted = playerList.map(player => ({
+                name: player,
+                wins: standings[player].wins,
+                losses: standings[player].losses,
+                winPct: standings[player].wins + standings[player].losses > 0
+                    ? (standings[player].wins / (standings[player].wins + standings[player].losses)).toFixed(3)
+                    : '0.000'
+            })).sort((a, b) => {
+                if (b.wins !== a.wins) return b.wins - a.wins;
+                return a.losses - b.losses;
+            });
+            
+            standingsBody.innerHTML = sorted.map((player, index) => `
+                <tr ${index === 0 ? 'style="background: rgba(255, 215, 0, 0.2);"' : ''}>
+                    <td>${index + 1}</td>
+                    <td><strong>${player.name}</strong></td>
+                    <td>${player.wins}</td>
+                    <td>${player.losses}</td>
+                    <td>${player.winPct}</td>
+                </tr>
+            `).join('');
+        }
+
+        function checkRoundRobinComplete() {
+            const { matches } = window.roundRobinData;
+            const allComplete = matches.every(match => match.winner !== null);
+            
+            if (allComplete) {
+                const { standings, playerList } = window.roundRobinData;
+                const sorted = playerList.map(player => ({
+                    name: player,
+                    wins: standings[player].wins
+                })).sort((a, b) => b.wins - a.wins);
+                
+                showChampion(sorted[0].name);
+            }
+        }
+        function createBubbles() {
+            const bubblesContainer = document.getElementById('bubbles');
+            
+            function addBubble() {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                // Random bubble size
+                const size = Math.random() * 100 + 30; // 10-40px
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                
+                // Position bubble at random horizontal position, below screen
+                bubble.style.left = Math.random() * 95 + '%';
+                bubble.style.top = '100vh'; // Start just below the visible area
+                
+                // Random animation duration
+                const duration = Math.random() * 4 + 6; // 6-10 seconds
+                bubble.style.animation = `bubbleFloat ${duration}s linear`;
+                
+                bubblesContainer.appendChild(bubble);
+                
+                // Remove bubble after animation completes
+                setTimeout(() => {
+                    if (bubble.parentNode) {
+                        bubble.parentNode.removeChild(bubble);
+                    }
+                }, duration * 1000);
+            }
+            
+            // Create bubbles at regular intervals
+            setInterval(addBubble, 100);
+            
+            // Create initial bubble
+            setTimeout(addBubble, 500);
+        }
+
+        function createFish() {
+            const fishContainer = document.getElementById('fishContainer');
+            const fishEmojis =  ['🐠', '🐟', '🦈', '🐙', '🦑', '🐡'];
+            
+            function addFish() {
+                const fish = document.createElement('div');
+                fish.className = 'fish fish-right';
+                fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+                
+                const topPosition = Math.random() * 70 + 10; // 10% to 80% from top
+                fish.style.top = topPosition + '%';
+                fish.style.animationDuration = (Math.random() * 5 + 15) + 's'; // 15-20s
+                
+                fishContainer.appendChild(fish);
+                
+                // Remove fish after animation
+                const duration = parseFloat(fish.style.animationDuration) * 1000;
+                setTimeout(() => {
+                    if (fish.parentNode) {
+                        fish.parentNode.removeChild(fish);
+                    }
+                }, duration);
+            }
+            
+            // Create fish at intervals
+            setInterval(addFish, 3000);
+            
+            // Create initial fish
+            setTimeout(addFish, 2000);
+        }
+
+        function selectWinner(roundIndex, matchIndex, playerNum, isLosersBracket = false) {
+            const brackets = isLosersBracket ? losersBracket : tournament;
+            const match = brackets[roundIndex][matchIndex];
+            
+            if (match.winner) return;
+            
+            match.winner = playerNum === 1 ? match.player1 : match.player2;
+            const loser = playerNum === 1 ? match.player2 : match.player1;
+            
+            // Handle double elimination losers
+            if (tournamentType === 'double' && !isLosersBracket && loser) {
+                const loserRound = losersBracket[roundIndex];
+                const loserMatchIndex = Math.floor(loserRound.length / 2);
+                
+                if (!losersBracket[roundIndex][loserMatchIndex]) {
+                    losersBracket[roundIndex].push({
+                        player1: loser,
+                        player2: null,
+                        winner: null,
+                        isLosersBracket: true
+                    });
+                } else {
+                    losersBracket[roundIndex][loserMatchIndex].player2 = loser;
+                }
+            }
+            
+            if (roundIndex < brackets.length - 1) {
+                const nextMatchIndex = Math.floor(matchIndex / 2);
+                
+                if (!brackets[roundIndex + 1][nextMatchIndex]) {
+                    brackets[roundIndex + 1][nextMatchIndex] = {
+                        player1: null,
+                        player2: null,
+                        winner: null,
+                        isLosersBracket: isLosersBracket
+                    };
+                }
+                
+                if (matchIndex % 2 === 0) {
+                    brackets[roundIndex + 1][nextMatchIndex].player1 = match.winner;
+                } else {
+                    brackets[roundIndex + 1][nextMatchIndex].player2 = match.winner;
+                }
+            }
+            
+            renderBracket();
+            checkForChampion();
+        }
+
+        function checkForChampion() {
+            const finalMatch = tournament[tournament.length - 1][0];
+            if (finalMatch && finalMatch.winner) {
+                showChampion(finalMatch.winner);
+            }
+        }
+
+        function showChampion(champion) {
+            const championSection = document.getElementById('championSection');
+            const championPodium = document.getElementById('championPodium');
+            championPodium.innerHTML = `🏆 CHAMPION: ${champion} 🏆`;
+            championSection.classList.add('visible');
+        }
+
+        function getRoundTitle(roundIndex, totalRounds, isLosersBracket = false) {
+            if (isLosersBracket) {
+                return `LOSERS BRACKET - ROUND ${roundIndex + 1}`;
+            }
+            if (roundIndex === totalRounds - 1) return '🏆 CHAMPIONSHIP';
+            if (roundIndex === totalRounds - 2) return 'SEMI-FINALS';
+            if (roundIndex === totalRounds - 3) return 'QUARTER-FINALS';
+            return `ROUND ${roundIndex + 1}`;
+        }
+
+        function createPlayerElement(player, isWinner, isEliminated, onclick) {
+            const div = document.createElement('div');
+            div.className = `player ${isWinner ? 'winner' : ''} ${isEliminated ? 'eliminated' : ''}`;
+            div.innerHTML = `<span>${player}</span>${isWinner ? '<span class="trophy">🏆</span>' : ''}`;
+            if (onclick) div.onclick = onclick;
+            return div;
+        }
+
+        function renderBracket() {
+            if (tournamentType === 'roundrobin') return;
+            
+            const bracket = document.getElementById('bracket');
+            bracket.innerHTML = '';
+            
+            // Render main bracket
+            renderBracketSection(tournament, false);
+            
+            // Render losers bracket for double elimination
+            if (tournamentType === 'double' && losersBracket.some(round => round.length > 0)) {
+                renderBracketSection(losersBracket, true);
+            }
+        }
+
+        function renderBracketSection(brackets, isLosersBracket) {
+            const bracket = document.getElementById('bracket');
+            
+            brackets.forEach((round, roundIndex) => {
+                if (round.length === 0) return;
+                
+                const roundWrapper = document.createElement('div');
+                roundWrapper.className = 'round-wrapper';
+                
+                const title = document.createElement('div');
+                title.className = 'round-title';
+                title.textContent = getRoundTitle(roundIndex, brackets.length, isLosersBracket);
+                roundWrapper.appendChild(title);
+                
+                const roundContainer = document.createElement('div');
+                roundContainer.className = 'round';
+                
+                const matchesContainer = document.createElement('div');
+                matchesContainer.className = 'matches-container';
+                
+                round.forEach((match, matchIndex) => {
+                    const matchDiv = document.createElement('div');
+                    matchDiv.className = 'match';
+                    
+                    if (match.player1) {
+                        const p1 = createPlayerElement(
+                            match.player1,
+                            match.winner === match.player1,
+                            match.winner && match.winner !== match.player1,
+                            !match.winner ? () => selectWinner(roundIndex, matchIndex, 1, isLosersBracket) : null
+                        );
+                        matchDiv.appendChild(p1);
+                    }
+                    
+                    if (match.player2) {
+                        const vs = document.createElement('div');
+                        vs.className = 'vs';
+                        vs.textContent = 'VS';
+                        matchDiv.appendChild(vs);
+                        
+                        const p2 = createPlayerElement(
+                            match.player2,
+                            match.winner === match.player2,
+                            match.winner && match.winner !== match.player2,
+                            !match.winner ? () => selectWinner(roundIndex, matchIndex, 2, isLosersBracket) : null
+                        );
+                        matchDiv.appendChild(p2);
+                    }
+                    
+                    matchesContainer.appendChild(matchDiv);
+                });
+                
+                roundContainer.appendChild(matchesContainer);
+                roundWrapper.appendChild(roundContainer);
+                bracket.appendChild(roundWrapper);
+            });
+        }
+        createFish();
+        createBubbles();
+
+        function resetTournament() {
+            tournament = [];
+            losersBracket = [];
+            document.getElementById('bracket').innerHTML = '';
+            document.getElementById('championSection').classList.remove('visible');
+        }
+
+        document.getElementById('playerName').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') addPlayer();
+        });
+    </script>
+</body>
+</html>

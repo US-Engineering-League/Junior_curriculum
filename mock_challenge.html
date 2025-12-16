@@ -1,228 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 2: If-Else Decision Making</title>
-    <link rel="stylesheet" href="Junior_Styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Assistant Guide</title>
+    <link rel="stylesheet" href="Junior_Styles.css" />
+  </head>
+  <style>
+    .slide h1 {
+      font-size: 3rem;
+      
+    }
+    .slide h2 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .survey-tip {
+      text-align: center;
+    }
+
+    /* Responsive image styling */
+    .slide img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      padding: 20px;
+    }
+
+    .slide .two-column {
+      grid-template-columns: 2fr 1fr;
+      align-items: center;
+      gap: 0;
+    }
+
+    .slide .two-column img {
+      max-width: 100%;
+      width: 100%;
+      padding: 20px;
+      padding-top: 50px;
+    }
+
+
+  </style>
+  <body>
     <div class="topographic-grid"></div>
     <div class="contour-lines" id="contourLines"></div>
     <div class="bubbles" id="bubbles"></div>
     <div class="fish-container" id="fishContainer"></div>
-    
+
     <div class="presentation-container">
-        <div class="progress-bar" id="progressBar"></div>
+      <div class="progress-bar" id="progressBar"></div>
 
+     <!-- Slide 1: Title -->
+      <div class="slide active">
+         <div class="slide-counter">Slide 1 / 4</div>
+          <h1>Robopalooza Challenge Prep</h1>
+          <div class="survey-prompt" >
+                <h4>For the next few weeks, you will be practicing for Robopalooza. You will be given three weekly challenges that closely resemble the official Robopalooza challenges. 
+                  
+                  During this time, instructors will not assist with connecting the robot and will only be allowed to provide hints to help complete each challenge. Once a challenge is completed, students will move on to the next challenge.
 
-        <!-- Slide 10: Practice Challenge 1 -->
-        <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 1  / 2</div>
-            <h2>Color Transportation</h2> 
-            <p>Carry the blocks to their designated positions.</p>
-            <img src="challenge_visuals/mock1.svg" style = width:100%;>
-            
-           
-                <div class="two-column">
-                <div>
-                    <h3>🚧 Mission Specification</h3>
-                    <div class="survey-tip">
-                        <strong>Challenge:</strong> Starting in the green square, move to carry the blue block into the blue square, then the red block into the red square, and green block into the green square.
-                    </div>
-                    
-                    <h3>🎯 Mission Parameters</h3>
-                    <ul>
-                        <li class="no-emoji"><strong>Starting Position:</strong> Green square</li>
-                        <li class="no-emoji"><strong>Success Criteria:</strong> Use arm motors and robot movement to carry all the blocks into their designated color. End with the robot inside the green square.</li>
-                    </ul>
-                    
-                    <div class="expedition-box" style="font-size: 0.9em;">
-                        <h3>💡 Navigation Strategy</h3>
-                        <p>Measure how much the robot needs to move to reach the blocks and to make it into each of the squares.</p>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>🤖 Programming Approach</h3>
-                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
-                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
-                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
-                            <strong>Step 1:</strong> Measure the distance the robot needs to move to reach the first block.<br>
-                            <strong>Step 2:</strong> Have the robot open and close the arm on the blocks to carry it.<br>
-                            <strong>Step 3:</strong> Measure the distance to the designated square.<br>
-                            <strong>Step 4:</strong> Measure the degrees the robot needs to turn for reaching the next square.<br>
-                            <strong>Step 5:</strong> Repeat this for the other 2 blocks.<br>
-                            <strong>Step 6:</strong> Use AI by specifying each step in detail.<br>
-                        </div>
-                    </div>
-                    
-                     <div class="example-prompt-container">
-                        <button class="reveal-btn" onclick="toggleExample('example9')">🔍 Reveal Example Command</button>
-                        <div id="example9" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
-                        <strong>Student's Example Command:</strong><br><br>
-                            "Move my robot by x inches, then open its arm by x degrees counterclockwise, then move forward 1 more inch, and close arm by x degrees clockwise, last move the robot by x inches. When this is done, have it turn by x degrees..."                     
-                        </div>
-                    </div>
+                  Good luck and have fun!
+                </h4>
+          </div>
+      </div>
 
-                    <h3>🛡️ Safety Protocol</h3>
-                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
-                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
-                            <li class="no-emoji">⚠️ Remember to use gyro turns, not normal turns, for more precise movement.</li>
-                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
-                            <li class="no-emoji">📏 Measure or guestimate the degrees needed to turn and inches needed to for movement.</li>
-                            <li class="no-emoji">🤝 Team collaboration recommended</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
+      <!-- Slide 2: Challenge 1 -->
+      <div class="slide">
+        <div class="slide-counter">Slide 2 / 4</div>
+          <h1>Week 1: Robopalooza Challenge Prep: Movement & Arm Motor</h1>
+          <h2>Robopalooza Challenge Prep: Snake</h2>
+        <div>
+          <img src="Challenge3.png" alt="AI Chat Selection Interface" width="1200" />
+          <div class="survey-prompt">
+            <b>The Challenge:</b> The second and fourth squares will have a block placed on them. The students will be tasked with making contact with the first, third, and fifth gray squares, without bumping into the blocks. 
+
+            <b>Start Area</b> First center gray square
+            <b>End Area:</b> Fifth center gray square.
+
+            Weave around the blocks while running over the aforementioned squares. 
+          </div>
         </div>
+      </div>
 
-        <!-- Slide 9 Student challenge-->
-         <div class="slide">
-            <div class="slide-counter" id="slideCounter">Slide 2  / 2</div>
-            <h2>Advanced Color Transportation</h2> 
-            <p>Surrounded by crates, use your compass to turn, scan them to identify crate colors, and collect the one that matches your orders</p>
-            <img src="challenge_visuals/week8_student.svg" style = padding:20px;padding-left:50px;padding-top:5px;>
-            
-           
-                <div class="two-column">
-                <div>
-                    <h3>🚧 Mission Specification</h3>
-                    <div class="survey-tip">
-                        <strong>Challenge:</strong> Starting from the green square, move to carry the colors placed on the numbers (red on 5, blue on 1, green on 3) to their matching color rectangles before returning back to green.
-                    </div>
-                    
-                    <h3>🎯 Mission Parameters</h3>
-                    <ul>
-                        <li class="no-emoji"><strong>Starting Position:</strong> Green square</li>
-                        <li class="no-emoji"><strong>Success Criteria:</strong> Bring each color to their rectangles and end at the green square.</li>
-                    </ul>
-                    
-                    <div class="expedition-box" style="font-size: 0.9em;">
-                        <h3>💡 Navigation Strategy</h3>
-                        <p>Measure the distances for each step the robot needs to carry out.</p>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>🤖 Programming Approach</h3>
-                    <div style="background: rgba(0, 150, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid #0099ff;">
-                        <h4 style="color: #0099ff; margin-bottom: 15px;">🌊 Movement Sequence Planning</h4>
-                        <div style="font-size: 0.9em; color: #e0e0ff; line-height: 1.8;">
-                            <strong>Step 1:</strong> Measure the degree the robot would need to reach the first block.<br>
-                            <strong>Step 2:</strong> Have the robot reset the yaw before performing any movement. Have it turn towards the block and pick it up using the arms.<br>
-                            <strong>Step 3:</strong> Measure the degrees the robot needs to turn to start heading towards the first block's rectangle.<br>
-                            <strong>Step 4:</strong> Measure the distance it needs to make it to that rectangle.<br>
-                            <strong>Step 5:</strong> Repeat this for all the blocks.<br>
-                            <strong>Step 6:</strong> Tell the AI each step, including a request to reset the yaw, before sending the prompt.<br>
-                        </div>
-                    </div>
-                    
-                    <div class="example-prompt-container">
-                        <button class="reveal-btn" onclick="toggleExample('example8')">🔍 Reveal Example Command</button>
-                        <div id="example8" class="ai-mapper example-prompt-hidden" style="background: linear-gradient(135deg, #003366, #004080);">
-                        <strong>Student's Example Command:</strong><br><br>
-                            "Have my robot move forward x inches, move its arm by x degrees counterclockwise, then move forward 1 more inch, and close the arm by x degrees clockwise. Then have it rotate x degrees counterclockwise, and move forward x inches. Open the arm again by x degrees clockwise..."                     
-                        </div>
-                    </div>
+       <!-- Slide 2 -->
+      <div class="slide">
+         <div class="slide-counter">Slide 3 / 4</div>
+        <h1>Week 1: Robopalooza Challenge Prep: Movement & Arm Motor</h1>
+        <h2>Robopalooza Challenge Prep: Block Match</h2>
+        <div>
+          <img src="challenge2.png" alt="AI Chat Selection Interface" />
+          <div class="survey-prompt">
+            <b>The Challenge:</b> Three blocks will be placed in the starting area. The students will be tasked with picking up each block and placing them in the corresponding colored zone (red, blue, or green).
 
-                    <h3>🛡️ Safety Protocol</h3>
-                    <div style="background: rgba(0, 100, 150, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #0088cc; margin-top: 15px;">
-                        <ul style="color: #00ccff; font-size: 0.9em; margin: 0;">
-                            <li class="no-emoji">⚠️ Remember to use gyro turns, not normal turns, for more precise movement.</li>
-                            <li class="no-emoji">🔄 Multiple attempts encouraged</li>
-                            <li class="no-emoji">📏 Measure or guestimate the degrees of turns and inches of movement</li>
-                            <li class="no-emoji">🤝 Team collaboration recommended</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
+            <b>Start and End Area:</b> Green Start Area
+          </div>
         </div>
+      </div>
 
+       <!-- Slide 2 -->
+      <div class="slide">
+         <div class="slide-counter">Slide 4 / 4</div>
+        <h1>Week 1: Robopalooza Challenge Prep: Movement & Arm Motor</h1>
+        <h2>Robopalooza Challenge Prep: Color Sorting</h2>
+        <div>
+          <img src="challenge1.png" alt="AI Chat Selection Interface" />
+          <div class="survey-prompt">
+            <b>The Challenge:</b> Three blocks will be placed in the between the start area. The students will be tasked with picking up each block and placing them in the corresponding colored zone (red, blue, or green).
 
-       
+            <b>Start and End Area:</b> Green Start Area 
+          </div>
+        </div>
+      </div>
+
+      
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Back</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
+        </div>
     </div>
 
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const totalSlides = slides.length;
 
-        function createContours() {
-            const contoursContainer = document.getElementById('contourLines');
-            for (let i = 0; i < 8; i++) {
-                const contour = document.createElement('div');
-                contour.className = 'contour';
-                contour.style.left = Math.random() * 80 + '%';
-                contour.style.top = Math.random() * 80 + '%';
-                contour.style.width = Math.random() * 200 + 100 + 'px';
-                contour.style.height = contour.style.width;
-                contour.style.animationDelay = Math.random() * 8 + 's';
-                contoursContainer.appendChild(contour);
+      function createContours() {
+        const contoursContainer = document.getElementById("contourLines");
+        for (let i = 0; i < 8; i++) {
+          const contour = document.createElement("div");
+          contour.className = "contour";
+          contour.style.left = Math.random() * 80 + "%";
+          contour.style.top = Math.random() * 80 + "%";
+          contour.style.width = Math.random() * 200 + 100 + "px";
+          contour.style.height = contour.style.width;
+          contour.style.animationDelay = Math.random() * 8 + "s";
+          contoursContainer.appendChild(contour);
+        }
+      }
+
+      function createBubbles() {
+        const bubblesContainer = document.getElementById("bubbles");
+
+        function addBubble() {
+          const bubble = document.createElement("div");
+          bubble.className = "bubble";
+
+          // Random bubble size
+          const size = Math.random() * 100 + 30;
+          bubble.style.width = size + "px";
+          bubble.style.height = size + "px";
+
+          // Position bubble at random horizontal position, below screen
+          bubble.style.left = Math.random() * 95 + "%";
+          bubble.style.top = "100vh";
+
+          // Random animation duration
+          const duration = Math.random() * 4 + 6;
+          bubble.style.animation = `bubbleFloat ${duration}s linear`;
+
+          bubblesContainer.appendChild(bubble);
+
+          // Remove bubble after animation completes
+          setTimeout(() => {
+            if (bubble.parentNode) {
+              bubble.parentNode.removeChild(bubble);
             }
+          }, duration * 1000);
         }
 
-        function createBubbles() {
-            const bubblesContainer = document.getElementById('bubbles');
-            
-            function addBubble() {
-                const bubble = document.createElement('div');
-                bubble.className = 'bubble';
-                
-                const size = Math.random() * 100 + 30;
-                bubble.style.width = size + 'px';
-                bubble.style.height = size + 'px';
-                
-                bubble.style.left = Math.random() * 95 + '%';
-                bubble.style.top = '100vh';
-                
-                const duration = Math.random() * 4 + 6;
-                bubble.style.animation = `bubbleFloat ${duration}s linear`;
-                
-                bubblesContainer.appendChild(bubble);
-                
-                setTimeout(() => {
-                    if (bubble.parentNode) {
-                        bubble.parentNode.removeChild(bubble);
-                    }
-                }, duration * 1000);
+        // Create bubbles at regular intervals
+        setInterval(addBubble, 100);
+
+        // Create initial bubble
+        setTimeout(addBubble, 500);
+      }
+
+      function createFish() {
+        const fishContainer = document.getElementById("fishContainer");
+        const fishEmojis = ["🐠", "🐟", "🦈", "🐙", "🦑", "🐡"];
+
+        function addFish() {
+          const fish = document.createElement("div");
+          fish.className = "fish fish-right";
+          fish.textContent =
+            fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+
+          const topPosition = Math.random() * 70 + 10;
+          fish.style.top = topPosition + "%";
+          fish.style.animationDuration = Math.random() * 5 + 15 + "s";
+
+          fishContainer.appendChild(fish);
+
+          // Remove fish after animation
+          const duration = parseFloat(fish.style.animationDuration) * 1000;
+          setTimeout(() => {
+            if (fish.parentNode) {
+              fish.parentNode.removeChild(fish);
             }
-            
-            setInterval(addBubble, 100);
-            setTimeout(addBubble, 500);
+          }, duration);
         }
 
-        function createFish() {
-            const fishContainer = document.getElementById('fishContainer');
-            const fishEmojis = ['🐠', '🐟', '🦈', '🐙', '🦑', '🐡'];
-            
-            function addFish() {
-                const fish = document.createElement('div');
-                fish.className = 'fish fish-right';
-                fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
-                
-                const topPosition = Math.random() * 70 + 10;
-                fish.style.top = topPosition + '%';
-                fish.style.animationDuration = (Math.random() * 5 + 15) + 's';
-                
-                fishContainer.appendChild(fish);
-                
-                const duration = parseFloat(fish.style.animationDuration) * 1000;
-                setTimeout(() => {
-                    if (fish.parentNode) {
-                        fish.parentNode.removeChild(fish);
-                    }
-                }, duration);
-            }
-            
-            setInterval(addFish, 3000);
-            setTimeout(addFish, 2000);
-        }
+        // Create fish at intervals
+        setInterval(addFish, 3000);
 
-        function showSlide(n) {
+        // Create initial fish
+        setTimeout(addFish, 2000);
+      }
+
+       function showSlide(n) {
             slides[currentSlide].classList.remove('active');
             currentSlide = (n + totalSlides) % totalSlides;
             slides[currentSlide].classList.add('active');
@@ -240,39 +227,39 @@
             showSlide(currentSlide + direction);
         }
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-                changeSlide(-1);
-            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-                changeSlide(1);
-            } else if (event.key === ' ') {
-                event.preventDefault();
-                changeSlide(1);
-            } else if (event.key === 'Escape') {
-                currentSlide = 0;
-                showSlide(0);
-            }
-        });
-
-        function toggleExample(exampleId) {
-            const example = document.getElementById(exampleId);
-            const button = example.previousElementSibling;
-            
-            if (example.classList.contains('example-prompt-hidden')) {
-                example.classList.remove('example-prompt-hidden');
-                example.classList.add('example-prompt-visible');
-                button.innerHTML = '🔽 Hide Example';
-            } else {
-                example.classList.remove('example-prompt-visible');
-                example.classList.add('example-prompt-hidden');
-                button.innerHTML = button.innerHTML.includes('Solution') ? '💡 Show Solution Hints' : '🔓 Reveal Solution Structure';
-            }
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          changeSlide(-1);
+        } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          changeSlide(1);
+        } else if (event.key === " ") {
+          event.preventDefault();
+          changeSlide(1);
+        } else if (event.key === "Escape") {
+          currentSlide = 0;
+          showSlide(0);
         }
+      });
 
-        createBubbles();
-        createContours();
-        createFish();
-        showSlide(0);
+      function toggleExample(exampleId) {
+        const example = document.getElementById(exampleId);
+        const button = example.previousElementSibling;
+
+        if (example.classList.contains("example-prompt-hidden")) {
+          example.classList.remove("example-prompt-hidden");
+          example.classList.add("example-prompt-visible");
+          button.innerHTML = "🔽 Hide Example Command";
+        } else {
+          example.classList.remove("example-prompt-visible");
+          example.classList.add("example-prompt-hidden");
+          button.innerHTML = "🔍 Reveal Example Command";
+        }
+      }
+
+      createBubbles();
+      createContours();
+      createFish();
+      showSlide(0);
     </script>
-</body>
+  </body>
 </html>
